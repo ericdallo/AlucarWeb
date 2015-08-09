@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar AlucarWeb/target/dependency/webapp-runner.jar --port $PORT AlucarWeb/target/*.war --expand-war
+web: java $JAVA_OPTS -jar target/dependency/webapp-runner.jar --port $PORT target/*.war --expand-war
