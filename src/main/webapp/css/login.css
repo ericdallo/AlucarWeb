@@ -1,0 +1,69 @@
+@CHARSET "UTF-8";
+
+.jumbotron {
+	text-align: center;
+	width: 40rem;
+	border-radius: 0.5rem;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: absolute;
+	margin: 10rem auto;
+	background-color: #fff;
+	padding: 2rem;
+	box-shadow:inset 0 1px 0 rgba(255,255,255,.6), 0 22px 50px 4px rgba(0,0,0,0.56), 0 0 0 1px rgba(0, 0, 0, 0) !important 
+}
+
+.container .glyphicon-list-alt {
+	font-size: 10rem;
+	margin-top: 3rem;
+	color: #f96145;
+}
+
+input {
+	width: 100%;
+	margin-bottom: 1.4rem;
+	padding: 1rem;
+	background-color: #ecf2f4;
+	border-radius: 0.2rem;
+	border: none;
+	text-align: center;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	transition: border-color 200ms ease;
+}
+
+.has-error{
+	border-left: 4px solid #FF7777;
+}
+h2 {
+	margin-bottom: 3rem;
+	font-weight: bold;
+	color: #ababab;
+}
+.btn {
+	border-radius: 0.2rem;
+}
+.btn .glyphicon {
+	font-size: 3rem;
+	color: #fff;
+}
+.full-width {
+	width: 100%;
+	-webkit-border-top-right-radius: 0;
+	-webkit-border-bottom-right-radius: 0;
+	-moz-border-radius-topright: 0;
+	-moz-border-radius-bottomright: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.box {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin-bottom: 3rem;
+	margin-left: 3rem;
+	margin-right: 3rem;
+}
