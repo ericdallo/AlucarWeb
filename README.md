@@ -15,7 +15,7 @@ __Maven__
 
 ``sudo apt-get install maven``
 
-Importar o projeto no eclipse como ``existing projects into workspace``
+Importar o projeto no eclipse como ``Existing Maven Projects``
 
 __Banco de Dados__
 
