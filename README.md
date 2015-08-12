@@ -25,4 +25,4 @@ O sistema de login usa MD5 como criptografia nas senhas, por isso deve ter previ
 
 Script sql para importar o banco: ``/scripts/database.sql`` 
 
-
+Editar as credencias do banco no arquivo ``src/main/resources/META-INF/persistence.xml``
