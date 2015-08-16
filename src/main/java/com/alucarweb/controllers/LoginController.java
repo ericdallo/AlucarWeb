@@ -38,6 +38,10 @@ public class LoginController{
 	@NotLogged
 	@Get("/")
 	public void form(){
+		if(loggedUser.getUser() != null){
+			result.redirectTo(HomeController.class).home();
+			return;
+		}
 	}
 	
 	@NotLogged

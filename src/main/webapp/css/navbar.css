@@ -1,0 +1,61 @@
+@CHARSET "UTF-8";
+
+nav.navbar-main {
+	background: white;
+	border-color: #ccc;
+	box-shadow: 0 0 2px 0 #ccc;
+}
+
+nav.navbar-main a {
+	color: #0968AA;
+}
+
+nav.navbar-main ul.navbar-nav a {
+	color: #0968AA;
+	border-style: solid;
+	border-width: 0 0 2px 0;
+	border-color: white;
+}
+
+nav.navbar-main ul.navbar-nav a:hover, nav.navbar-main ul.navbar-nav a:visited,
+	nav.navbar-main ul.navbar-nav a:focus, nav.navbar-main ul.navbar-nav a:active {
+	background: white;
+}
+
+nav.navbar-main ul.navbar-nav a:hover {
+	border-color: #0968AA;
+}
+
+nav.navbar-main li.divider {
+	background: #ccc;
+}
+
+nav.navbar-main button.navbar-toggle {
+	background: #0968AA;
+	border-radius: 2px;
+}
+
+nav.navbar-main button.navbar-toggle:hover {
+	background: #999;
+}
+
+nav.navbar-main button.navbar-toggle>span.icon-bar {
+	background: #fff;
+}
+
+nav.navbar-main ul.dropdown-menu {
+	border: 0;
+	background: white;
+	border-radius: 4px;
+	margin: 4px 0;
+	box-shadow: 0 0 4px 0 #ccc;
+}
+
+nav.navbar-main ul.dropdown-menu>li>a {
+	color: #444;
+}
+
+nav.navbar-main ul.dropdown-menu>li>a:hover {
+	background: #0968AA;
+	color: white;
+}

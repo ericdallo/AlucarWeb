@@ -17,9 +17,9 @@ public class User {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY) 
 	private Integer id;
 	
-	@NotEmpty @Size(min=0,max=30,message="{login.error.name}")
+	@NotEmpty 
 	private String name;
-	@NotEmpty @Size(min=0,max=70,message="{login.error.password}")
+	@NotEmpty 
 	private String password;
 	
 	public long getId() {

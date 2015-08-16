@@ -1,4 +1,4 @@
-var activeEl = 2;
+var activeEl = -1;
 $(function() {
     var items = $('.btn-nav');
     $( items[activeEl] ).addClass('active');
