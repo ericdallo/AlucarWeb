@@ -14,22 +14,22 @@
 		<div class="collapse navbar-collapse" id="navbar">
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active">
-					<a href="#" class="nav-link"><fmt:message key="navbar.client" />
+					<a href="<c:url value="cliente"/>" class="nav-link"><fmt:message key="navbar.client" />
 						<span class="sr-only">Atual</span>
 					</a>
 				</li>
 				<li class="active">
-					<a href="#" class="nav-link"><fmt:message key="navbar.car" />
+					<a href="<c:url value="automovel"/>" class="nav-link"><fmt:message key="navbar.car" />
 						<span class="sr-only">Atual</span>
 					</a>
 				</li>
 				<li class="active">
-					<a href="#" class="nav-link"><fmt:message key="navbar.location" />
+					<a href="<c:url value="locacao"/>" class="nav-link"><fmt:message key="navbar.location" />
 						<span class="sr-only">Atual</span>
 					</a>
 				</li>
 				<li class="active">
-					<a href="#" class="nav-link"><fmt:message key="navbar.devolution" />
+					<a href=<c:url value="devolucao"/>#" class="nav-link"><fmt:message key="navbar.devolution" />
 						<span class="sr-only">Atual</span>
 					</a>
 				</li>
@@ -42,11 +42,14 @@
 						<li><a href="#"><fmt:message key="navbar.change.language" /></a></li>
 						<li><a href="#"><fmt:message key="navbar.change.password" /></a></li>
 						<li class="divider"></li>
-						<li><a href="#"><fmt:message key="navbar.logout"/></a></li>
+						<li><form action="<c:url value="logout"/>" method="POST">
+							<input type='submit' value="<fmt:message key="navbar.logout"/>" class="logout"/>
+						</form>
+						</li>
 					</ul>
 				</li>
 			</ul>
-			<form class="navbar-form navbar-right search-form" role="search">
+			<form class="navbar-form navbar-right search-form" action="">
 				<input type="text" class="form-control" placeholder="Pesquisar..." />
 			</form>
 		</div>

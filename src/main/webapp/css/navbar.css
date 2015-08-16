@@ -4,6 +4,13 @@
 nav.navbar-main .logo{
 	padding:0.5rem 1rem;
 }
+nav.navbar-main .logout{
+	background:white;
+	border:0;
+	width: 100%;
+	padding-left:2rem;
+	text-align: left;
+}
 nav.navbar-main {
 	background: white;
 	border-color: #ccc;
@@ -15,7 +22,7 @@ nav.navbar-main a {
 	color: #0968AA;
 }
 
-nav.navbar-main ul.navbar-nav a {
+nav.navbar-main ul.navbar-nav a,nav.navbar-main ul.navbar-nav input {
 	color: #0968AA;
 	border-style: solid;
 	border-width: 0 0 2px 0;
@@ -57,11 +64,11 @@ nav.navbar-main ul.dropdown-menu {
 	box-shadow: 0 0 4px 0 #ccc;
 }
 
-nav.navbar-main ul.dropdown-menu>li>a {
+nav.navbar-main ul.dropdown-menu>li>a, nav.navbar-main ul.dropdown-menu li input{
 	color: #444;
 }
 
-nav.navbar-main ul.dropdown-menu>li>a:hover {
+nav.navbar-main ul.dropdown-menu>li>a:hover,nav.navbar-main ul.dropdown-menu li input:hover {
 	background: #0968AA;
 	color: white;
 }

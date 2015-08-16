@@ -20,7 +20,7 @@
 <body>
 	<%@ include file="/WEB-INF/jsp/navbar.jsp" %>
 	
-	Pagina HOME
+	
 	
 </body>
 </html>

@@ -58,4 +58,11 @@ public class LoginController{
 		validator.onErrorUsePageOf(this).form();
 		
 	}
+	
+	@Post("/logout")
+	public void logout() {
+		this.loggedUser.setUser(null);
+		result.redirectTo(LoginController.class).form();
+		return;
+	}
 }
