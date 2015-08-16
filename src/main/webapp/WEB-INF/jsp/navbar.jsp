@@ -8,27 +8,28 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Alucar</a>
+			<a href="<c:url value="home"/>"><img alt="Alucar-logo" src="<c:url value="/images/logo-navbar.png" />" class="pull-left logo"/></a>
+			<a class="navbar-brand" href="<c:url value="home"/>"> Alucar</a>
 		</div>
 		<div class="collapse navbar-collapse" id="navbar">
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active">
-					<a href="#"><fmt:message key="navbar.client" />
+					<a href="#" class="nav-link"><fmt:message key="navbar.client" />
 						<span class="sr-only">Atual</span>
 					</a>
 				</li>
 				<li class="active">
-					<a href="#"><fmt:message key="navbar.car" />
+					<a href="#" class="nav-link"><fmt:message key="navbar.car" />
 						<span class="sr-only">Atual</span>
 					</a>
 				</li>
 				<li class="active">
-					<a href="#"><fmt:message key="navbar.location" />
+					<a href="#" class="nav-link"><fmt:message key="navbar.location" />
 						<span class="sr-only">Atual</span>
 					</a>
 				</li>
 				<li class="active">
-					<a href="#"><fmt:message key="navbar.devolution" />
+					<a href="#" class="nav-link"><fmt:message key="navbar.devolution" />
 						<span class="sr-only">Atual</span>
 					</a>
 				</li>

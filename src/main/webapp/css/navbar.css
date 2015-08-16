@@ -1,9 +1,14 @@
 @CHARSET "UTF-8";
 
+
+nav.navbar-main .logo{
+	padding:0.5rem 1rem;
+}
 nav.navbar-main {
 	background: white;
 	border-color: #ccc;
 	box-shadow: 0 0 2px 0 #ccc;
+	
 }
 
 nav.navbar-main a {
@@ -15,6 +20,7 @@ nav.navbar-main ul.navbar-nav a {
 	border-style: solid;
 	border-width: 0 0 2px 0;
 	border-color: white;
+	transition:border-color 200ms,background 200ms;
 }
 
 nav.navbar-main ul.navbar-nav a:hover, nav.navbar-main ul.navbar-nav a:visited,
@@ -22,7 +28,7 @@ nav.navbar-main ul.navbar-nav a:hover, nav.navbar-main ul.navbar-nav a:visited,
 	background: white;
 }
 
-nav.navbar-main ul.navbar-nav a:hover {
+nav.navbar-main ul.navbar-nav .nav-link:hover {
 	border-color: #0968AA;
 }
 
