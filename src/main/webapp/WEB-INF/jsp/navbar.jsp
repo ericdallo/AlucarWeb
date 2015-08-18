@@ -14,22 +14,22 @@
 		<div class="collapse navbar-collapse" id="navbar">
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active">
-					<a href="<c:url value="cliente"/>" class="nav-link"><fmt:message key="navbar.client" />
+					<a href="<c:url value="clientes"/>" class="nav-link"><fmt:message key="navbar.client" />
 						<span class="sr-only">Atual</span>
 					</a>
 				</li>
 				<li class="active">
-					<a href="<c:url value="automovel"/>" class="nav-link"><fmt:message key="navbar.car" />
+					<a href="<c:url value="automoveis"/>" class="nav-link"><fmt:message key="navbar.car" />
 						<span class="sr-only">Atual</span>
 					</a>
 				</li>
 				<li class="active">
-					<a href="<c:url value="locacao"/>" class="nav-link"><fmt:message key="navbar.location" />
+					<a href="<c:url value="locacoes"/>" class="nav-link"><fmt:message key="navbar.location" />
 						<span class="sr-only">Atual</span>
 					</a>
 				</li>
 				<li class="active">
-					<a href=<c:url value="devolucao"/>#" class="nav-link"><fmt:message key="navbar.devolution" />
+					<a href=<c:url value="devolucoes"/>#" class="nav-link"><fmt:message key="navbar.devolution" />
 						<span class="sr-only">Atual</span>
 					</a>
 				</li>

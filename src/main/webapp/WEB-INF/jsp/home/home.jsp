@@ -11,16 +11,20 @@
 <script src='<c:url value="/bootstrap/js/bootstrap.min.js"/>'></script>
 <script src='<c:url value="/js/home.js"/>'></script>
 
-<link href='<c:url value="/bootstrap/css/bootstrap.min.css"/>'
-	rel="stylesheet">
+<link href='<c:url value="/bootstrap/css/bootstrap.min.css"/>' rel="stylesheet">
 <link href='<c:url value="/css/util.css"/>' rel="stylesheet">
-
+<link href='<c:url value="/css/home.css"/>' rel="stylesheet">
 <title>Alucar - Home</title>
+
 </head>
 <body>
 	<%@ include file="/WEB-INF/jsp/navbar.jsp" %>
 	
-	
+	<div class="container">
+		<div class="home-menu col-md-10 col-md-offset-1">
+			<h3>Bem-vindo ao Sistema de Locação de automoveis, Alucar.</h3>
+		</div>	
+	</div>
 	
 </body>
 </html>
