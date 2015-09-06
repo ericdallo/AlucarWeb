@@ -95,10 +95,7 @@ public class GUIAutomovel extends JDialog implements ActionListener {
    public void init(JFrame fr){    
       status = "";
       lblinformacoes = new JLabel("");
-      
-      
-      
-      //==============================================================================
+
       //PAINEL DE BOTOES
       pnlBotoes = new JPanel(null);
       pnlBotoes.setBounds(20,10,WIDTH-40,50);
@@ -132,13 +129,7 @@ public class GUIAutomovel extends JDialog implements ActionListener {
       if(!pesquisando)pnlBotoes.add(bthabilitar);
           
       if(!pesquisando)add(pnlBotoes);
-      //==============================================================================
       
-      
-      
-      //==============================================================================
-      //PAINEL PESQUISAR
-      //==============================================================================      
 		painelp = new JPanel(null);
       painelp.setBounds(20,0,WIDTH-40,70);
       
@@ -182,13 +173,7 @@ public class GUIAutomovel extends JDialog implements ActionListener {
       if(!pesquisando)painelp.add(btnrelatorio);
       
       if(pesquisando)add(painelp);
-      //==============================================================================
 
-      
-      
-      
-      
-      //==============================================================================
    	//PAINEL AUTOMOVEL
       painela = new JPanel(null);
       painela.setBounds(20, 80, WIDTH-40, 320);
@@ -346,15 +331,7 @@ public class GUIAutomovel extends JDialog implements ActionListener {
 		painela.add(btconteudofoto);
       
       if(!pesquisando)add(painela);
-   	//==============================================================================
-      
-      
-      
-      
-            
-   
-   	      
-   	//==============================================================================
+
    	//TABELAS
       tabela = new JTable();
       tabela.setGridColor(Color.BLACK);
@@ -383,7 +360,6 @@ public class GUIAutomovel extends JDialog implements ActionListener {
       if(!pesquisando)pane.setBounds(20, 430, WIDTH-40, 100);
       else pane.setBounds(20, 90, WIDTH-40, 100);
       add(pane);
-   	//==============================================================================
       
    	//ESTILOS
       lblinformacoes.setBounds(300, 430, 400, 15);
@@ -399,8 +375,6 @@ public class GUIAutomovel extends JDialog implements ActionListener {
       habilitaBotoes(true,true,false,false,false);
       habilitaTxts(false);   
    	
-      
-      //===============================================================================================================
       setTitle(getBundle().getString("automovel.title"));
       setResizable(false);
       setLayout(null);
@@ -409,7 +383,6 @@ public class GUIAutomovel extends JDialog implements ActionListener {
       setLocationRelativeTo(null); 
       setVisible(true);
       setModal(true);
-      //===============================================================================================================
       
       //BLOQUEIA CAMPOS
       habilitaTxts(false);
@@ -679,10 +652,6 @@ public class GUIAutomovel extends JDialog implements ActionListener {
             status = "+";
          }//INSERIR
          
-         /*ииииииииииииииииииииииииииииииииииииииииии
-                EDITADO - 16.10.14 - PARTE DE PEGAR A FOTO
-         ииииииииииииииииииииииииииииииииииииииииииии*/
-         
          //FOTO
          else if(e.getSource() == btconteudofoto){
             chooser = new JFileChooser(new File(DIRETORIO));
@@ -796,9 +765,6 @@ public class GUIAutomovel extends JDialog implements ActionListener {
                               txtkmcontrolado,txtfoto,txtgps,txtcadeira,txtmotorista};
             for(int i = 0; i < 15; i++){
                a[i].setText(String.valueOf(tabela.getModel().getValueAt(table.getSelectedRow(),i)));
-                /*ииииииииииииииииииииииииииииииииииииииииии
-                      EDITADO - 16.10.14- PARTE DE SETAR A FOTO
-               ииииииииииииииииииииииииииииииииииииииииииии*/
                if(i == 11){
                   caminho = String.valueOf(tabela.getModel().getValueAt(table.getSelectedRow(),i));
 						//System.out.println("Caminho salvo no BD " +caminho);

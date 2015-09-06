@@ -16,24 +16,15 @@ import br.com.caelum.vraptor.validator.Validator;
 
 @Controller
 public class LoginController{
-
-	private final Result result;
-	private final UserDAO userDao;
-	private final Validator validator;
-	private LoggedUser loggedUser;
 	
 	@Inject
-	public LoginController(Result result,UserDAO userDao,Validator validator,LoggedUser loggedUser) {
-		this.result = result;
-		this.userDao = userDao;
-		this.validator = validator;
-		this.loggedUser = loggedUser;
-	}
-	
-	@Deprecated //CDI eyes only
-	public LoginController() {
-		this(null,null,null,null);
-	}
+	private Result result;
+	@Inject
+	private UserDAO userDao;
+	@Inject
+	private Validator validator;
+	@Inject
+	private LoggedUser loggedUser;	
 	
 	@NotLogged
 	@Get("/")
@@ -56,7 +47,6 @@ public class LoginController{
 		result.include("inputError", "has-error");
 		validator.add(new I18nMessage("login", "login.error.incorrect"));
 		validator.onErrorUsePageOf(this).form();
-		
 	}
 	
 	@Post("/logout")
@@ -65,4 +55,5 @@ public class LoginController{
 		result.redirectTo(LoginController.class).form();
 		return;
 	}
+	
 }

@@ -24,17 +24,12 @@ public class TestaGUI{
                      break;
                   }*/
                   
-                  
-                  //1°
                   UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
                   
-                  //2°
                   //UIManager.setLookAndFeel("com.jtattoo.plaf.hifi.HiFiLookAndFeel");
                   
-                  //3º
                   //UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
                   
-                  //4°
                   UIManager.setLookAndFeel("com.jtattoo.plaf.texture.TextureLookAndFeel");
                   
                //}

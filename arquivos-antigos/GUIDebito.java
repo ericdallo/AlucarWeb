@@ -47,7 +47,6 @@ public class GUIDebito extends JDialog implements ActionListener{
    
    public void init(JFrame fr){
       //PAINEL DE DEBITO
-      //================================================================================
       pnldebito = new JPanel(null);
       pnldebito.setBounds(20,5,WIDTH - 40, 290);
       pnldebito.setBorder(BorderFactory.createTitledBorder(null, getBundle().getString("debito.paibelc.title"),
@@ -146,9 +145,7 @@ public class GUIDebito extends JDialog implements ActionListener{
       pnldebito.add(lblreferente2);
       
       add(pnldebito);
-      //================================================================================
       
-      //================================================================================
       //BOTOES
       btvoltar = new JButton(getBundle().getString("debito.btvoltar"));
       btvoltar.setBounds(20,310,120,40);
@@ -160,8 +157,6 @@ public class GUIDebito extends JDialog implements ActionListener{
       
       add(btvoltar);
       add(btfinalizar);
-      //================================================================================
-      
       
       
       //CORES
