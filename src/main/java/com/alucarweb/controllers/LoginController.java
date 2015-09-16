@@ -24,7 +24,7 @@ public class LoginController{
 	@Inject
 	private Validator validator;
 	@Inject
-	private LoggedUser loggedUser;	
+	private LoggedUser loggedUser;
 	
 	@NotLogged
 	@Get("/")

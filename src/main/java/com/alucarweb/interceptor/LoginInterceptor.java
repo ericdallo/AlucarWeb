@@ -22,7 +22,7 @@ public class LoginInterceptor {
 	
 	@Accepts
 	public boolean accept(){
-		return !controllerMethod.containsAnnotation(NotLogged.class); 
+		return !controllerMethod.containsAnnotation(NotLogged.class);
 	}
 	
 	@AroundCall
