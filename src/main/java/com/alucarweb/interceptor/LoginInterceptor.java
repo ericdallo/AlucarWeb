@@ -3,7 +3,7 @@ package com.alucarweb.interceptor;
 import javax.inject.Inject;
 
 import com.alucarweb.annotations.NotLogged;
-import com.alucarweb.controllers.LoginController;
+import com.alucarweb.login.LoginController;
 import com.alucarweb.user.LoggedUser;
 
 import br.com.caelum.vraptor.Accepts;
@@ -34,4 +34,6 @@ public class LoginInterceptor {
 		}
 		stack.next();
 	}
+	
+	
 }

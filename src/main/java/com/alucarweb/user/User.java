@@ -14,7 +14,7 @@ import com.alucarweb.util.Crypt;
 @Entity @Table(name="user")
 public class User {
 	
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY) 
+	@Id @GeneratedValue 
 	private Integer id;
 	
 	@NotEmpty 

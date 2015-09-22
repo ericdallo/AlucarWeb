@@ -1,9 +1,11 @@
-package com.alucarweb.controllers;
+package com.alucarweb.login;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 
 import com.alucarweb.annotations.NotLogged;
 import com.alucarweb.dao.UserDAO;
+import com.alucarweb.home.HomeController;
 import com.alucarweb.user.LoggedUser;
 import com.alucarweb.user.User;
 
