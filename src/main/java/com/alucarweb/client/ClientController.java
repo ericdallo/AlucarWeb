@@ -1,4 +1,4 @@
-package com.alucarweb.controllers;
+package com.alucarweb.client;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;

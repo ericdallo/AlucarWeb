@@ -4,10 +4,10 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
 	<persistence-unit name="default">
-
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
 		<class>com.alucarweb.user.User</class>
+		<class>com.alucarweb.car.Car</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/alucar" />
