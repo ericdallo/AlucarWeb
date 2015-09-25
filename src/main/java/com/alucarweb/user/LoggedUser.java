@@ -3,7 +3,6 @@ package com.alucarweb.user;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
 
 @SessionScoped
 public class LoggedUser implements Serializable {
