@@ -1,15 +1,17 @@
 package com.alucarweb.car;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.alucarweb.car.state.StatesBr;
+
 @Entity @Table(name="car")
 public class Car {
-	
 	@Id @GeneratedValue
 	private long id;
 	@NotNull
@@ -22,31 +24,15 @@ public class Car {
 	private String image;
 	
 	private String chassi;
-	private String state;
+	
+	@NotNull @Enumerated(EnumType.STRING) 
+	private StatesBr state;
 	private String licensePlate;
 	private String group;
 	private String km;
 	private String freeKm;
 	private String controlKm;
 	private String obs;
-	
-	public Car(long id, String chassi, String model, String license, String group, String manufacturer, String city,
-			String state, String km, String freeKm, String controlKm, String image, String obs) {
-		super();
-		this.id = id;
-		this.chassi = chassi;
-		this.model = model;
-		this.licensePlate = license;
-		this.group = group;
-		this.manufacturer = manufacturer;
-		this.city = city;
-		this.state = state;
-		this.km = km;
-		this.freeKm = freeKm;
-		this.controlKm = controlKm;
-		this.image = image;
-		this.obs = obs;
-	}
 
 	public long getId() {
 		return id;
@@ -104,11 +90,11 @@ public class Car {
 		this.city = city;
 	}
 
-	public String getState() {
+	public StatesBr getState() {
 		return state;
 	}
 
-	public void setState(String state) {
+	public void setState(StatesBr state) {
 		this.state = state;
 	}
 
