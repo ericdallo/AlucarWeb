@@ -10,7 +10,6 @@ public class CarDao {
 	private EntityManager manager;
 	
 	public Car searchById(long id){		
-		Car car = manager.find(Car.class, id);
-		return car;	
+		return manager.find(Car.class, id);
 	}
 }
