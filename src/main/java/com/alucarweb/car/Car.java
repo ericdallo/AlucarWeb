@@ -58,12 +58,12 @@ public class Car {
 		this.model = model;
 	}
 
-	public String getLicense() {
+	public String getLicensePlate() {
 		return licensePlate;
 	}
 
-	public void setLicense(String license) {
-		this.licensePlate = license;
+	public void setLicensePlate(String licensePlate) {
+		this.licensePlate = licensePlate;
 	}
 
 	public String getGroup() {
