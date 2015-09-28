@@ -26,7 +26,6 @@ public class CarController {
 		
 	}
 	
-	@NotLogged
 	@Get("/automovel")	
 	public void show(){
 		Car car = carDao.searchById(1);
