@@ -2,13 +2,11 @@ package com.alucarweb.car;
 
 import javax.inject.Inject;
 
-import com.alucarweb.annotations.NotLogged;
 import com.alucarweb.dao.CarDao;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.validator.I18nMessage;
 import br.com.caelum.vraptor.validator.Validator;
 
 @Controller

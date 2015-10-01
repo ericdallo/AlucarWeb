@@ -114,12 +114,6 @@
 				<version>5.1.35</version>
 			</dependency>
 			<dependency>
-				<groupId>br.com.caelum.vraptor</groupId>
-				<artifactId>vraptor-jpa</artifactId>
-				<version>4.0.3</version>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
 				<groupId>org.hibernate.javax.persistence</groupId>
 				<artifactId>hibernate-jpa-2.1-api</artifactId>
 				<version>1.0.0.Final</version>
@@ -204,11 +198,6 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>br.com.caelum.vraptor</groupId>
-			<artifactId>vraptor-jpa</artifactId>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
