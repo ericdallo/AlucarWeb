@@ -1,5 +1,5 @@
 .classpath
-/target/
-/.settings/
+/target*
+.settings/
 /arquivos-antigos/*.class
 /bin/
