@@ -1,32 +1,38 @@
 package com.alucarweb.car;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
+import com.alucarweb.annotations.NotLogged;
 import com.alucarweb.dao.CarDao;
 
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.validator.Validator;
 
 @Controller
 public class CarController {	
 	@Inject 
 	private CarDao carDao;
 	@Inject
-	private Result result;
-	@Inject
-	private Validator validator;
-	
+	private Result result;	
 	
 	@Get("/automoveis")
 	public void search(){
-		
+		List<Car> cars = carDao.searchAll();
+		if(cars == null){
+			result.include("empty", "empty");
+		}
+		result.include("cars",cars);
 	}
 	
-	@Get("/automovel")	
-	public void show(){
-		Car car = carDao.searchById(1);
-		result.include("car", car);
+	@NotLogged
+	@Get("/automovel/{id}")	
+	public void show(long id){
+		Car car = carDao.searchById(id);
+		//TODO - VALIDAR CARRO NULL
 	}
 }

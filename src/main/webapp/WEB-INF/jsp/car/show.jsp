@@ -21,12 +21,17 @@
 
 <body>
 	<%@ include file="/WEB-INF/jsp/navbar.jsp" %>
+		
+	<div class="page-header text-center">
+		<h1><fmt:message key="car.title.insert" /></h1>
+	</div>
+	
 	
 	<div class='col-sm-2'></div>
 	
-	<form class='form-group col-sm-9 box-home' style='background-color:#efefef;padding-top:20px;'>
+	<form class='form-group col-sm-9 box-home' style='background-color:#efefef;padding-top:20px;' action='<c:url value="/"/>' method="POST">	
 		<div class="form-group col-sm-4">
-			<img src="http://shopfacil.vteximg.com.br/arquivos/ids/726014-210-210/Carro-CKS-BMW-X6-com-Controle-Remoto-e-Sete-Funcoes-%E2%80%93-Vermelho_0.jpg" alt="..." class="img-thumbnail center-block" style='height:200px;width:200px;'>
+			<img src="" alt="..." class="img-thumbnail center-block" style='height:200px;width:200px;'>
 		</div>
 		
 		<div class='col-sm-4'>
@@ -88,7 +93,7 @@
 		<div class="form-group col-sm-4">
 			<label for="car.group" class='control-label'><fmt:message key="car.group" /></label>
 			<div class="input-group col-sm-12">
-				<input type="text" class="form-control" id="car.group" name='car.group' value="${car.group}">
+				<input type="text" class="form-control" id="car.group" name='car.group' value="${car.carGroup}">
 			</div>
 		</div>
 		
@@ -120,7 +125,12 @@
 			</div>
 		</div>
 		
-		<!--<button type="submit" class="btn btn-default">Submit</button>-->
+		<div class="form-group col-sm-12">
+			<!-- TODO - VALIDAR SE ESTOU INSERINDO OU CADASTRANDO -->
+			<button type="submit" class="btn btn-default float-right">Cancelar</button>
+			<button type="submit" class="btn btn-default float-right">Cadastrar</button>
+		</div>
+		
 	</form>
 </body>
 </html>

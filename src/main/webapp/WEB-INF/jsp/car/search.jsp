@@ -17,7 +17,31 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/jsp/navbar.jsp" %>
-	pesquisa de carros
+	<div class='page-header text-center'>
+		<h1>Pesquisa de carros</h1>
+	</div>	
 	
+	<div class='col-sm-2'></div>
+	
+	<form class='form-group col-sm-9' method='POST'>
+	
+		<c:forEach items="${cars}" var="e">
+			<div class="row">
+		  		<div class="col-sm-6 col-md-4">
+		    		<div class="thumbnail">
+		      		<img src="${e.image}" alt="...">
+		      		<div class="caption">
+		        		<h3>${e.model}</h3>
+		        		<p></p>
+		        		<p>
+		        			<a href="#" class="btn btn-primary" role="button">Editar</a> 
+		        			<a href="#" class="btn btn-default" role="button">Excluir</a>
+		        		</p>
+		      		</div>
+		    	</div>
+			</div>
+		</c:forEach>
+	</form>
+</div>
 </body>
 </html>

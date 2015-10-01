@@ -6,5 +6,7 @@ body{
 .msg-error{
 	margin:2rem auto;
 	width:40rem;
-	
 }
+
+.float-right{ float:right; }
+.float-left{ float:left; }

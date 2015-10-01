@@ -17,7 +17,6 @@ public class Car {
 	@NotNull
 	private String model;
 	
-	
 	@NotNull
 	private String manufacturer;
 	@NotNull
@@ -29,6 +28,10 @@ public class Car {
 		
 	@NotNull @Enumerated(EnumType.STRING) 
 	private StatesBr state;
+	
+	@NotNull
+	private boolean available;
+	
 	private String licensePlate;
 	private String carGroup;
 	private String km;
@@ -36,6 +39,14 @@ public class Car {
 	private String controlKm;
 	private String obs;
 	
+	public boolean isAvailable() {
+		return available;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+
 	public long getId() {
 		return id;
 	}
