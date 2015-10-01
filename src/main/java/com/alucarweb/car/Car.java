@@ -16,6 +16,8 @@ public class Car {
 	private long id;
 	@NotNull
 	private String model;
+	
+	
 	@NotNull
 	private String manufacturer;
 	@NotNull
@@ -24,16 +26,16 @@ public class Car {
 	private String image;
 	
 	private String chassi;
-	
+		
 	@NotNull @Enumerated(EnumType.STRING) 
 	private StatesBr state;
 	private String licensePlate;
-	private String group;
+	private String carGroup;
 	private String km;
 	private String freeKm;
 	private String controlKm;
 	private String obs;
-
+	
 	public long getId() {
 		return id;
 	}
@@ -66,12 +68,12 @@ public class Car {
 		this.licensePlate = licensePlate;
 	}
 
-	public String getGroup() {
-		return group;
+	public String getCarGroup() {
+		return carGroup;
 	}
 
-	public void setGroup(String group) {
-		this.group = group;
+	public void setcarGroup(String carGroup) {
+		this.carGroup = carGroup;
 	}
 
 	public String getManufacturer() {
@@ -137,6 +139,5 @@ public class Car {
 	public void setObs(String obs) {
 		this.obs = obs;
 	}
-	
-	
+
 }
