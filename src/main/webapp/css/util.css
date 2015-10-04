@@ -1,12 +1,9 @@
 @CHARSET "UTF-8";
 
-body{
-	background-color: #e2e2e2;
-}
-.msg-error{
-	margin:2rem auto;
-	width:40rem;
-}
+body{ background-color: #e2e2e2; }
+.msg-error{ margin:2rem auto; width:40rem; }
 
 .float-right{ float:right; }
 .float-left{ float:left; }
+
+.pointer{ cursor:pointer; }
