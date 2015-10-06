@@ -10,7 +10,7 @@
 		<div class="collapse navbar-collapse" id="navbar">
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active">
-					<a href="<c:url value="clientes"/>" class="nav-link">
+					<a href="<c:url value="/clientes"/>" class="nav-link">
 						<fmt:message key="navbar.client" />
 					</a>
 				</li>
@@ -20,13 +20,13 @@
 						<span class='caret'></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="<c:url value='automovel'/>"><fmt:message key="navbar.car.add" /></a></li>
-						<li><a href="<c:url value='automoveis'/>"><fmt:message key="navbar.car.search" /></a></li>
-						<li><a href="<c:url value='automoveis/relatorios'/>"><fmt:message key="navbar.car.report" /></a></li>
+						<li><a href="<c:url value='/automovel'/>"><fmt:message key="navbar.car.add" /></a></li>
+						<li><a href="<c:url value='/automoveis'/>"><fmt:message key="navbar.car.search" /></a></li>
+						<li><a href="<c:url value='/automoveis/relatorios'/>"><fmt:message key="navbar.car.report" /></a></li>
 					</ul>
 				</li>
 				<li class="active">
-					<a href="<c:url value="locacoes"/>" class="nav-link">
+					<a href="<c:url value="/locacoes"/>" class="nav-link">
 						<fmt:message key="navbar.location" />
 					</a>
 				</li>
