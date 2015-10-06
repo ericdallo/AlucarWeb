@@ -12,12 +12,12 @@ public class CarDao {
 	@Inject
 	private EntityManager manager;
 	
-	public List<Car> searchAll(){
+	public List<Car> findAll(){
 		List<Car> carros = manager.createQuery("select c from Car as c where available = true").getResultList();
 		return carros;
 	}
 	
-	public Car searchById(long id){
+	public Car findById(long id){
 		Car car = manager.find(Car.class, id);
 		return car;
 	}
@@ -28,16 +28,13 @@ public class CarDao {
 		manager.getTransaction().commit();
 	}
 	
-	public Long insert(Car car){
+	public void insert(Car car){
 		manager.getTransaction().begin();
 		manager.persist(car);
-		manager.flush();
 		manager.getTransaction().commit();
-		return car.getId();
 	}
 
 	public void delete(Long id){
-		
 		//manager.remove(manager.contains(car) ? car : manager.merge(car));	
 	}
 }

@@ -39,8 +39,7 @@
 
 
 <div class="form-group col-sm-2">
-	<label for="car.state" class='  control-label'><fmt:message
-			key="car.state" /></label>
+	<label for="car.state" class='  control-label'><fmt:message key="car.state" /></label>
 	<div class="input-group col-sm-12">
 		<select class='form-control' id='car.state' name='car.state'>
 			<option value='${car.state}'>${car.state}</option>
