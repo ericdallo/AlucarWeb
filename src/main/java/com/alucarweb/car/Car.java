@@ -7,11 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
 import com.alucarweb.car.state.StatesBr;
 
 @Entity @Table(name="car")
 public class Car {
+
 	@Id @GeneratedValue
 	private Long id;
 	@NotNull

@@ -39,10 +39,7 @@
 			<button type="submit" name="_method" class='btn btn-primary float-right' value="PUT">Atualizar</button>
 		</div>
 		
-		
-		
 	</form>
-	
 	
 </body>
 </html>
