@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import com.alucarweb.annotations.NotLogged;
+import com.alucarweb.car.state.StatesBr;
 import com.alucarweb.dao.CarDao;
 
 import br.com.caelum.vraptor.Controller;
@@ -15,26 +17,19 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
 
 @Controller
-public class CarController {	
+public class CarController {
+
 	@Inject 
 	private CarDao carDao;
+
 	@Inject
 	private Result result;	
-	
-	@Get("/automoveis")
-	public void list(){
-		List<Car> cars = carDao.findAll();
-		if(cars == null){
-			result.include("empty", "empty");
-		}
-		result.include("cars",cars);
-	}
-	
+
 	@Get("/automovel")
 	public void form(){
 		result.forwardTo("WEB-INF/jsp/car/new.jsp");
 	}
-	
+
 	@Get("/automovel/{id}")
 	public void edit(long id){
 		Car car = carDao.findById(id);
@@ -58,5 +53,22 @@ public class CarController {
 		car.setImage("http://s2.glbimg.com/OxkBk1MpGYb18sqh9PhDM9kpgn0=/620x400/e.glbimg.com/og/ed/f/original/2015/01/02/mitsu_10_940x532.jpg");	
 		carDao.insert(car);
 		result.redirectTo(this).edit(car.getId());
-	}	
+	}
+
+	@Get("/automoveis")
+	public void list(){
+		List<Car> cars = carDao.findAll();
+		if(cars == null){
+			result.include("empty", "empty");
+		}
+		result.include("cars",cars);
+	}
+
+	@NotLogged
+	@Get("/automoveis/json/{state}")
+	public void listInJson(StatesBr state){
+		List<Car> cars = carDao.findByState(state);
+
+		result.use(Results.json()).from(cars).serialize();
+	}
 }

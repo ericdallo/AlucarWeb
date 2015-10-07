@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import com.alucarweb.car.Car;
+import com.alucarweb.car.state.StatesBr;
 
 public class CarDao {
 	
@@ -36,5 +38,18 @@ public class CarDao {
 
 	public void delete(Long id){
 		//manager.remove(manager.contains(car) ? car : manager.merge(car));	
+	}
+
+	public List<Car> findByState(StatesBr state) {
+		String jpql = "SELECT c from Car c WHERE c.state = :state";
+
+		manager.getTransaction().begin();
+		TypedQuery<Car> query = manager.createQuery(jpql,Car.class);
+		query.setParameter("state", state);
+
+		List<Car> listByState = query.getResultList();
+		manager.getTransaction().commit();
+
+		return listByState;
 	}
 }
