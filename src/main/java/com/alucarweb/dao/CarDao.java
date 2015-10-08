@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import com.alucarweb.car.Car;
+import com.alucarweb.car.CarSpecification;
 import com.alucarweb.car.state.StatesBr;
 
 public class CarDao {
@@ -40,14 +41,15 @@ public class CarDao {
 		//manager.remove(manager.contains(car) ? car : manager.merge(car));	
 	}
 
-	public List<Car> findByState(StatesBr state) {
-		String jpql = "SELECT c from Car c WHERE c.state = :state";
+	public List<CarSpecification> findByState(StatesBr state) {
+		String jpql = "SELECT new " + CarSpecification.class.getName() + "(c.id, c.model, c.manufacturer)"
+				+ " from Car c WHERE c.state = :state";
 
 		manager.getTransaction().begin();
-		TypedQuery<Car> query = manager.createQuery(jpql,Car.class);
+		TypedQuery<CarSpecification> query = manager.createQuery(jpql,CarSpecification.class);
 		query.setParameter("state", state);
 
-		List<Car> listByState = query.getResultList();
+		List<CarSpecification> listByState = query.getResultList();
 		manager.getTransaction().commit();
 
 		return listByState;

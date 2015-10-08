@@ -66,9 +66,9 @@ public class CarController {
 
 	@NotLogged
 	@Get("/automoveis/json/{state}")
-	public void listInJson(StatesBr state){
-		List<Car> cars = carDao.findByState(state);
-
+	public void listCarSpecificationJson(StatesBr state){
+		List<CarSpecification> cars = carDao.findByState(state);
+		
 		result.use(Results.json()).from(cars).serialize();
 	}
 }
