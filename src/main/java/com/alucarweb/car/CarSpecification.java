@@ -2,23 +2,12 @@ package com.alucarweb.car;
 
 public class CarSpecification {
 
-	private Long id;
 	private String model;
 	private String manufacturer;
 
-	public CarSpecification(Long id, String model, String manufacturer) {
-		super();
-		this.id = id;
+	public CarSpecification(String model, String manufacturer) {
 		this.model = model;
 		this.manufacturer = manufacturer;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getModel() {
