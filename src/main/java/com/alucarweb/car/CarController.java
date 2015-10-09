@@ -75,6 +75,10 @@ public class CarController {
 	@NotLogged
 	@Get("/automoveis/json/detalhes")
 	public void listCarsJson(CarSpecification spec) {
+		if(spec.getModel() == null || spec.getManufacturer() == null){
+			result.use(Results.status()).notAcceptable();
+			return;
+		}
 		List<Car> cars = carDao.findByCarSpecification(spec);
 
 		result.use(Results.json()).from(cars).serialize();
