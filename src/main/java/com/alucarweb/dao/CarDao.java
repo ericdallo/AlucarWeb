@@ -31,6 +31,7 @@ public class CarDao {
 
 	public void insert(Car car) {
 		manager.persist(car);
+		manager.flush();
 	}
 
 	public void delete(Long id) {

@@ -10,14 +10,15 @@ import br.com.caelum.vraptor.Intercepts;
 import br.com.caelum.vraptor.interceptor.AcceptsWithAnnotations;
 import br.com.caelum.vraptor.interceptor.SimpleInterceptorStack;
 
-@Intercepts(after=LoginInterceptor.class)
+@Intercepts(after = LoginInterceptor.class)
 @AcceptsWithAnnotations(TransactionRequired.class)
 public class TransactionInterceptor {
-	
-	@Inject EntityManager manager;
-	
+
+	@Inject
+	private EntityManager manager;
+
 	@AroundCall
-	public void intercepts(SimpleInterceptorStack stack){
+	public void intercepts(SimpleInterceptorStack stack) {
 		manager.getTransaction().begin();
 		stack.next();
 		manager.getTransaction().commit();
