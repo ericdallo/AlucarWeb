@@ -33,8 +33,7 @@
 
 	<div class='col-sm-2'></div>
 
-	<form class='form-group col-sm-8 box-home'
-		action='<c:url value="/automoveis"/>' method="POST">
+	<form class='form-group col-sm-8 box-home' action='<c:url value="/automoveis"/>' method="POST">
 		<%@ include file="/WEB-INF/jsp/car/form.jsp"%>
 
 		<div class="form-group col-sm-12">
