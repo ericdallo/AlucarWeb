@@ -4,12 +4,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import com.alucarweb.annotation.TransactionRequired;
 import com.alucarweb.annotations.NotLogged;
 import com.alucarweb.car.state.StatesBr;
 import com.alucarweb.dao.CarDao;
 
 import br.com.caelum.vraptor.Controller;
-import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
@@ -35,7 +35,8 @@ public class CarController {
 		Car car = carDao.findById(id);
 		result.include("car", car);
 	}
-
+	
+	@TransactionRequired
 	@Post("/automoveis")
 	public void insert(Car car) {
 		// TODO - VALIDAR UPLOAD DE IMAGEM
@@ -47,6 +48,7 @@ public class CarController {
 		result.use(Results.page()).of(CarController.class).edit(car.getId());
 	}
 
+	@TransactionRequired
 	@Put("/automovel/{id}")
 	public void update(Car car) {
 		// TODO - VALIDAR UPLOAD DE IMAGEM

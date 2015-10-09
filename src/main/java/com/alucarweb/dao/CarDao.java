@@ -26,15 +26,11 @@ public class CarDao {
 	}
 
 	public void update(Car car) {
-		manager.getTransaction().begin();
 		manager.merge(car);
-		manager.getTransaction().commit();
 	}
 
 	public void insert(Car car) {
-		manager.getTransaction().begin();
 		manager.persist(car);
-		manager.getTransaction().commit();
 	}
 
 	public void delete(Long id) {
@@ -45,12 +41,10 @@ public class CarDao {
 		String jpql = "SELECT new " + CarSpecification.class.getName() + "(c.id, c.model, c.manufacturer)"
 				+ " from Car c WHERE c.state = :state";
 
-		manager.getTransaction().begin();
 		TypedQuery<CarSpecification> query = manager.createQuery(jpql, CarSpecification.class);
 		query.setParameter("state", state);
 
 		List<CarSpecification> listByState = query.getResultList();
-		manager.getTransaction().commit();
 
 		return listByState;
 	}
