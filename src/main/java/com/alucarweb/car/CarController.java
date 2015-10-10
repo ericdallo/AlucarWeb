@@ -53,6 +53,7 @@ public class CarController {
 	public void update(Car car) {
 		// TODO - VALIDAR UPLOAD DE IMAGEM
 		car.setImage("http://s2.glbimg.com/OxkBk1MpGYb18sqh9PhDM9kpgn0=/620x400/e.glbimg.com/og/ed/f/original/2015/01/02/mitsu_10_940x532.jpg");
+		System.out.println("Categoria:" + car.getCategory());
 		carDao.update(car);
 		result.redirectTo(this).edit(car.getId());
 	}
