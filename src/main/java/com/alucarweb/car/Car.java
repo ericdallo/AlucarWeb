@@ -14,16 +14,13 @@ public class Car {
 
 	@Id @GeneratedValue
 	private Long id;
-	
 	@NotNull
 	private String model;
 	
 	@NotNull
 	private String manufacturer;
-	
 	@NotNull
 	private String city;
-	
 	@NotNull
 	private String image;
 	
@@ -36,7 +33,7 @@ public class Car {
 	private boolean available;
 	
 	private String licensePlate;
-	private String category;
+	private String carGroup;
 	private String km;
 	private String freeKm;
 	private String controlKm;
@@ -82,12 +79,12 @@ public class Car {
 		this.licensePlate = licensePlate;
 	}
 
-	public String getCategory() {
-		return category;
+	public String getCarGroup() {
+		return carGroup;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
+	public void setcarGroup(String carGroup) {
+		this.carGroup = carGroup;
 	}
 
 	public String getManufacturer() {
