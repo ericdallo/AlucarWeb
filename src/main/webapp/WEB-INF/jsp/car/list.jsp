@@ -39,6 +39,15 @@
 		<h1>Pesquisa de carros</h1>
 	</div>
 	<!-- TODO - FILTROS PARA A PESQUISA -->
+	
+	<div>
+		<c:forEach items="${errors}" var="e">
+			<div class="alert alert-info text-center msg-error">
+				  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				${e.message}
+			</div>
+		</c:forEach>
+	</div>
 
 	<div class='col-sm-2'></div>
 

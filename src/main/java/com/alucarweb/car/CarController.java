@@ -15,6 +15,8 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.I18nMessage;
+import br.com.caelum.vraptor.validator.Validator;
 import br.com.caelum.vraptor.view.Results;
 
 @Controller
@@ -25,6 +27,9 @@ public class CarController {
 
 	@Inject
 	private Result result;
+	
+	@Inject
+	private Validator validator;
 
 	@Get("/automovel")
 	public void form() {
@@ -62,7 +67,9 @@ public class CarController {
 	@Delete("/automovel/{id}")
 	public void delete(Long id){
 		carDao.delete(id);
-		result.redirectTo(this).list();
+
+		validator.add(new I18nMessage("msg", "car.msg.success"));
+		validator.onErrorRedirectTo(this).list();
 	}
 
 	@Get("/automoveis")
