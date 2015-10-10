@@ -21,6 +21,10 @@
 </head>
 
 <body>
+	<c:if test="${not empty car.id}">
+		<script>window.history.pushState('','','/AlucarWeb/automovel/${car.id}');</script>
+	</c:if>
+
 	<%@ include file="/WEB-INF/jsp/navbar.jsp" %>
 		
 	<div class="page-header text-center">
