@@ -36,18 +36,20 @@
 	</div>
 </div>
 <!-- BREAK LINE -->
-<jsp:useBean id="states" class='com.alucarweb.car.state.StatesBean'/>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:useBean id="states" class='com.alucarweb.car.state.StatesBean' />
 
 <div class="form-group col-sm-2">
-	<label for="car.state" class='control-label'><fmt:message key="car.state" /></label>
+	<label for="car.state" class='control-label'><fmt:message
+			key="car.state" /></label>
 	<div class="input-group col-sm-12">
 		<select class='form-control' id='car.state' name='car.state'>
-			<c:if test="${not empty car.state}">
-				<option value="${car.state}">${car.state}</option>
-			</c:if>
 			<c:forEach var="st" items="${states.list}">
-				<option value="${st}">${st}</option>
+				<c:if test="${not empty car.state and car.state eq st}">
+					<option value="${car.state}" selected>${car.state}</option>
+				</c:if>
+				<c:if test="${empty car.state or car.state != st}">
+					<option value="${st}">${st}</option>
+				</c:if>
 			</c:forEach>
 		</select>
 	</div>
