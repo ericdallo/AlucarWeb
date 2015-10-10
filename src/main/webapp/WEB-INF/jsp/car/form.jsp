@@ -80,7 +80,7 @@
 </div>
 
 <div class="form-group col-sm-4">
-	<label for="car.group" class='control-label'><fmt:message key="car.category" /></label>
+	<label for="car.category" class='control-label'><fmt:message key="car.category" /></label>
 	<div class="input-group col-sm-12">
 		<input type="text" class="form-control" id="car.category" name='car.category' value="${car.category}">
 	</div>
