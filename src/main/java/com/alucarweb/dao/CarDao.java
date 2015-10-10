@@ -35,7 +35,8 @@ public class CarDao {
 	}
 
 	public void delete(Long id) {
-		// manager.remove(manager.contains(car) ? car : manager.merge(car));
+		Car carToRemove = manager.find(Car.class, id); 
+		manager.remove(carToRemove);
 	}
 
 	public List<CarSpecification> findByState(StatesBr state) {
