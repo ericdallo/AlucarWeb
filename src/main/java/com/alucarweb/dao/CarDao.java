@@ -27,6 +27,7 @@ public class CarDao {
 
 	public void update(Car car) {
 		manager.merge(car);
+		manager.flush();
 	}
 
 	public void insert(Car car) {
