@@ -17,6 +17,15 @@
 }
 </style>
 
+<c:if test="${not empty errors}">
+	<div class="alert alert-danger" style="text-align:center">
+		<c:forEach var="error" items="${errors}">
+			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+			${error.message}
+		</c:forEach>
+	</div>
+</c:if>
+
 <div class="form-group col-sm-4 image-upload">
 	 <label for="imageFile">
         <img src="${car.image}" class="img-thumbnail center-block car-image pointer"/>
