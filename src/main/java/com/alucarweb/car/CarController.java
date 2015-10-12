@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import com.alucarweb.annotation.TransactionRequired;
 import com.alucarweb.annotations.NotLogged;
+import com.alucarweb.car.images.Images;
 import com.alucarweb.car.state.StatesBr;
 import com.alucarweb.dao.CarDao;
 
@@ -15,6 +16,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.observer.upload.UploadedFile;
 import br.com.caelum.vraptor.validator.I18nMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.caelum.vraptor.view.Results;
@@ -27,9 +29,12 @@ public class CarController {
 
 	@Inject
 	private Result result;
-	
+
 	@Inject
 	private Validator validator;
+
+	@Inject
+	private Images images;
 
 	@Get("/automovel")
 	public void form() {
@@ -44,10 +49,14 @@ public class CarController {
 
 	@TransactionRequired
 	@Post("/automoveis")
-	public void insert(Car car) {
-		// TODO -VALIDAR UPLOAD DE IMAGEM
-		car.setImage("http://s2.glbimg.com/OxkBk1MpGYb18sqh9PhDM9kpgn0=/620x400/e.glbimg.com/og/ed/f/original/2015/01/02/mitsu_10_940x532.jpg");
+	public void insert(Car car, UploadedFile imageFile) {
+
+		// validator.addIf(imageFile == null, new
+		// I18nMessage("image","image.incorrect"));
+		// validator.onErrorRedirectTo(this).edit(car.getId());
+
 		carDao.insert(car);
+		images.save(car, imageFile);
 
 		result.include("car", car);
 		result.include("carId", car.getId());
@@ -57,15 +66,17 @@ public class CarController {
 	@TransactionRequired
 	@Put("/automovel/{id}")
 	public void update(Car car) {
-		// TODO - VALIDAR UPLOAD DE IMAGEM
-		car.setImage("http://s2.glbimg.com/OxkBk1MpGYb18sqh9PhDM9kpgn0=/620x400/e.glbimg.com/og/ed/f/original/2015/01/02/mitsu_10_940x532.jpg");		
+
+		validator.addIf(car.getImage() == null, new I18nMessage("image", "image.incorrect"));
+		validator.onErrorRedirectTo(this).edit(car.getId());
+
 		carDao.update(car);
 		result.redirectTo(this).edit(car.getId());
 	}
-	
+
 	@TransactionRequired
 	@Delete("/automovel/{id}")
-	public void delete(Long id){
+	public void delete(Long id) {
 		carDao.delete(id);
 
 		validator.add(new I18nMessage("msg", "car.msg.success"));
