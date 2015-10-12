@@ -24,7 +24,6 @@ public class Car {
 	@NotNull
 	private String city;
 	
-	@NotNull
 	private String image;
 	
 	private String chassi;
