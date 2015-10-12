@@ -6,7 +6,7 @@ import javax.inject.Inject;
 
 import com.alucarweb.annotation.TransactionRequired;
 import com.alucarweb.annotations.NotLogged;
-import com.alucarweb.car.images.Images;
+import com.alucarweb.car.images.ImagesService;
 import com.alucarweb.car.state.StatesBr;
 import com.alucarweb.dao.CarDao;
 
@@ -34,7 +34,7 @@ public class CarController {
 	private Validator validator;
 
 	@Inject
-	private Images images;
+	private ImagesService images;
 
 	@Get("/automovel")
 	public void form() {
@@ -51,9 +51,8 @@ public class CarController {
 	@Post("/automoveis")
 	public void insert(Car car, UploadedFile imageFile) {
 
-		// validator.addIf(imageFile == null, new
-		// I18nMessage("image","image.incorrect"));
-		// validator.onErrorRedirectTo(this).edit(car.getId());
+		validator.addIf(imageFile == null, new I18nMessage("image", "image.incorrect"));
+		validator.onErrorRedirectTo(this).form();
 
 		carDao.insert(car);
 		images.save(car, imageFile);
@@ -65,12 +64,14 @@ public class CarController {
 
 	@TransactionRequired
 	@Put("/automovel/{id}")
-	public void update(Car car) {
+	public void update(Car car, UploadedFile imageFile) {
 
-		validator.addIf(car.getImage() == null, new I18nMessage("image", "image.incorrect"));
+		validator.addIf(imageFile == null, new I18nMessage("image", "image.incorrect"));
 		validator.onErrorRedirectTo(this).edit(car.getId());
 
 		carDao.update(car);
+		images.save(car, imageFile);
+
 		result.redirectTo(this).edit(car.getId());
 	}
 
