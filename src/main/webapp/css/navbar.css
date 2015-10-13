@@ -20,6 +20,8 @@ nav.navbar-main {
 
 nav.navbar-main a {
 	color: #0968AA;
+	font-family:Aller;
+	font-size:12pt;
 }
 
 nav.navbar-main ul.navbar-nav a,nav.navbar-main ul.navbar-nav input {

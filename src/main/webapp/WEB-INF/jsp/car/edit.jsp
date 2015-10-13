@@ -9,15 +9,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src='<c:url value="/js/jquery.js"/>'></script>
 <script src='<c:url value="/bootstrap/js/bootstrap.min.js"/>'></script>
-<link href='<c:url value="/bootstrap/css/bootstrap.min.css"/>' rel="stylesheet">
+<link href='<c:url value="/bootstrap/css/bootstrap.min.css"/>'
+	rel="stylesheet">
 <link href='<c:url value="/css/util.css"/>' rel="stylesheet">
+<link href='<c:url value="/css/car-form.css"/>' rel="stylesheet">
+
 <title><fmt:message key="car.title" /></title>
-<style>
-.box-home{
-	background-color:#efefef;
-	padding-top:20px !important;
-}
-</style>
+
 </head>
 
 <body>
@@ -25,25 +23,24 @@
 		<script>window.history.pushState('','','/AlucarWeb/automovel/${car.id}');</script>
 	</c:if>
 
-	<%@ include file="/WEB-INF/jsp/navbar.jsp" %>
-		
-	<div class="page-header text-center">
-		<h1>			
-			<fmt:message key="car.title.update" />
-		</h1>
-	</div>
-	
-	
+	<%@ include file="/WEB-INF/jsp/navbar.jsp"%>
+
 	<div class='col-sm-2'></div>
-	
+
 	<form class='form-group col-sm-8 box-home' action='<c:url value="/automovel/${car.id}"/>' method="POST">
-		<%@ include file="/WEB-INF/jsp/car/form.jsp" %>
-		
-		<div class="form-group col-sm-12">
-			<button type="submit" name="_method" class='btn btn-primary float-right' value="PUT">Atualizar</button>
+		<div class="card-title text-center">
+			<h1>
+				<fmt:message key="car.title.update" />
+			</h1>
 		</div>
-		
+		<%@ include file="/WEB-INF/jsp/car/form.jsp"%>
+
+		<div class="form-group col-sm-12">
+			<button type="submit" name="_method"
+				class='btn btn-primary float-right' value="PUT">Atualizar</button>
+		</div>
+
 	</form>
-	
+
 </body>
 </html>
