@@ -12,32 +12,27 @@
 <link href='<c:url value="/bootstrap/css/bootstrap.min.css"/>'
 	rel="stylesheet">
 <link href='<c:url value="/css/util.css"/>' rel="stylesheet">
+<link href='<c:url value="/css/car-form.css"/>' rel="stylesheet">
 <title><fmt:message key="car.title" /></title>
-<style>
-.box-home {
-	background-color: #efefef;
-	padding-top: 20px !important;
-}
-</style>
+
 </head>
 
 <body>
 	<%@ include file="/WEB-INF/jsp/navbar.jsp"%>
 
-	<div class="page-header text-center">
-		<h1>
-			<fmt:message key="car.title.insert" />
-		</h1>
-	</div>
-
-
 	<div class='col-sm-2'></div>
 
 	<form class='form-group col-sm-8 box-home' action='<c:url value="/automoveis"/>' method="POST">
+		<div class="card-title text-center">
+			<h1>
+				<fmt:message key="car.title.insert" />
+			</h1>
+		</div>
 		<%@ include file="/WEB-INF/jsp/car/form.jsp"%>
 
 		<div class="form-group col-sm-12">
-			<button type="submit" name="_method" class='btn btn-primary float-right' value="POST">Cadastrar</button>
+			<button type="submit" name="_method"
+				class='btn btn-primary float-right' value="POST">Cadastrar</button>
 		</div>
 
 	</form>

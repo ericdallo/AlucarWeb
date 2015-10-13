@@ -1,20 +1,3 @@
-<style>
-@media (max-width: 768px){
-	.input-group{width:100% !important;}
-}
-
-@media (min-width:270px){
-	.car-image{
-		width:260px !important; 
-		height:195px !important;
-	}
-}
-.car-image:hover{
-	opacity: 0.8;
-}
-</style>
-
-
 
 <div class="form-group col-sm-4">
 	<img src="${car.image}" alt="" class="img-thumbnail center-block car-image pointer">

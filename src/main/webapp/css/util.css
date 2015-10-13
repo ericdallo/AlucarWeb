@@ -1,6 +1,16 @@
 @CHARSET "UTF-8";
 
-body{ background-color: #e2e2e2; }
+@font-face {
+    font-family: 'Aller'; 
+    src: url('../fonts/aller/Aller_Rg.ttf');
+}
+
+@font-face {
+    font-family: 'Aller-bd'; 
+    src: url('../fonts/aller/Aller_Bd.ttf');
+}
+
+body{ background-image: url("../images/login/background-login.jpg") !important; }
 .msg-error{ margin:2rem auto; width:40rem; }
 
 .float-right{ float:right; }
