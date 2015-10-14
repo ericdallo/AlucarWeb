@@ -7,7 +7,10 @@ public class AlucarConfig {
 
 	public enum Property {
 		AWS_ACCESS_KEY_ID,
-		AWS_SECRET_ACCESS_KEY
+		AWS_SECRET_ACCESS_KEY,
+		IMAGES_URL,
+		IMAGES_FOLDER,
+		ALUCAR_BUCKET
 		;
 	}
 

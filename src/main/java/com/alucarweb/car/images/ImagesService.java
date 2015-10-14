@@ -12,6 +12,8 @@ import org.slf4j.LoggerFactory;
 
 import com.alucarweb.aws.AlucarS3;
 import com.alucarweb.car.Car;
+import com.alucarweb.util.AlucarConfig;
+import com.alucarweb.util.AlucarConfig.Property;
 
 import br.com.caelum.vraptor.observer.upload.UploadedFile;
 
@@ -30,7 +32,7 @@ public class ImagesService {
 
 		File imageFile = new File(context.getRealPath("images"), uploadedFile.getFileName());
 
-		car.setImage(AlucarS3.IMAGES_URL + car.getId() + SUFIX + uploadedFile.getFileName());
+		car.setImage(AlucarConfig.get(Property.IMAGES_URL) + car.getId() + SUFIX + uploadedFile.getFileName());
 
 		try {
 			uploadedFile.writeTo(imageFile);

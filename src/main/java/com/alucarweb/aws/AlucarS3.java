@@ -6,6 +6,8 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import com.alucarweb.util.AlucarConfig;
+import com.alucarweb.util.AlucarConfig.Property;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
@@ -14,10 +16,7 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 @ApplicationScoped
 public class AlucarS3 {
 
-	public static final String IMAGES_URL = "https://s3-us-west-2.amazonaws.com/alucar-tcc-satan/images/car_users/";
 	private static final String SUFIX = "-";
-	private final String IMAGES_FOLDER = "images/car_users/";
-	private final String bucketName = "alucar-tcc-satan";
 
 	private AmazonS3Client s3Client;
 
@@ -31,9 +30,9 @@ public class AlucarS3 {
 
 	public void send(File savedPicture, Long carId) {
 
-		String fileName = IMAGES_FOLDER + carId + SUFIX + savedPicture.getName();
+		String fileName = AlucarConfig.get(Property.IMAGES_FOLDER) + carId + SUFIX + savedPicture.getName();
 
-		s3Client.putObject(new PutObjectRequest(bucketName, fileName, savedPicture)
+		s3Client.putObject(new PutObjectRequest(AlucarConfig.get(Property.ALUCAR_BUCKET), fileName, savedPicture)
 				.withCannedAcl(CannedAccessControlList.PublicRead));
 	}
 }
