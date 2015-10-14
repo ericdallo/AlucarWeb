@@ -1,2 +1,11 @@
 version: 0.0
 os: linux
+files:
+   - source: /
+     destination: /home/ec2-user/AlucarDeploy
+hooks:
+   AfterInstall:
+    - location: scripts/deploy.sh
+      runas: root
+    - location: scripts/restartTomcat.sh
+      runas: root
