@@ -38,6 +38,10 @@
 	opacity: 0.8;
 }
 
+.image-upload > input{
+    display: none;
+}
+
 .box-home input[type="text"] {
 	padding: 10px;
 	border-bottom: solid 2px #e2e2e2;

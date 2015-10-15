@@ -1,21 +1,3 @@
-<style>
-@media (max-width: 768px){
-	.input-group{width:100% !important;}
-}
-
-@media (min-width:270px){
-	.car-image{
-		width:260px !important; 
-		height:195px !important;
-	}
-}
-.car-image:hover{
-	opacity: 0.8;
-}
-.image-upload > input{
-    display: none;
-}
-</style>
 
 <c:if test="${not empty errors}">
 	<div class="alert alert-danger" style="text-align:center">
