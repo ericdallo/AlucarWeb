@@ -1,9 +1,9 @@
 #!/bin/bash
 cd /home/ec2-user/AlucarDeploy
 
-mvn clean compile package
+mvn package
 
-cp -rfv target/*.war /usr/share/tomcat7/webapps/Alucar.war
+cp -rfv target/*.war /usr/share/tomcat7/webapps/AlucarWeb.war
 
 service tomcat7 restart
 
