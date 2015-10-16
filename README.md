@@ -23,6 +23,13 @@ O sistema de login usa MD5 como criptografia nas senhas, por isso deve ter previ
 
 [MD5 Generator](http://www.miraclesalad.com/webtools/md5.php)
 
-Script sql para importar o banco: ``/scripts/database.sql`` 
-
 Editar as credencias do banco no arquivo ``src/main/resources/META-INF/persistence.xml``
+
+
+### Deploy
+
+Para inicar o deploy da aplicacao, executar o script ``prepare-deploy.sh`` passando como argumento o IP da maquina.
+Por exemplo: 
+```bash
+./prepare-deploy.sh $EC2TCC
+```
