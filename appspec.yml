@@ -7,5 +7,3 @@ hooks:
    AfterInstall:
     - location: scripts/deploy.sh
       runas: root
-    - location: scripts/restartTomcat.sh
-      runas: root
