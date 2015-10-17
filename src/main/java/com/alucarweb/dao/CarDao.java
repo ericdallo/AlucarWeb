@@ -25,8 +25,22 @@ public class CarDao {
 		return car;
 	}
 
-	public void update(Car car) {
-		manager.merge(car);
+	public Car update(Car car) {
+		Car newCar = manager.find(Car.class, car.getId());
+		newCar.setModel(car.getModel());
+		newCar.setManufacturer(car.getManufacturer());
+		newCar.setModel(car.getModel());
+		newCar.setChassi(car.getChassi());
+		newCar.setCity(car.getCity());
+		newCar.setState(car.getState());
+		newCar.setLicensePlate(car.getLicensePlate());
+		newCar.setCategory(car.getCategory());
+		newCar.setKm(car.getKm());
+		newCar.setFreeKm(car.getFreeKm());
+		newCar.setControlKm(car.getControlKm());
+		newCar.setObs(car.getObs());
+
+		return newCar;
 	}
 
 	public void insert(Car car) {
@@ -35,7 +49,7 @@ public class CarDao {
 	}
 
 	public void delete(Long id) {
-		Car carToRemove = manager.find(Car.class, id); 
+		Car carToRemove = manager.find(Car.class, id);
 		manager.remove(carToRemove);
 	}
 

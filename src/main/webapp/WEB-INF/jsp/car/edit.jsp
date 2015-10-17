@@ -27,7 +27,7 @@
 
 	<div class='col-sm-2'></div>
 
-	<form class='form-group col-sm-8 box-home' action='<c:url value="/automovel/${car.id}"/>' method="POST">
+	<form class='form-group col-sm-8 box-home' action='<c:url value="/automovel/${car.id}"/>' method="POST" enctype="multipart/form-data">
 		<div class="card-title text-center">
 			<h1>
 				<fmt:message key="car.title.update" />
@@ -37,7 +37,7 @@
 
 		<div class="form-group col-sm-12">
 			<button type="submit" name="_method"
-				class='btn btn-primary float-right' value="PUT">Atualizar</button>
+				class='btn btn-primary float-right' value="POST">Atualizar</button>
 		</div>
 
 	</form>
