@@ -1,8 +1,17 @@
 package com.alucarweb.car;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class CarSpecification {
 
+	@NotNull
+	@NotEmpty
 	private String model;
+
+	@NotNull
+	@NotEmpty
 	private String manufacturer;
 
 	public CarSpecification(String model, String manufacturer) {

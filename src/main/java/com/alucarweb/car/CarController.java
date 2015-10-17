@@ -3,6 +3,8 @@ package com.alucarweb.car;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import com.alucarweb.annotation.TransactionRequired;
 import com.alucarweb.annotations.NotLogged;
@@ -14,7 +16,6 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
-import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.observer.upload.UploadedFile;
 import br.com.caelum.vraptor.validator.I18nMessage;
@@ -69,7 +70,6 @@ public class CarController {
 		validator.addIf(imageFile == null, new I18nMessage("image", "image.incorrect"));
 		validator.onErrorRedirectTo(this).edit(car.getId());
 
-
 		car = carDao.update(car);
 		images.save(car, imageFile);
 
@@ -104,11 +104,9 @@ public class CarController {
 
 	@NotLogged
 	@Get("/automoveis/json/detalhes")
-	public void listCarsJson(CarSpecification spec) {
-		if (spec.getModel() == null || spec.getManufacturer() == null) {
-			result.use(Results.status()).notAcceptable();
-			return;
-		}
+	public void listCarsJson(@Valid @NotNull CarSpecification spec) {
+		validator.onErrorUse(Results.status()).notAcceptable();
+
 		List<Car> cars = carDao.findByCarSpecification(spec);
 
 		result.use(Results.json()).from(cars).serialize();
