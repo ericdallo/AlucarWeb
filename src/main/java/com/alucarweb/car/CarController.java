@@ -63,13 +63,13 @@ public class CarController {
 	}
 
 	@TransactionRequired
-	@Put("/automovel/{id}")
+	@Post("/automovel/{id}")
 	public void update(Car car, UploadedFile imageFile) {
 
 		validator.addIf(imageFile == null, new I18nMessage("image", "image.incorrect"));
 		validator.onErrorRedirectTo(this).edit(car.getId());
 
-		carDao.update(car);
+		car = carDao.update(car);
 		images.save(car, imageFile);
 
 		result.redirectTo(this).edit(car.getId());
