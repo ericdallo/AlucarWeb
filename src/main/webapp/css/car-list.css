@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+
+body{
+	background:#e2e2e2 !important;
+}
+@media ( min-width :270px) {
+	.car-image {
+		width: 260px !important;
+		height: 170px !important;
+	}
+}
+
+h1{
+	color: black;
+	font-family: Aller;
+}
+
+.car-panel {
+	margin: 1em 0 2em 0 !important;
+	border-radius: 0.4em;
+	background-color: white;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, .6), 0 14px 50px 4px
+		rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0) !important;
+	font-family: Aller;
+    
+    text-align: center;
+}
+
+.car-panel .title{
+	background: #0968AA;
+}
+.car-panel .title h1{
+	color: white;
+	font-family: Aller;
+	margin: 0 0 1em 0;
+	padding: 0.3em 0;
+}
+.car-panel .inside{
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+.car-panel > .shadow:hover > .inside{
+    margin-top: -10px;
+    border: 1px solid rgb(200, 200, 200);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+    background: rgba(200, 200, 200, 0.1);
+    transition: 0.5s;
+}

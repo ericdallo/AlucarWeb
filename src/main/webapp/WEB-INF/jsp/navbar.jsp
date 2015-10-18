@@ -5,7 +5,7 @@
 			<a href="<c:url value="home"/>">
 				<img alt="Alucar-logo" src="<c:url value='/images/logo-navbar.png' />" class="pull-left logo"/>
 			</a>
-			<a class="navbar-brand" href="<c:url value='home'/>">Alucar</a>
+			<a class="navbar-brand" href="<c:url value='/home'/>">Alucar</a>
 		</div>
 		<div class="collapse navbar-collapse" id="navbar">
 			<ul class="nav navbar-nav navbar-right">
