@@ -53,31 +53,14 @@ public class CarDao {
 		manager.remove(carToRemove);
 	}
 
-	public List<CarSpecification> findByState(StatesBr state) {
-		String jpql = "SELECT DISTINCT new " + CarSpecification.class.getName() + "(c.model, c.manufacturer)"
-				+ " from Car c WHERE c.state = :state";
-
-		TypedQuery<CarSpecification> query = manager.createQuery(jpql, CarSpecification.class);
-		query.setParameter("state", state);
-
-		List<CarSpecification> listByState = query.getResultList();
-
-		return listByState;
-	}
-
-	public List<Car> findByCarSpecification(CarSpecification spec) {
-		String jpql = "SELECT c FROM Car c WHERE c.model = :model AND c.manufacturer = :manufacturer";
-
-		manager.getTransaction().begin();
+	public List<Car> findByState(StatesBr state) {
+		String jpql = "SELECT c FROM "+ Car.class.getSimpleName() + " c WHERE c.state = :state";
 
 		TypedQuery<Car> query = manager.createQuery(jpql, Car.class);
-		query.setParameter("model", spec.getModel());
-		query.setParameter("manufacturer", spec.getManufacturer());
+		query.setParameter("state", state);
 
-		List<Car> listBySpec = query.getResultList();
+		List<Car> listByState = query.getResultList();
 
-		manager.getTransaction().commit();
-
-		return listBySpec;
+		return listByState;
 	}
 }
