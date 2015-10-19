@@ -54,7 +54,7 @@ public class CarDao {
 	}
 
 	public List<CarSpecification> findByState(StatesBr state) {
-		String jpql = "SELECT new " + CarSpecification.class.getName() + "(c.model, c.manufacturer)"
+		String jpql = "SELECT DISTINCT new " + CarSpecification.class.getName() + "(c.model, c.manufacturer)"
 				+ " from Car c WHERE c.state = :state";
 
 		TypedQuery<CarSpecification> query = manager.createQuery(jpql, CarSpecification.class);
