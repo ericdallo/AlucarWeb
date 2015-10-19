@@ -67,11 +67,11 @@ public class CarController {
 	@Post("/automovel/{id}")
 	public void update(Car car, UploadedFile imageFile) {
 
-		validator.addIf(imageFile == null, new I18nMessage("image", "image.incorrect"));
-		validator.onErrorRedirectTo(this).edit(car.getId());
-
 		car = carDao.update(car);
-		images.save(car, imageFile);
+
+		if (imageFile != null) {
+			images.save(car, imageFile);
+		}
 
 		result.redirectTo(this).edit(car.getId());
 	}

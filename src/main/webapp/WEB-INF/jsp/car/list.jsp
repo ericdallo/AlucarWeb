@@ -13,56 +13,40 @@
 <link href='<c:url value="/bootstrap/css/bootstrap.min.css"/>'
 	rel="stylesheet">
 <link href='<c:url value="/css/util.css"/>' rel="stylesheet">
-<style>
-@media ( min-width :270px) {
-	.car-image {
-		width: 260px !important;
-		height: 170px !important;
-	}
-}
+<link href='<c:url value="/css/car-list.css"/>' rel="stylesheet">
 
-.car-image:hover {
-	opacity: 0.8;
-}
-
-.thumbnail {
-	padding-top: 5px;
-	padding-bottom: 0px;
-}
-</style>
 </head>
 <title><fmt:message key="car.title" /></title>
 </head>
 <body>
 	<%@ include file="/WEB-INF/jsp/navbar.jsp"%>
-	<div class='page-header text-center'>
-		<h1>Pesquisa de carros</h1>
-	</div>
 	<!-- TODO - FILTROS PARA A PESQUISA -->
-	
+
 	<div>
 		<c:forEach items="${errors}" var="e">
 			<div class="alert alert-info text-center msg-error">
-				  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-				${e.message}
+				<span class="glyphicon glyphicon-exclamation-sign"
+					aria-hidden="true"></span> ${e.message}
 			</div>
 		</c:forEach>
 	</div>
 
-	<div class='col-sm-2'></div>
+	<div class="container">
+		<div class="row car-panel">
+			<div class='title'>
+				<h1 class='list-title'>Pesquisa de carros</h1>
+			</div>
+			
 
-	<div class='form-group col-sm-9 pointer'>
-
-		<c:forEach items="${cars}" var="car">
-			<div class="col-sm-6 col-md-4">
-				<div class="thumbnail">
-					<img src="${car.image}" alt="..." class='car-image'>
-					<div class="caption">
-						<h3>${car.model}</h3>
-						<p></p>
-						<p>
-						<form action="<c:url value='/automovel/${car.id}'/>" method='POST'
-							class="btn-group">
+			<c:forEach items="${cars}" var="car">
+				<div class="col-sm-6 col-md-4 shadow">
+					<div class='inside'>
+						<form action="<c:url value='/automovel/${car.id}'/>" method='POST'>
+							<a href="<c:url value='/automovel/${car.id}'/>"> <img
+								src="${car.image}" alt="Image car" class="img-thumbnail pointer">
+							</a>
+							<h2>${car.model}</h2>
+							<p>${car.manufacturer}</p>
 							<a href="<c:url value='/automovel/${car.id}'/>"
 								class="btn btn-primary" role="button"> <span
 								class="glyphicon glyphicon-edit" aria-hidden="true"></span>
@@ -74,16 +58,12 @@
 								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 								Excluir
 							</button>
-
-							<input type='hidden' name='car.id' value='${car.id}' />
 						</form>
-						</p>
 					</div>
-					<!-- caption -->
 				</div>
-				<!-- thumbnail -->
-			</div>
-		</c:forEach>
+
+			</c:forEach>
+		</div>
 	</div>
 </body>
 </html>
