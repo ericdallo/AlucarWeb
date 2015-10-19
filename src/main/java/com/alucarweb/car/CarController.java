@@ -3,7 +3,6 @@ package com.alucarweb.car;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import com.alucarweb.annotation.TransactionRequired;
@@ -96,19 +95,12 @@ public class CarController {
 
 	@NotLogged
 	@Get("/automoveis/json/{state}")
-	public void listCarSpecificationJson(StatesBr state) {
-		List<CarSpecification> cars = carDao.findByState(state);
-
-		result.use(Results.json()).from(cars).serialize();
-	}
-
-	@NotLogged
-	@Get("/automoveis/json/detalhes")
-	public void listCarsJson(@Valid @NotNull CarSpecification spec) {
+	public void listCarSpecificationJson(@NotNull StatesBr state) {
 		validator.onErrorUse(Results.status()).notAcceptable();
 
-		List<Car> cars = carDao.findByCarSpecification(spec);
+		List<Car> cars = carDao.findByState(state);
 
 		result.use(Results.json()).from(cars).serialize();
 	}
+
 }
