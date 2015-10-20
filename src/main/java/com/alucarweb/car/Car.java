@@ -5,10 +5,12 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.alucarweb.state.StatesBr;
+import com.alucarweb.rental.Rental;
 
 @Entity @Table(name="car")
 public class Car {
@@ -34,6 +36,9 @@ public class Car {
 	
 	@NotNull
 	private boolean available;
+	
+	@OneToOne
+	private Rental rental;
 	
 	private String licensePlate;
 	private String category;
