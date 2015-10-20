@@ -7,13 +7,13 @@ public class Cliente{
    private String documento;
    private String email;
    private String telefone;
-   private Date   nascimento;
+   private Calendar nascimento;
    private String sexo;
    private String ufcode;
    private String cidade;
    private String endereco;
    private String numEndereco;
-   private Date   cadastro;
+   private Calendar cadastro;
    private String habilitacao;
    private Date   habilitacaoValidade;
    private String habilitacaoufcode;
@@ -58,10 +58,10 @@ public class Cliente{
    public void setTelefone(String telefone) {
       this.telefone = telefone;
    }
-   public Date getNascimento() {
+   public Calendar getNascimento() {
       return nascimento;
    }
-   public void setNascimento(Date nascimento) {
+   public void setNascimento(Calendar nascimento) {
       this.nascimento = nascimento;
    }
    public String getSexo() {

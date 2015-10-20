@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import com.alucarweb.car.state.StatesBr;
+
+import com.alucarweb.state.StatesBr;
 
 @Entity @Table(name="car")
 public class Car {

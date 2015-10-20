@@ -8,8 +8,8 @@ import javax.validation.constraints.NotNull;
 import com.alucarweb.annotation.TransactionRequired;
 import com.alucarweb.annotations.NotLogged;
 import com.alucarweb.car.images.ImagesService;
-import com.alucarweb.car.state.StatesBr;
 import com.alucarweb.dao.CarDao;
+import com.alucarweb.state.StatesBr;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Delete;

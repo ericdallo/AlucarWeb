@@ -6,9 +6,6 @@
 	<persistence-unit name="alucar">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
-		<class>com.alucarweb.user.User</class>
-		<class>com.alucarweb.car.Car</class>
-
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/alucar" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
