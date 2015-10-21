@@ -6,8 +6,6 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import com.alucarweb.car.Car;
-import com.alucarweb.car.CarSpecification;
 import com.alucarweb.client.Client;
 
 public class ClientDAO {

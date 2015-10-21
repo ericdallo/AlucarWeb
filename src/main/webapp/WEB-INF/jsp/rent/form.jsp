@@ -13,7 +13,7 @@
 <div class="form-group col-sm-4">
 	<label for="rent.car.id" class='control-label'><fmt:message key="rent.car.id" /></label>
 	<div class=" input-group col-sm-12">
-		<input type="text" class="form-control" id="rent.car.id" name='rent.car.id' value="${carId}">
+		<input type="text" class="form-control" id="rent.car.id" name='rent.car.id' value="${carId}" disabled>
 	</div>
 </div>
 

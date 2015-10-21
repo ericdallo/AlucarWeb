@@ -16,8 +16,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.alucarweb.car.Car;
+import com.alucarweb.client.Client;
 import com.alucarweb.devolution.Devolution;
-import com.mysql.fabric.xmlrpc.Client;
 
 @Entity @Table(name="rent")
 public class Rent {
@@ -25,7 +25,7 @@ public class Rent {
 	@Id @GeneratedValue
 	private Integer id;
 	
-	@OneToOne(mappedBy="client")
+	@OneToOne
 	private Client client;
 	
 	@OneToOne
@@ -98,6 +98,11 @@ public class Rent {
 
 	public void setStatus(RentStatus status) {
 		this.status = status;
+	}
+	
+	@PrePersist
+	public void onCreate(){
+		this.createdAt = Calendar.getInstance();
 	}
 	
 }
