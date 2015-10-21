@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 
 import com.alucarweb.state.StatesBr;
 
@@ -21,40 +21,39 @@ public class Client {
 	@Id @GeneratedValue
 	private Long id;
 	
+	@NotNull
 	private String cpf;
 	
-	
+	@NotNull
 	private String name;
 		
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Calendar born;
 	
-	
+	@NotNull
 	private String gender;
 	
 	@Enumerated (EnumType.STRING)
 	private StatesBr state;
 	
-	
+	@NotNull
 	private String city;
 	
-	
+	@NotNull
 	private String address;
 	
-	
+	@NotNull
 	private String addressNumber; 
 	
-	
+	@NotNull
 	private String postalCode;
 	
 	private String neighborhood;
 	
-	
 	private String licenseCode;
 	
-	//@Temporal(TemporalType.TIMESTAMP)
-	@Transient
-	private String licenseValidity;
+	@Temporal(TemporalType.DATE)
+	private Calendar licenseValidity;
 	
 	@Enumerated(EnumType.STRING) 
 	private StatesBr licenseState;
@@ -135,10 +134,10 @@ public class Client {
 	public void setLicenseCode(String licenseCode) {
 		this.licenseCode = licenseCode;
 	}
-	public String getLicenseValidity() {
+	public Calendar getLicenseValidity() {
 		return licenseValidity;
 	}
-	public void setLicenseValidity(String licenseValidity) {
+	public void setLicenseValidity(Calendar licenseValidity) {
 		this.licenseValidity = licenseValidity;
 	}
 	public StatesBr getLicenseState() {
@@ -164,7 +163,5 @@ public class Client {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-	
-		
+	}		
 }

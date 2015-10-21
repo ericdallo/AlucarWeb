@@ -24,9 +24,9 @@
 	<%@ include file="/WEB-INF/jsp/navbar.jsp"%>
 
 	<div class='col-sm-2'></div>
-
-	<form class='form-group col-<input type='hidden' name='client.id' value='${client.id}' />sm-8 box-home' action='<c:url value="/cliente/${client.id}"/>' method="POST">
-		
+	
+	
+	<form class='form-group col-sm-8 box-home' action='<c:url value="/cliente/${client.id}"/>' method="POST">
 		<input type='hidden' name='client.id' value='${client.id}' />
 		
 		

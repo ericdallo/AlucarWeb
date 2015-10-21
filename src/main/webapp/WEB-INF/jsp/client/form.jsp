@@ -26,7 +26,7 @@
 <div class='form-group col-sm-3'>
 	<label for="client.name" class='control-label'><fmt:message key="client.born" />*</label>
 	<div class="input-group col-sm-12">
-		<input type="text" class="form-control" name='client.born' value='<fmt:formatDate pattern="dd/MM/yyyy"  value="${client.born}" />'>
+		<input type="text" class="form-control" name='client.born' value="${client.born}">
 	</div>
 </div>
 
@@ -118,6 +118,7 @@
 	<label for="client.licenseValidity" class='control-label'><fmt:message key="client.licenseValidity" />*</label>
 	<div class="input-group col-sm-12">
 		<input type="text" class="form-control" name='client.licenseValidity' value="${client.licenseValidity}">
+		
 	</div>
 </div>
 

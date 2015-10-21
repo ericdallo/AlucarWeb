@@ -1,18 +1,22 @@
 package com.alucarweb.client;
 
-import java.util.Calendar;
+import java.util.List;
 
 import javax.inject.Inject;
 
 import com.alucarweb.annotation.TransactionRequired;
 import com.alucarweb.annotations.NotLogged;
+import com.alucarweb.car.Car;
 import com.alucarweb.dao.ClientDAO;
 
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.I18nMessage;
 import br.com.caelum.vraptor.validator.Validator;
+import br.com.caelum.vraptor.view.Results;
 
 @Controller
 public class ClientController {
@@ -37,17 +41,36 @@ public class ClientController {
 		result.include("client", client);
 	}	
 	
-	
-	@Post("/clientes")
 	@TransactionRequired()
+	@Post("/clientes")
 	public void insert(Client client){
-		validator.onErrorRedirectTo(this).form();
-		
 		clientDAO.insert(client);
-		
-		client.setBorn(Calendar.getInstance());
 		result.include("client",client);
-		//result.use(Results.page()).of(ClientController.class).edit(client.getId());
-		//result.forwardTo(ClientController.class).edit(1);
+		result.use(Results.page()).of(ClientController.class).edit(client.getId());
+	}
+	
+	@TransactionRequired
+	@Post("/cliente/{id}")
+	public void update(Client client) {
+		validator.onErrorRedirectTo(this).edit(client.getId());
+		clientDAO.update(client);
+		result.redirectTo(this).edit(client.getId());
+	}
+
+	@TransactionRequired
+	@Delete("/client/{id}")
+	public void delete(Long id) {
+		clientDAO.delete(id);
+		validator.add(new I18nMessage("msg", "car.msg.success"));
+		validator.onErrorRedirectTo(this).list();
+	}
+	
+	@Get("/clientes")
+	public void list() {
+		List<Client> clients = clientDAO.findAll();
+		if (clients == null) {
+			result.include("empty", "empty");
+		}
+		result.include("clients", clients);
 	}
 }
