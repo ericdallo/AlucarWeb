@@ -18,7 +18,7 @@
 
 <body>
 	<c:if test="${not empty client.id}">
-		<script>window.history.pushState('','','/AlucarWeb/client/${client.id}');</script>
+		<script>window.history.pushState('','','/AlucarWeb/cliente/${client.id}');</script>
 	</c:if>
 
 	<%@ include file="/WEB-INF/jsp/navbar.jsp"%>

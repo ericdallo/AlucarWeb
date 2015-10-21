@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:if test="${not empty errors}">
 	<div class="alert alert-danger" style="text-align:center">
 		<c:forEach var="error" items="${errors}">
@@ -24,9 +25,10 @@
 </div>
 
 <div class='form-group col-sm-3'>
-	<label for="client.name" class='control-label'><fmt:message key="client.born" />*</label>
+	<label for="client_born" class='control-label'><fmt:message key="client.born" />*</label>
 	<div class="input-group col-sm-12">
-		<input type="text" class="form-control" name='client.born' value="${client.born}">
+		<input type="text" class="form-control" name='client.born' id='client_born'
+			value='<fmt:formatDate value="${client.born.time}" type="date" />' />
 	</div>
 </div>
 
@@ -117,7 +119,8 @@
 <div class='form-group col-sm-2'>
 	<label for="client.licenseValidity" class='control-label'><fmt:message key="client.licenseValidity" />*</label>
 	<div class="input-group col-sm-12">
-		<input type="text" class="form-control" name='client.licenseValidity' value="${client.licenseValidity}">
+		<input type="text" class="form-control" name='client.licenseValidity' 
+			value='<fmt:formatDate value="${client.licenseValidity.time}" type="date" />' />
 		
 	</div>
 </div>
