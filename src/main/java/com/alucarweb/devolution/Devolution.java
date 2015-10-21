@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity @Table(name="devolution")
 public class Devolution {
@@ -17,6 +18,8 @@ public class Devolution {
 	
 	@Temporal(TemporalType.DATE)
 	private Calendar devolutionDate;
+	
+	private double totalValue;
 
 	public Integer getId() {
 		return id;
@@ -32,6 +35,14 @@ public class Devolution {
 
 	public void setDevolutionDate(Calendar devolutionDate) {
 		this.devolutionDate = devolutionDate;
+	}
+
+	public double getTotalValue() {
+		return totalValue;
+	}
+
+	public void setTotalValue(double totalValue) {
+		this.totalValue = totalValue;
 	}
 
 }

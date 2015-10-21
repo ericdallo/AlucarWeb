@@ -28,8 +28,7 @@ public class ClientDAO {
 	}
 	
 	public Client findById(long id) {
-		Client client = manager.find(Client.class, id);
-		return client;
+		return manager.find(Client.class, id);
 	}
 		
 	public void update(Client client){

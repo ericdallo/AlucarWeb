@@ -13,14 +13,14 @@
 <div class="form-group col-sm-4">
 	<label for="rent.car.id" class='control-label'><fmt:message key="rent.car.id" /></label>
 	<div class=" input-group col-sm-12">
-		<input type="text" class="form-control" id="rent.car.id" name='rent.car.id' value="${carId}" disabled>
+		<input type="text" class="form-control" id="rent.car.id" name='rent.car.id' value="${carId}" readonly>
 	</div>
 </div>
 
 <jsp:useBean id="status"
 	class='com.alucarweb.rent.status.RentStatusBean' />
 
-<div class="form-group col-sm-2">
+<div class="form-group col-sm-3">
 	<label for="rent.status" class='control-label'><fmt:message key="rent.status" /></label>
 	<div class="input-group col-sm-12">
 		<select class='form-control' id='rent.status' name='rent.status'>
@@ -39,8 +39,7 @@
 <jsp:useBean id="kms" class='com.alucarweb.rent.KillometerTypeBean' />
 
 <div class="form-group col-sm-3">
-	<label for="rent.killometerType" class='control-label'><fmt:message
-			key="rent.killometerType" /></label>
+	<label for="rent.killometerType" class='control-label'><fmt:message key="rent.killometerType" /></label>
 	<div class="input-group col-sm-12">
 		<select class='form-control' id='rent.killometerType'
 			name='rent.killometerType'>
@@ -67,3 +66,21 @@
 		</div>
 	</div>
 </c:if>
+
+<div class="form-group col-sm-3">
+	<label for="rent.client" class='control-label'><fmt:message key="rent.client" /></label>
+	<div class="input-group col-sm-12">
+		<select class='form-control' id='rent.client' name='rent.client.id'>
+			<c:forEach var="client" items="${clients}">
+				<option value="${client.id}" selected>${client.name}</option>
+			</c:forEach>
+		</select>
+	</div>
+</div>
+
+<div class='form-group col-sm-3'>
+	<label for="devolution.devolutionDate" class='control-label'><fmt:message key="rent.devolutionDate" />*</label>
+	<div class="input-group col-sm-12">
+		<input type="text" class="form-control" name='devolution.devolutionDate' value="${devolution.devolutionDate}">
+	</div>
+</div>

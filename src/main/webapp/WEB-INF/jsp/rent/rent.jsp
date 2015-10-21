@@ -18,7 +18,7 @@
 	
 	<div class='col-sm-2'></div>
 
-	<form class='form-group col-sm-8 box-home' action='<c:url value="/rents"/>' method="POST">
+	<form class='form-group col-sm-8 box-home' action='<c:url value="/locar"/>' method="POST">
 		<div class="card-title text-center">
 			<h1>
 				<fmt:message key="rent.title.insert" />
@@ -27,8 +27,7 @@
 		<%@ include file="/WEB-INF/jsp/rent/form.jsp"%>
 
 		<div class="form-group col-sm-12">
-			<button type="submit" name="_method"
-				class='btn btn-success float-right' value="POST">Confirmar</button>
+			<button type="submit" name="_method" class='btn btn-success float-right' value="POST">Confirmar</button>
 		</div>
 
 	</form>

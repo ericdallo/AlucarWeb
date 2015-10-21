@@ -31,7 +31,6 @@ public class Rent {
 	@OneToOne
 	private Car car;
 	
-	@PrimaryKeyJoinColumn
 	@OneToOne(cascade=CascadeType.ALL)
 	private Devolution devolution;
 	
