@@ -37,7 +37,7 @@
 
 		<div class="form-group col-sm-12 btn-group float-right">
 			<button type="submit" name="_method" class='btn btn-primary ' value="POST">Atualizar</button>
-			<a href='<c:url value="/locacao"/>' class='btn btn-success ' >Nova locação</a>
+			<a href='<c:url value="/locacao?carId=${car.id}"/>' class='btn btn-success ' >Nova locação</a>
 		</div>
 
 	</form>

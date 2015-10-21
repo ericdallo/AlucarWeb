@@ -13,12 +13,14 @@ public class RentController {
 
 	@Inject
 	private Result result;
-	
+
 	@Inject
 	private RentDao dao;
 
 	@Get("/locacao")
-	public void form(Car car){
-		result.include("car",car); //TODO Objeto Carro inconsistente...so com o id
+	public void rent(long carId) {
+		result.include("carId", carId);
+		result.forwardTo("WEB-INF/jsp/rent/rent.jsp");
 	}
+
 }
