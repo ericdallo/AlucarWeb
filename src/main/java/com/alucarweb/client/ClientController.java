@@ -58,10 +58,10 @@ public class ClientController {
 	}
 
 	@TransactionRequired
-	@Delete("/client/{id}")
+	@Delete("/cliente/{id}")
 	public void delete(Long id) {
 		clientDAO.delete(id);
-		validator.add(new I18nMessage("msg", "car.msg.success"));
+		validator.add(new I18nMessage("msg", "client.delete.success"));
 		validator.onErrorRedirectTo(this).list();
 	}
 	
