@@ -18,7 +18,7 @@
 	
 	<div class='col-sm-2'></div>
 
-	<form class='form-group col-sm-8 box-home' action='<c:url value="/automoveis"/>' method="POST" enctype="multipart/form-data">
+	<form class='form-group col-sm-8 box-home' action='<c:url value="/rents"/>' method="POST">
 		<div class="card-title text-center">
 			<h1>
 				<fmt:message key="rent.title.insert" />

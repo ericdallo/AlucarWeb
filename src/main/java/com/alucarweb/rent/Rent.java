@@ -17,6 +17,7 @@ import javax.persistence.TemporalType;
 
 import com.alucarweb.car.Car;
 import com.alucarweb.devolution.Devolution;
+import com.mysql.fabric.xmlrpc.Client;
 
 @Entity @Table(name="rent")
 public class Rent {
@@ -24,8 +25,8 @@ public class Rent {
 	@Id @GeneratedValue
 	private Integer id;
 	
-	//@OneToOne(mappedBy="cliente")
-	//private Cliente cliente;
+	@OneToOne(mappedBy="client")
+	private Client client;
 	
 	@OneToOne
 	private Car car;
@@ -43,14 +44,20 @@ public class Rent {
 	@Enumerated(EnumType.STRING)
 	private RentStatus status;
 	
-	private double totalValue;
-	
 	public Integer getId() {
 		return id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 	public Car getCar() {
@@ -92,19 +99,5 @@ public class Rent {
 	public void setStatus(RentStatus status) {
 		this.status = status;
 	}
-
-	public double getTotalValue() {
-		return totalValue;
-	}
-
-	public void setTotalValue(double totalValue) {
-		this.totalValue = totalValue;
-	}
-
-	@PrePersist
-	protected void onCreate() {
-	    this.createdAt = Calendar.getInstance();
-	}
-	
 	
 }

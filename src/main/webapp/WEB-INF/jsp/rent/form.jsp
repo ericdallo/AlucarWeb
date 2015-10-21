@@ -10,23 +10,10 @@
 
 <!-- <input type='hidden' name='rent.id' value='${rent.id}' /> -->
 
-<div class='col-sm-4'>
-	<div class="form-group">
-		<label for="rent.totalValue" class='control-label'><fmt:message
-				key="rent.totalValue" /></label>
-		<div class="input-group col-sm-12">
-			<input type="text" class="form-control" id="rent.totalValue"
-				name='rent.totalValue' value="${rent.totalValue}">
-		</div>
-	</div>
-</div>
-
 <div class="form-group col-sm-4">
-	<label for="rent.car.id" class='control-label'><fmt:message
-			key="rent.car.id" /></label>
+	<label for="rent.car.id" class='control-label'><fmt:message key="rent.car.id" /></label>
 	<div class=" input-group col-sm-12">
-		<input type="text" class="form-control" id="rent.car.id"
-			name='rent.car.id' value="${carId}">
+		<input type="text" class="form-control" id="rent.car.id" name='rent.car.id' value="${carId}">
 	</div>
 </div>
 
@@ -34,8 +21,7 @@
 	class='com.alucarweb.rent.status.RentStatusBean' />
 
 <div class="form-group col-sm-2">
-	<label for="rent.status" class='control-label'><fmt:message
-			key="rent.status" /></label>
+	<label for="rent.status" class='control-label'><fmt:message key="rent.status" /></label>
 	<div class="input-group col-sm-12">
 		<select class='form-control' id='rent.status' name='rent.status'>
 			<c:forEach var="st" items="${status.list}">
