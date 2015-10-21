@@ -17,7 +17,7 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/jsp/navbar.jsp" %>
-	
+	Cadastro de clientes
 	
 </body>
 </html>

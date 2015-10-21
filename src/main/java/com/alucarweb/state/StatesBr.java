@@ -1,4 +1,4 @@
-package com.alucarweb.car.state;
+package com.alucarweb.state;
 
 public enum StatesBr {
 	SP,

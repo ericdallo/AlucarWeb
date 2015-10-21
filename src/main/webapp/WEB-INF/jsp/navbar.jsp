@@ -9,10 +9,15 @@
 		</div>
 		<div class="collapse navbar-collapse" id="navbar">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="active">
-					<a href="<c:url value="/clientes"/>" class="nav-link">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false">
 						<fmt:message key="navbar.client" />
+						<span class='caret'></span>
 					</a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="<c:url value='/cliente'/>"><fmt:message key="navbar.client.add" /></a></li>
+						<li><a href="<c:url value='/clientes'/>"><fmt:message key="navbar.client.search" /></a></li>
+					</ul>
 				</li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false">

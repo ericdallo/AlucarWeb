@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import com.alucarweb.car.Car;
-import com.alucarweb.car.state.StatesBr;
+import com.alucarweb.state.StatesBr;
 
 public class CarDao {
 
