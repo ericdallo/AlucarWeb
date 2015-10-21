@@ -1,20 +1,25 @@
-package com.alucarweb.rental;
+package com.alucarweb.rent;
 
 import java.util.Calendar;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.alucarweb.car.Car;
+import com.alucarweb.devolution.Devolution;
 
-@Entity @Table(name="rental")
-public class Rental {
+@Entity @Table(name="rent")
+public class Rent {
 	
 	@Id @GeneratedValue
 	private Integer id;
@@ -25,20 +30,21 @@ public class Rental {
 	@OneToOne
 	private Car car;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar locationDate;
+	@PrimaryKeyJoinColumn
+	@OneToOne(cascade=CascadeType.ALL)
+	private Devolution devolution;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar devolutionDate;
+	@Temporal(TemporalType.DATE)
+	private Calendar createdAt;
 	
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private KillometerType killometerType;
 	
-	@Enumerated
-	private RentalStatus status;
+	@Enumerated(EnumType.STRING)
+	private RentStatus status;
 	
 	private double totalValue;
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -55,20 +61,20 @@ public class Rental {
 		this.car = car;
 	}
 
-	public Calendar getLocationDate() {
-		return locationDate;
+	public Devolution getDevolution() {
+		return devolution;
 	}
 
-	public void setLocationDate(Calendar locationDate) {
-		this.locationDate = locationDate;
+	public void setDevolution(Devolution devolution) {
+		this.devolution = devolution;
 	}
 
-	public Calendar getDevolutionDate() {
-		return devolutionDate;
+	public Calendar getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setDevolutionDate(Calendar devolutionDate) {
-		this.devolutionDate = devolutionDate;
+	public void setCreatedAt(Calendar createdAt) {
+		this.createdAt = createdAt;
 	}
 
 	public KillometerType getKillometerType() {
@@ -79,11 +85,11 @@ public class Rental {
 		this.killometerType = killometerType;
 	}
 
-	public RentalStatus getStatus() {
+	public RentStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(RentalStatus status) {
+	public void setStatus(RentStatus status) {
 		this.status = status;
 	}
 
@@ -93,6 +99,11 @@ public class Rental {
 
 	public void setTotalValue(double totalValue) {
 		this.totalValue = totalValue;
+	}
+
+	@PrePersist
+	protected void onCreate() {
+	    this.createdAt = Calendar.getInstance();
 	}
 	
 	

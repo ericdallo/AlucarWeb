@@ -1,4 +1,4 @@
-package com.alucarweb.rental;
+package com.alucarweb.rent;
 
 public enum KillometerType {
 	FREE,
