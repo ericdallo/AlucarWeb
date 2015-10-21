@@ -57,5 +57,10 @@ public class RentController {
 		List<Rent> rents = rentDao.findAll();
 		result.include("rents", rents);
 	}
+	
+	@Get("/locacao/{id}")
+	public void edit(){
+		
+	}
 
 }
