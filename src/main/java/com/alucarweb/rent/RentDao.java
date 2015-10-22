@@ -18,8 +18,9 @@ public class RentDao {
 	public void locate(Rent rent, Client client, Car car, Devolution devolution) {
 		rent.setCar(car);
 		rent.setClient(client);
-
+		
 		rent.setDevolution(devolution);
+		
 		manager.persist(rent);
 	}
 
@@ -35,6 +36,10 @@ public class RentDao {
 
 	public Rent findById(Long rentId) {
 		return manager.find(Rent.class, rentId);
+	}
+
+	public void update(Rent rent) {
+		manager.merge(rent);
 	}
 
 }

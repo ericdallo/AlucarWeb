@@ -28,7 +28,7 @@
 		<%@ include file="/WEB-INF/jsp/rent/form.jsp"%>
 
 		<div class="form-group col-sm-12">
-			<input type="submit" class='btn btn-success float-right' value="Atualizar"/>
+			<button class='btn btn-success float-right'>Atualizar</button>
 		</div>
 
 	</form>

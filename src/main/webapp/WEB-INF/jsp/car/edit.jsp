@@ -39,7 +39,6 @@
 			<button type="submit" name="_method" class='btn btn-primary ' value="POST">Atualizar</button>
 			<a href='<c:url value="/locacao?carId=${car.id}"/>' class='btn btn-success ' >Nova locação</a>
 		</div>
-
 	</form>
 
 </body>

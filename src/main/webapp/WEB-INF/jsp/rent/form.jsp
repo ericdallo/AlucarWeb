@@ -8,7 +8,8 @@
 	</div>
 </c:if>
 
-<!-- <input type='hidden' name='rent.id' value='${rent.id}' /> -->
+<input type='hidden' name='rent.id' value='${rent.id}' />
+<input type='hidden' name='rent.devolution.id' value='${rent.devolution.id}' />
 
 <div class="form-group col-sm-2">
 	<label for="rent.car.id" class='control-label'><fmt:message key="rent.car.id" /></label>

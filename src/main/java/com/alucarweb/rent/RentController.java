@@ -1,6 +1,5 @@
 package com.alucarweb.rent;
 
-import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -11,6 +10,7 @@ import com.alucarweb.client.Client;
 import com.alucarweb.dao.CarDao;
 import com.alucarweb.dao.ClientDAO;
 import com.alucarweb.devolution.Devolution;
+import com.alucarweb.devolution.DevolutionDAO;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
@@ -31,6 +31,9 @@ public class RentController {
 
 	@Inject
 	private CarDao carDao;
+	
+	@Inject
+	private DevolutionDAO devolutionDAO;
 
 	@Get("/locacao")
 	public void rent(long carId) {
@@ -74,5 +77,13 @@ public class RentController {
 		
 		result.include("devolution",devolution);
 	}
-
+	
+	@TransactionRequired
+	@Post("/locacao/{rentId}")
+	public void update(Rent rent){
+		
+		rentDao.update(rent);
+		
+		result.redirectTo(this).list();
+	}
 }

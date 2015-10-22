@@ -31,7 +31,7 @@ public class Rent {
 	@OneToOne
 	private Car car;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.PERSIST)
 	private Devolution devolution;
 	
 	@Temporal(TemporalType.DATE)
@@ -101,7 +101,9 @@ public class Rent {
 	
 	@PrePersist
 	public void onCreate(){
-		this.createdAt = Calendar.getInstance();
+		if(this.createdAt == null){
+			this.createdAt = Calendar.getInstance();
+		}
 	}
 	
 }
