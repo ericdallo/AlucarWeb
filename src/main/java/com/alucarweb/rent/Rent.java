@@ -23,7 +23,7 @@ import com.alucarweb.devolution.Devolution;
 public class Rent {
 	
 	@Id @GeneratedValue
-	private Integer id;
+	private Long id;
 	
 	@OneToOne
 	private Client client;
@@ -43,11 +43,11 @@ public class Rent {
 	@Enumerated(EnumType.STRING)
 	private RentStatus status;
 	
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

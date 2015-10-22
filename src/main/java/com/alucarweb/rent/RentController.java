@@ -1,5 +1,6 @@
 package com.alucarweb.rent;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -58,9 +59,20 @@ public class RentController {
 		result.include("rents", rents);
 	}
 	
-	@Get("/locacao/{id}")
-	public void edit(){
+	@Get("/locacao/{rentId}")
+	public void edit(Long rentId){
+		Rent rent = rentDao.findById(rentId);
 		
+		Client client = rent.getClient();
+		Devolution devolution = rent.getDevolution();
+		
+		Long carId = rent.getCar().getId();
+		
+		result.include("carId",carId);
+		result.include("rent",rent);
+		result.include("client",client);
+		
+		result.include("devolution",devolution);
 	}
 
 }

@@ -64,16 +64,10 @@
 					<td>${r.client.id}</td>
 					<td>${r.devolution.id}</td>
 					<td>
-						<form action="<c:url value='/locacao/${r.id}'/>" method='POST' class="btn-group">
-							<a href="<c:url value='/locacao/${r.id}'/>"
-								class="btn btn-primary" role="button"> 
+						<form action="<c:url value='/locacao/${r.id}'/>" method='GET' class="btn-group">
+							<button type="submit" class='btn btn-primary'>
 								<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 								Visualizar
-							</a>
-
-							<button type="submit" name="_method" class='btn btn-danger' value="DELETE">
-								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-								Excluir
 							</button>
 						</form>
 					</td>

@@ -10,7 +10,7 @@
 
 <!-- <input type='hidden' name='rent.id' value='${rent.id}' /> -->
 
-<div class="form-group col-sm-4">
+<div class="form-group col-sm-2">
 	<label for="rent.car.id" class='control-label'><fmt:message key="rent.car.id" /></label>
 	<div class=" input-group col-sm-12">
 		<input type="text" class="form-control" id="rent.car.id" name='rent.car.id' value="${carId}" readonly>
@@ -20,7 +20,7 @@
 <jsp:useBean id="status"
 	class='com.alucarweb.rent.status.RentStatusBean' />
 
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-4">	
 	<label for="rent.status" class='control-label'><fmt:message key="rent.status" /></label>
 	<div class="input-group col-sm-12">
 		<select class='form-control' id='rent.status' name='rent.status'>
@@ -58,22 +58,24 @@
 </div>
 <c:if test="${not empty rent.id}">
 	<div class="form-group col-sm-3">
-		<label for="rent.createdAt" class='control-label'><fmt:message
-				key="rent.createdAt" /></label>
+		<label for="rent.createdAt" class='control-label'><fmt:message key="rent.createdAt" /></label>
 		<div class="input-group col-sm-12">
-			<input type="text" class="form-control" id="rent.createdAt"
-				name='rent.createdAt' value="${rent.createdAt}">
+			<input type="text" class="form-control" id="rent.createdAt" name='rent.createdAt' value="<fmt:formatDate value="${rent.createdAt.time}" type="Date"/>">
 		</div>
-	</div>
+	</div> 	
 </c:if>
 
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-5">
 	<label for="rent.client" class='control-label'><fmt:message key="rent.client" /></label>
 	<div class="input-group col-sm-12">
 		<select class='form-control' id='rent.client' name='rent.client.id'>
-			<c:forEach var="client" items="${clients}">
-				<option value="${client.id}" selected>${client.name}</option>
-			</c:forEach>
+			<c:if test="${not empty client}" >
+				<option value="${client.id}">${client.name}</option>
+			</c:if>
+				<c:forEach var="client" items="${clients}">
+					<option value="${client.id}" >${client.name}</option>
+				</c:forEach>
+						
 		</select>
 	</div>
 </div>
@@ -81,6 +83,6 @@
 <div class='form-group col-sm-3'>
 	<label for="devolution.devolutionDate" class='control-label'><fmt:message key="rent.devolutionDate" />*</label>
 	<div class="input-group col-sm-12">
-		<input type="text" class="form-control" name='devolution.devolutionDate' value="${devolution.devolutionDate}">
+		<input type="text" class="form-control" name='devolution.devolutionDate' value=<fmt:formatDate value="${devolution.devolutionDate.time}" type="Date"/>>
 	</div>
 </div>

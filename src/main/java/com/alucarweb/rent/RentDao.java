@@ -33,4 +33,8 @@ public class RentDao {
 
 	}
 
+	public Rent findById(Long rentId) {
+		return manager.find(Rent.class, rentId);
+	}
+
 }
