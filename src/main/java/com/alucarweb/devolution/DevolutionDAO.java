@@ -8,8 +8,8 @@ public class DevolutionDAO {
 	@Inject
 	private EntityManager manager;
 
-	public Devolution findById(int devolutionId) {
-		Devolution dev = manager.find(Devolution.class, devolutionId);
+	public Devolution findById(int id) {
+		Devolution dev = manager.find(Devolution.class, id);
 		return dev;
 	}
 	

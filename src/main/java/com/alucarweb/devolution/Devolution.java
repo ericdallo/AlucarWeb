@@ -17,32 +17,11 @@ public class Devolution {
 	private Integer id;
 	
 	@Temporal(TemporalType.DATE)
+	private Calendar devolutionExpectedDate;
+	
+	@Temporal(TemporalType.DATE)
 	private Calendar devolutionDate;
 	
 	private double totalValue;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Calendar getDevolutionDate() {
-		return devolutionDate;
-	}
-
-	public void setDevolutionDate(Calendar devolutionDate) {
-		this.devolutionDate = devolutionDate;
-	}
-
-	public double getTotalValue() {
-		return totalValue;
-	}
-
-	public void setTotalValue(double totalValue) {
-		this.totalValue = totalValue;
-	}
-
+	//TODO - AGENCIA ALOCADA E AGENCIA DEVOLVIDA - ERIC	
 }
