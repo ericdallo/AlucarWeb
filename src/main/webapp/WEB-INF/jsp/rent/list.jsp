@@ -1,7 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,14 +14,16 @@
 <title><fmt:message key="rent.title" /></title>
 
 </head>
+
+
+
 <body>
 	<%@ include file="/WEB-INF/jsp/navbar.jsp"%>
-
 	<div>
 		<c:forEach items="${errors}" var="e">
 			<div class="alert alert-info text-center msg-error">
-				<span class="glyphicon glyphicon-exclamation-sign"
-					aria-hidden="true"></span> ${e.message}
+				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> 
+				${e.message}
 			</div>
 		</c:forEach>
 	</div>
