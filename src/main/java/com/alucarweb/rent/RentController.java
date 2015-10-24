@@ -4,18 +4,13 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import com.alucarweb.annotation.TransactionRequired;
 import com.alucarweb.annotations.NotLogged;
-import com.alucarweb.car.Car;
-import com.alucarweb.client.Client;
 import com.alucarweb.dao.CarDao;
 import com.alucarweb.dao.ClientDAO;
-import com.alucarweb.devolution.Devolution;
 import com.alucarweb.devolution.DevolutionDAO;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
-import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
 
@@ -26,7 +21,7 @@ public class RentController {
 	private Result result;
 
 	@Inject
-	private RentDao rentDao;
+	private RentDAO rentDAO;
 
 	@Inject
 	private ClientDAO clientDao;
@@ -36,7 +31,14 @@ public class RentController {
 	
 	@Inject
 	private DevolutionDAO devolutionDAO;
-
+	
+	@Get("/locacoes")
+	public void list() {
+		List<Rent> rents = rentDAO.findAll();
+		result.include("rents", rents);
+	}
+	
+	/*
 	@Get("/locacao")
 	public void rent(long carId) {
 		result.include("carId", carId);
@@ -58,11 +60,7 @@ public class RentController {
 		result.forwardTo(this).list();
 	}
 
-	@Get("/locacoes")
-	public void list() {
-		List<Rent> rents = rentDao.findAll();
-		result.include("rents", rents);
-	}
+	
 	
 	@Get("/locacao/{rentId}")
 	public void edit(Long rentId){
@@ -88,11 +86,13 @@ public class RentController {
 		
 		result.redirectTo(this).list();
 	}
+*/
 
 	@NotLogged
 	@Get("/locacoes/json/{clientName}")
 	public void listJson(String clientName) {
-		List<Rent> rents = rentDao.findAllByClientName(clientName);
+		List<Rent> rents = rentDAO.findAllByClientName(clientName);
+
 		if(rents.isEmpty()){
 			result.use(Results.status()).noContent();
 		}

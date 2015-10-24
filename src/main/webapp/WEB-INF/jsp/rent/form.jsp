@@ -37,7 +37,7 @@
 	</div>
 </div>
 
-<jsp:useBean id="kms" class='com.alucarweb.rent.KillometerTypeBean' />
+<jsp:useBean id="kms" class='com.alucarweb.rent.killometer.type.KillometerTypeBean' />
 
 <div class="form-group col-sm-3">
 	<label for="rent.killometerType" class='control-label'><fmt:message key="rent.killometerType" /></label>
