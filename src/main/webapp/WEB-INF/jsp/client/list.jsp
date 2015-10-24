@@ -13,7 +13,7 @@
 <link href='<c:url value="/bootstrap/css/bootstrap.min.css"/>'
 	rel="stylesheet">
 <link href='<c:url value="/css/util.css"/>' rel="stylesheet">
-<link href='<c:url value="/css/client-list.css"/>' rel="stylesheet">
+<link href='<c:url value="/css/table-list.css"/>' rel="stylesheet">
 <title><fmt:message key="client.title" /></title>
 </head>
 <body>
@@ -48,24 +48,7 @@
 					<td>${c.name}</td>
 					<td>${c.cpf}</td>
 					<td>${c.email}</td>
-					<!-- <td>
-						<form action="<c:url value='/cliente/${c.id}'/>" method='POST'
-							class="">
-							<a href="<c:url value='/cliente/${c.id}'/>"
-								class="btn btn-primary" role="button"> <span
-								class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-
-							</a>
-
-							<button type="submit" name="_method" class='btn btn-danger'
-								value="DELETE">
-								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-
-							</button>
-						</form>
-					</td> -->
 				</tr>
-
 			</c:forEach>
 		</tbody>
 	</table>

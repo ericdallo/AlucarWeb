@@ -9,24 +9,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src='<c:url value="/js/jquery.js"/>'></script>
 <script src='<c:url value="/bootstrap/js/bootstrap.min.js"/>'></script>
-
-<link href='<c:url value="/bootstrap/css/bootstrap.min.css"/>'
-	rel="stylesheet">
+<link href='<c:url value="/bootstrap/css/bootstrap.min.css"/>' rel="stylesheet">
 <link href='<c:url value="/css/util.css"/>' rel="stylesheet">
+<link href='<c:url value="/css/table-list.css"/>' rel="stylesheet">
 <title><fmt:message key="rent.title" /></title>
-<style>
-.box-table {
-	padding: 10px;
-}
-</style>
+
 </head>
 <body>
 	<%@ include file="/WEB-INF/jsp/navbar.jsp"%>
-	<div class='page-header text-center'>
-		<h1>
-			<fmt:message key="rent.title" />
-		</h1>
-	</div>
 
 	<div>
 		<c:forEach items="${errors}" var="e">
@@ -36,44 +26,35 @@
 			</div>
 		</c:forEach>
 	</div>
+	<table class="flatTable col-md-offset-2 col-md-4">
 
-	<div class='col-sm-2'></div>
-
-	<div class="panel panel-default col-sm-8 box-table">
-		<div class="panel-heading">Locação de Automóveis</div>
-
-		<table class="table">
-			<tr>
-				<th>#</th>
-				<th>Data de Locação</th>
-				<th>Tipo de Km</th>
-				<th>Status</th>
-				<th># Cliente</th>
-				<th># Automóvel</th>
-				<th># Devolução</th>
-				<th></th>
+		<thead>
+			<tr class="titleTr">
+				<td class="titleTd">Lista de Locações</td>
+				<td colspan="6"></td>
 			</tr>
+			<tr class="headingTr">
+				<td>#</td>
+				<td>Data de Locação</td>
+				<td>Tipo de Km</td>
+				<td>Status</td>
+				<td># Cliente</td>
+				<td># Automóvel</td>
+				<td># Devolução</td>
+			</tr>
+		<tbody class="table-hover">
 			<c:forEach items="${rents}" var="r">
-				<tr>
+				<tr onclick="window.location.href = '<c:url value='/locacao/${r.id}'/>'">
 					<td>${r.id}</td>
-					<td><fmt:formatDate value="${r.createdAt.time}" type="Date"></fmt:formatDate>
-					</td>
+					<td><fmt:formatDate value="${r.createdAt.time}" type="Date"></fmt:formatDate></td>
 					<td>${r.killometerType}</td>
 					<td>${r.status}</td>
 					<td>${r.car.id}</td>
 					<td>${r.client.id}</td>
 					<td>${r.devolution.id}</td>
-					<td>
-						<form action="<c:url value='/locacao/${r.id}'/>" method='GET' class="btn-group">
-							<button type="submit" class='btn btn-primary'>
-								<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-								Visualizar
-							</button>
-						</form>
-					</td>
 				</tr>
 			</c:forEach>
-		</table>
-	</div>
+		</tbody>
+	</table>
 </body>
 </html>
