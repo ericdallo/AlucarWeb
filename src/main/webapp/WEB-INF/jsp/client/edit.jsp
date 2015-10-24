@@ -18,7 +18,8 @@
 
 <body>
 	<c:if test="${not empty client.id}">
-		<script>window.history.pushState('','','/AlucarWeb/client/${client.id}');</script>
+		<script>window.location.url = '/AlucarWeb/cliente/${client.id}'</script>
+		
 	</c:if>
 
 	<%@ include file="/WEB-INF/jsp/navbar.jsp"%>
@@ -37,9 +38,9 @@
 		</div>
 		<%@ include file="/WEB-INF/jsp/client/form.jsp"%>
 
-		<div class="form-group col-sm-12">
-			<button type="submit" name="_method"
-				class='btn btn-primary float-right' value="POST">Atualizar</button>
+		<div class="form-group col-sm-12 btn-group">
+			<button type="submit" name="_method" class='btn btn-primary' value="POST">Atualizar</button>
+			<button type="submit" name="_method" class='btn btn-danger' value="DELETE">Excluir</button>
 		</div>
 		
 	</form>

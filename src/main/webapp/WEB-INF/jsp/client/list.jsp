@@ -21,13 +21,11 @@
 
 	<div>
 		<c:forEach items="${errors}" var="e">
-			<div class="alert alert-info text-center msg-error">
-				<span class="glyphicon glyphicon-exclamation-sign"
-					aria-hidden="true"></span> ${e.message}
+			<div class="alert alert-danger text-center msg-error">
+				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ${e.message}
 			</div>
 		</c:forEach>
 	</div>
-
 	<table class="flatTable col-md-offset-2 col-md-4">
 
 		<thead>
@@ -44,11 +42,7 @@
 			</tr>
 		<tbody class="table-hover">
 			<c:forEach items="${clients}" var="c">
-
-
-				<tr>
-
-
+				<tr onclick="window.location.href = '<c:url value="/cliente/${c.id}"/>'">
 					<td>${c.id}</td>
 					<td>${c.gender}</td>
 					<td>${c.name}</td>
@@ -71,51 +65,9 @@
 						</form>
 					</td> -->
 				</tr>
+
 			</c:forEach>
 		</tbody>
 	</table>
-
-	<!-- 
-	<div class='col-sm-2'></div>
-
-	
-		<div class="panel-heading">Clientes cadastrados</div>
-
-		<table class="table responstable">
-			<tr>
-				<th>#</th>
-				<th>Gênero</th>
-				<th>Nome</th>
-				<th>CPF</th>
-				<th>Email</th>
-				<th></th>
-			</tr>
-			<c:forEach items="${clients}" var="c">
-				<tr>
-					<td>${c.id}</td>
-					<td>${c.gender}</td>
-					<td>${c.name}</td>
-					<td>${c.cpf}</td>
-					<td>${c.email}</td>
-					<td>
-						<form action="<c:url value='/cliente/${c.id}'/>" method='POST' class="">
-							<a href="<c:url value='/cliente/${c.id}'/>"
-								class="btn btn-primary" role="button"> <span
-								class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-								
-							</a>
-
-							<button type="submit" name="_method" class='btn btn-danger'
-								value="DELETE">
-								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-								
-							</button>
-						</form>
-					</td>
-				</tr>
-			</c:forEach>
-		</table>
-	
-  -->
 </body>
 </html>

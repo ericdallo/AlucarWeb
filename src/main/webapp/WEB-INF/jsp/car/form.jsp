@@ -30,7 +30,7 @@
 <div class="form-group col-sm-4">
 	<label for="car.manufacturer" class='control-label'><fmt:message key="car.manufacturer" /></label>
 	<div class=" input-group col-sm-12">
-		<input type="text" class="form-control" id="car.manufacturer" name='' value="${car.manufacturer}">
+		<input type="text" class="form-control" id="car.manufacturer" name='car.manufacturer' value="${car.manufacturer}">
 	</div>
 </div>
 <!-- BREAK LINE -->
