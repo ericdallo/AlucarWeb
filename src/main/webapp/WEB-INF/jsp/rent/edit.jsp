@@ -26,9 +26,12 @@
 			</h1>
 		</div>
 		<%@ include file="/WEB-INF/jsp/rent/form.jsp"%>
-
-		<div class="form-group col-sm-12">
+		
+		<div class="form-group col-sm-12 btn-group">
 			<button class='btn btn-success float-right'>Atualizar</button>
+			<button formaction='<c:url value="/devolucao/${rent.id}"/>' class='btn btn-primary float-right'>Realizar Devolução</button>
+			
+			
 		</div>
 
 	</form>

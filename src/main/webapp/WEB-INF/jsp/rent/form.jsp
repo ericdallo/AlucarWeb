@@ -24,16 +24,7 @@
 <div class="form-group col-sm-4">	
 	<label for="rent.status" class='control-label'><fmt:message key="rent.status" /></label>
 	<div class="input-group col-sm-12">
-		<select class='form-control' id='rent.status' name='rent.status'>
-			<c:forEach var="st" items="${status.list}">
-				<c:if test="${not empty rent.status and rent.status eq st}">
-					<option value="${rent.status}" selected>${rent.status}</option>
-				</c:if>
-				<c:if test="${empty rent.status or rent.status != st}">
-					<option value="${st}">${st}</option>
-				</c:if>
-			</c:forEach>
-		</select>
+		<input type="text" class="form-control" id="rent.status" name='rent.status' value="${rent.status}" readonly>
 	</div>
 </div>
 

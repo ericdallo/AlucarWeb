@@ -35,11 +35,7 @@
 						<fmt:message key="navbar.location" />
 					</a>
 				</li>
-				<li class="active">
-					<a href=<c:url value='devolucoes'/>#" class="nav-link">
-						<fmt:message key="navbar.devolution" />						
-					</a>
-				</li>
+				
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false">
 						<fmt:message key="navbar.account" />

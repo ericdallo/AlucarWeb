@@ -13,24 +13,38 @@
 <link href='<c:url value="/css/util.css"/>' rel="stylesheet">
 <title><fmt:message key="rent.title" /></title>
 </head>
+</head>
 <body>
 	<%@ include file="/WEB-INF/jsp/navbar.jsp"%>
 	
 	<div class='col-sm-2'></div>
 
-	<form class='form-group col-sm-8 box-home' action='<c:url value="/locar"/>' method="POST">
+	<form class='form-group col-sm-8 box-home' action='<c:url value="/devolucao/${devolution.id}"/>' method="POST">
 		<div class="card-title text-center">
 			<h1>
-				<fmt:message key="rent.title.insert" />
+				<fmt:message key="devolution.title" />
 			</h1>
 		</div>
-		<%@ include file="/WEB-INF/jsp/rent/form.jsp"%>
-
-		<div class="form-group col-sm-12">
-			<button type="submit" name="_method" class='btn btn-success float-right' value="POST">Confirmar</button>	
+		
+		<c:if test="${not empty errors}">
+			<div class="alert alert-danger" style="text-align: center">
+				<c:forEach var="error" items="${errors}">
+					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					${error.message}
+				</c:forEach>
+			</div>
+		</c:if>
+		
+		<input type='text' name='rent.status' value='${rent.status}' />
+			
+		
+		
+		
+		<div class="form-group col-sm-12 btn-group">
+			<button class='btn btn-success float-right'>Atualizar</button>
+			<a href='<c:url value="/devolucao/${rent.devolution.id}"/>' class='btn btn-primary float-right' >Realizar Devolução</a>
 		</div>
 
 	</form>
-
 </body>
 </html>
