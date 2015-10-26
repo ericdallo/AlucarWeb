@@ -95,7 +95,7 @@ public class CarController {
 
 	@NotLogged
 	@Get("/automoveis/json/{state}")
-	public void listCarSpecificationJson(@NotNull StatesBr state) {
+	public void listJson(@NotNull StatesBr state) {
 		validator.onErrorUse(Results.status()).notAcceptable();
 
 		List<Car> cars = carDao.findByState(state);

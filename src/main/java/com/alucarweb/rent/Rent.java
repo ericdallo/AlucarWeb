@@ -8,9 +8,9 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -19,30 +19,32 @@ import com.alucarweb.car.Car;
 import com.alucarweb.client.Client;
 import com.alucarweb.devolution.Devolution;
 
-@Entity @Table(name="rent")
+@Entity
+@Table(name = "rent")
 public class Rent {
-	
-	@Id @GeneratedValue
+
+	@Id
+	@GeneratedValue
 	private Long id;
-	
-	@OneToOne
+
+	@ManyToOne
 	private Client client;
-	
+
 	@OneToOne
 	private Car car;
-	
-	@OneToOne(cascade=CascadeType.PERSIST)
+
+	@OneToOne(cascade = CascadeType.PERSIST)
 	private Devolution devolution;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Calendar createdAt;
-	
+
 	@Enumerated(EnumType.STRING)
 	private KillometerType killometerType;
-	
+
 	@Enumerated(EnumType.STRING)
 	private RentStatus status;
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -98,12 +100,12 @@ public class Rent {
 	public void setStatus(RentStatus status) {
 		this.status = status;
 	}
-	
+
 	@PrePersist
-	public void onCreate(){
-		if(this.createdAt == null){
+	public void onCreate() {
+		if (this.createdAt == null) {
 			this.createdAt = Calendar.getInstance();
 		}
 	}
-	
+
 }
