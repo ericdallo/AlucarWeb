@@ -30,14 +30,53 @@
 			</div>
 		</c:forEach>
 	</div>
+	<div class="list-title">
+		<h1>Automóveis</h1>
+	</div>
+	
+	<div class="container">
+		<c:forEach items="${cars}" var="car">
+			<div class="row car-row">
+				<div class="col-xs-8 col-xs-offset-2 card">
+					<div class="image-car">
+						<a href="<c:url value='/automovel/${car.id}'/>"> <img
+							src="${car.image}" alt="Image">
+						</a>
+					</div>
 
+					<div class="content">
+						<span class="float-right">${car.state}</span>
+
+						<h4>${car.model}</h4>
+						<p>${car.manufacturer}</p>
+						<p>${car.obs}</p>
+
+					</div>
+					<div class="footer">
+						<span class="pull-right buttons"> <a
+							href="<c:url value='/automovel/${car.id}'/>"
+							class="btn btn-sm btn-default" role="button"> <span
+								class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								Visualizar
+						</a>
+							<button class="btn btn-sm btn-primary">
+								<i class="fa fa-fw fa-credit-card"></i> Alugar
+							</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
+
+	<!-- 
 	<div class="container">
 		<div class="row car-panel">
 			<div class='title'>
 				<h1 class='list-title'>Pesquisa de carros</h1>
 			</div>
 			
-
+			
 			<c:forEach items="${cars}" var="car">
 				<div class="col-sm-6 col-md-4 shadow">
 					<div class='inside'>
@@ -64,6 +103,6 @@
 
 			</c:forEach>
 		</div>
-	</div>
+	</div>-->
 </body>
 </html>

@@ -59,7 +59,7 @@ public class CarController {
 
 		result.include("car", car);
 		result.include("carId", car.getId());
-		result.use(Results.page()).of(CarController.class).edit(car.getId());
+		result.redirectTo(CarController.class).list();
 	}
 
 	@TransactionRequired

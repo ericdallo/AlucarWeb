@@ -11,14 +11,14 @@
 }
 
 body{ background-image: url("../images/login/background-login.jpg") !important; }
-.msg-error{ margin:2rem auto; width:40rem; }
+.msg-error{ margin:2rem auto; width:60%; }
 
 .float-right{ float:right; }
 .float-left{ float:left; }
 
 .pointer{ cursor:pointer; }
 
-.card-title { background: #0968AA; }
+.card-title { background: #3E5F94; }
 
 .card-title h1 {
 	color: white;

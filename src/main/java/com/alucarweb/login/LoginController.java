@@ -29,7 +29,7 @@ public class LoginController{
 	private LoggedUser loggedUser;
 	
 	@NotLogged
-	@Get("/")
+	@Get(value = {"/","/login"} )
 	public void form(){
 		if(loggedUser.getUser() != null){
 			result.redirectTo(HomeController.class).home();
