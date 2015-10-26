@@ -96,6 +96,9 @@ public class RentController {
 		if(rents.isEmpty()){
 			result.use(Results.status()).noContent();
 		}
-		result.use(Results.json()).from(rents).serialize();
+		result.use(Results.json()).from(rents)
+			.include("client")
+			.include("car")
+			.serialize();
 	}
 }
