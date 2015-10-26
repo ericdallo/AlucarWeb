@@ -16,11 +16,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.alucarweb.agency.Agency;
 import com.alucarweb.car.Car;
 import com.alucarweb.client.Client;
-import com.alucarweb.payment.Payment;
-import com.alucarweb.agency.Agency;
 import com.alucarweb.killometer.KillometerType;
+import com.alucarweb.payment.Payment;
 import com.alucarweb.status.RentStatus;
 
 @Entity
@@ -28,6 +28,7 @@ import com.alucarweb.status.RentStatus;
 public class Rent {
 	
 	@Id 
+
 	@GeneratedValue
 	private Long id;
 

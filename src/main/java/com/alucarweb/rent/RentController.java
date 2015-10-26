@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import com.alucarweb.agency.Agency;
 import com.alucarweb.annotation.TransactionRequired;
 import com.alucarweb.annotations.NotLogged;
 import com.alucarweb.client.Client;
