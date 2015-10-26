@@ -92,10 +92,13 @@ public class RentController {
 	@NotLogged
 	@Get("/locacoes/json/{clientName}")
 	public void listJson(String clientName) {
-		List<Rent> rents = rentDao.findAByClientName(clientName);
+		List<Rent> rents = rentDao.findAllByClientName(clientName);
 		if(rents.isEmpty()){
 			result.use(Results.status()).noContent();
 		}
-		result.use(Results.json()).from(rents).serialize();
+		result.use(Results.json()).from(rents)
+			.include("client")
+			.include("car")
+			.serialize();
 	}
 }
