@@ -38,6 +38,15 @@ public class RentDAO {
 
 		return rents;
 	}
+
+	public List<Rent> findAByClientName(String clientName) {
+		String jpql = "SELECT r from Rent r where r.client.name like :name";
+
+		TypedQuery<Rent> rentsQuery = manager.createQuery(jpql, Rent.class);
+		rentsQuery.setParameter("name", "%" + clientName + "%");
+
+		return rentsQuery.getResultList();
+	}
 */
 	public List<Rent> findAllByClientName(String clientName) {
 		String jpql = "SELECT r from Rent r where r.client.name like :name";
