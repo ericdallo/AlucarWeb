@@ -19,9 +19,9 @@ import javax.persistence.TemporalType;
 import com.alucarweb.car.Car;
 import com.alucarweb.client.Client;
 import com.alucarweb.payment.Payment;
-import com.alucarweb.rent.agency.Agency;
-import com.alucarweb.rent.killometer.type.KillometerType;
-import com.alucarweb.rent.status.RentStatus;
+import com.alucarweb.agency.Agency;
+import com.alucarweb.killometer.KillometerType;
+import com.alucarweb.status.RentStatus;
 
 @Entity
 @Table(name="rent")

@@ -5,14 +5,15 @@ import java.util.List;
 import javax.inject.Inject;
 
 import com.alucarweb.annotation.NotLogged;
+import com.alucarweb.agency.Agency;
 import com.alucarweb.annotation.TransactionRequired;
 import com.alucarweb.car.Car;
 import com.alucarweb.agency.AgencyDAO;
 import com.alucarweb.client.Client;
+import com.alucarweb.dao.AgencyDAO;
 import com.alucarweb.dao.CarDao;
 import com.alucarweb.dao.ClientDAO;
 import com.alucarweb.devolution.DevolutionDAO;
-import com.alucarweb.rent.agency.Agency;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
@@ -61,9 +62,9 @@ public class RentController {
 	@Get("/locacao/{rentId}")
 	public void show(Long rentId){
 		Rent rent = rentDAO.findById(rentId);
-		List<Agency> agencies = agencyDAO.findAll();
+		//List<Agency> agencies = agencyDAO.findAll();
 		
-		result.include("agencies",agencies);
+		//result.include("agencies",agencies);
 		result.include("rent",rent);	
 	}
 	

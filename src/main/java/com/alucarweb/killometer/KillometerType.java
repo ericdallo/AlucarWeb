@@ -1,4 +1,4 @@
-package com.alucarweb.rent.killometer.type;
+package com.alucarweb.killometer;
 
 public enum KillometerType {
 	FREE("Livre"),

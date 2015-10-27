@@ -13,7 +13,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 import com.alucarweb.rent.Rent;
-import com.alucarweb.rent.agency.Agency;
+import com.alucarweb.agency.Agency;
 
 @Entity
 @Table(name="devolution")
