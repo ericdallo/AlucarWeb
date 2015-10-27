@@ -7,13 +7,16 @@ import javax.inject.Inject;
 import com.alucarweb.annotation.NotLogged;
 import com.alucarweb.annotation.TransactionRequired;
 import com.alucarweb.car.Car;
+import com.alucarweb.agency.AgencyDAO;
 import com.alucarweb.client.Client;
 import com.alucarweb.dao.CarDao;
 import com.alucarweb.dao.ClientDAO;
 import com.alucarweb.devolution.DevolutionDAO;
+import com.alucarweb.rent.agency.Agency;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
 
@@ -27,10 +30,13 @@ public class RentController {
 	private RentDAO rentDAO;
 
 	@Inject
-	private ClientDAO clientDao;
-
+	private ClientDAO clientDAO;
+	
 	@Inject
-	private CarDao carDao;
+	private AgencyDAO agencyDAO;
+	
+	@Inject
+	private CarDao carDAO;
 	
 	@Inject
 	private DevolutionDAO devolutionDAO;
@@ -41,36 +47,46 @@ public class RentController {
 		result.include("rents", rents);
 	}
 	
-	/*
+	
 	@Get("/locacao")
-	public void rent(long carId) {
-		result.include("carId", carId);
-
-		List<Client> clients = clientDao.findAll();
-
+	public void insert(Long carId){
+		List<Client> clients = clientDAO.findAll();
+		
+		result.include("carId",carId);
 		result.include("clients", clients);
-		result.forwardTo("WEB-INF/jsp/rent/rent.jsp");
+		result.forwardTo("WEB-INF/jsp/rent/new.jsp");
 	}
-
-	@TransactionRequired
-	@Post("/locar")
-	public void locate(Rent rent, Devolution devolution) {
-		Client client = clientDao.findById(rent.getClient().getId());
-		Car car = carDao.findById(rent.getCar().getId());
-
-		rentDao.locate(rent, client, car, devolution);
-
-		result.forwardTo(this).list();
-	}
-
 	
 	
 	@Get("/locacao/{rentId}")
+	public void show(Long rentId){
+		Rent rent = rentDAO.findById(rentId);
+		List<Agency> agencies = agencyDAO.findAll();
+		
+		result.include("agencies",agencies);
+		result.include("rent",rent);	
+	}
+	
+	
+	/*
+	@TransactionRequired
+	@Post("/locar")
+	public void locate(Rent rent, Devolution devolution) {
+		Client client = clientDAO.findById(rent.getClient().getId());
+		Car car = carDAO.findById(rent.getCar().getId());
+
+		rentDAO.locate(rent, client, car, devolution);
+
+		result.forwardTo(this).list();
+	}
+	
+	
+	/*
+	@Get("/locacao/{rentId}")
 	public void edit(Long rentId){
-		Rent rent = rentDao.findById(rentId);
+		Rent rent = rentDAO.findById(rentId);
 		
 		Client client = rent.getClient();
-		Devolution devolution = rent.getDevolution();
 		
 		Long carId = rent.getCar().getId();
 		
@@ -80,16 +96,15 @@ public class RentController {
 		
 		result.include("devolution",devolution);
 	}
-	
+	*/
 	@TransactionRequired
 	@Post("/locacao/{rentId}")
 	public void update(Rent rent){
 		
-		rentDao.update(rent);
+		rentDAO.update(rent);
 		
 		result.redirectTo(this).list();
 	}
-*/
 
 	@NotLogged
 	@Get("/locacoes/json/{clientName}")

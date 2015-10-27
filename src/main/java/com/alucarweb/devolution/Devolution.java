@@ -10,6 +10,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 import com.alucarweb.rent.Rent;
 import com.alucarweb.rent.agency.Agency;
@@ -31,7 +32,10 @@ public class Devolution {
 	@Temporal(TemporalType.DATE)
 	@Column(name="devolution_date")
 	private Calendar date;
-
+	
+	@NotNull
+	private String totalValue;
+	
 	public Long getId() {
 		return id;
 	}
@@ -62,5 +66,13 @@ public class Devolution {
 
 	public void setDate(Calendar date) {
 		this.date = date;
+	}
+	
+	public String getTotalValue() {
+		return totalValue;
+	}
+
+	public void setTotalValue(String totalValue) {
+		this.totalValue = totalValue;
 	}
 }
