@@ -3,7 +3,6 @@ package com.alucarweb.rent;
 import java.util.Calendar;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,7 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -20,7 +18,6 @@ import javax.persistence.TemporalType;
 
 import com.alucarweb.car.Car;
 import com.alucarweb.client.Client;
-import com.alucarweb.devolution.Devolution;
 import com.alucarweb.payment.Payment;
 import com.alucarweb.rent.agency.Agency;
 import com.alucarweb.rent.killometer.type.KillometerType;
@@ -36,23 +33,20 @@ public class Rent {
 
 	@ManyToOne
 	private Client client;
-
-	@OneToOne(cascade = CascadeType.PERSIST)
-	private Devolution devolution;
 	
 	@Temporal(TemporalType.DATE)
 	private Calendar createdAt;
 	
-	@OneToOne 
+	@ManyToOne 
 	private Car car;
 	
 	@Enumerated(EnumType.STRING)
 	private RentStatus status;
 	
-	@OneToOne 
+	@ManyToOne 
 	private Agency agency;
 	
-	@OneToOne
+	@ManyToOne
 	private Agency expectedAgency; 
 	
 	@Temporal(TemporalType.DATE)
@@ -63,7 +57,7 @@ public class Rent {
 	private KillometerType killometerType;
 	
 	@OneToMany(mappedBy="rent")
-	private List<Payment> payments;
+	private List<Payment> payments;	
 	
 	public Long getId() {
 		return id;
@@ -73,20 +67,20 @@ public class Rent {
 		this.id = id;
 	}
 
-	public Calendar getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Calendar createdAt) {
-		this.createdAt = createdAt;
-	}
-
 	public Client getClient() {
 		return client;
 	}
 
 	public void setClient(Client client) {
 		this.client = client;
+	}
+
+	public Calendar getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Calendar createdAt) {
+		this.createdAt = createdAt;
 	}
 
 	public Car getCar() {
@@ -135,6 +129,14 @@ public class Rent {
 
 	public void setKillometerType(KillometerType killometerType) {
 		this.killometerType = killometerType;
+	}
+
+	public List<Payment> getPayments() {
+		return payments;
+	}
+
+	public void setPayments(List<Payment> payments) {
+		this.payments = payments;
 	}
 
 	@PrePersist

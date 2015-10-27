@@ -36,3 +36,7 @@ body{ background-image: url("../images/login/background-login.jpg") !important; 
 		rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0) !important;
 	font-family: Aller;
 }
+
+.box-form{
+	background-color:#fff;
+}

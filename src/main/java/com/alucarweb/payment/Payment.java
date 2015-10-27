@@ -36,7 +36,7 @@ public class Payment {
 	private String cpf;
 	
 	@NotNull
-	private double totalValue;
+	private double value;
 	
 	@NotNull
 	private PaymentStatus status;
@@ -84,12 +84,12 @@ public class Payment {
 		this.cpf = cpf;
 	}
 
-	public double getTotalValue() {
-		return totalValue;
+	public double getValue() {
+		return value;
 	}
 
-	public void setTotalValue(double totalValue) {
-		this.totalValue = totalValue;
+	public void setValue(double value) {
+		this.value = value;
 	}
 
 	public PaymentStatus getStatus() {

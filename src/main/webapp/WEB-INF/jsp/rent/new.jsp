@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,7 +21,7 @@
 	<form class='form-group col-sm-8 box-home' action='<c:url value="/locacao/${rent.id}"/>' method="POST">
 		<div class="card-title text-center">
 			<h1>
-				<fmt:message key="rent.title.edit" />
+				<fmt:message key="rent.title.insert" />
 			</h1>
 		</div>
 		<%@ include file="/WEB-INF/jsp/rent/form.jsp"%>
