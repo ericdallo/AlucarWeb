@@ -1,8 +1,10 @@
-package com.alucarweb.status;
+package com.alucarweb.rent;
 
 public enum RentStatus {
-	IN_PROGRESS("Em Andamento"),
-	WAITING_PAYMENT("Aguardando Pagamento"),
+
+	RESERVED("Reservado"),
+	ISSUED("Em Aberto"),
+	WAIT_PAYMENT("Aguardando Pagamento"),
 	FINISHED("Finalizado");
 
 	private String attribute;

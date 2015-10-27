@@ -1,4 +1,4 @@
-package com.alucarweb.agency;
+package com.alucarweb.rent.agency;
 
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
@@ -46,7 +46,5 @@ public class Agency {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
+
 }
