@@ -16,20 +16,99 @@
 <body>
 	<%@ include file="/WEB-INF/jsp/navbar.jsp"%>
 	
-	<div class='col-sm-2'></div>
-
-	<form class='form-group col-sm-8 box-home' action='<c:url value="/locacao/${rent.id}"/>' method="POST">
-		<div class="card-title text-center">
-			<h1>
-				<fmt:message key="rent.title.insert" />
-			</h1>
-		</div>
-		<%@ include file="/WEB-INF/jsp/rent/form.jsp" %>
-
-		<div class="form-group col-sm-12">
-			<button class='btn btn-success float-right'>Atualizar</button>
-		</div>
-
-	</form>
+	<jsp:useBean id="status" class='com.alucarweb.status.RentStatusBean' />
+	<jsp:useBean id="kms" class='com.alucarweb.killometer.KillometerTypeBean' />
+	
+	
+	<div class="container">
+		<div class='row'>
+			<div class='form-group col-md-10 col-md-offset-1' style='background-color:#fff'>
+				<c:if test="${not empty errors}">
+					<div class="alert alert-danger" style="text-align: center">
+						<c:forEach var="error" items="${errors}">
+							<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+							${error.message}
+						</c:forEach>
+					</div>
+				</c:if>
+					
+				<div class="card-title text-center">
+					<h1>
+						<fmt:message key="rent.title" />
+					</h1>
+				</div>
+						
+				<div class="form-group col-sm-2">
+					<label class='control-label'><fmt:message key="rent.car.id" /></label>
+					<div class=" input-group col-sm-12">
+						<input type="text" class="form-control" name='rent.car.id' value="${carId}" disabled />
+					</div>
+				</div>
+				
+				
+				<div class='form-group col-sm-3'>
+					<label class='control-label'><fmt:message key="rent.client" /></label>
+					<select class='form-control'name='rent.client.id'> 
+						<c:forEach var="client" items="${clients}">
+							<option value="${client.id}">${client.name}</option>
+						</c:forEach>
+					</select>
+				</div>
+				
+				<div class="form-group col-sm-3">
+					<label class='control-label'><fmt:message key="rent.killometerType" /></label>
+					<div class="input-group col-sm-12">
+						<select class='form-control'name='rent.KillometerType'> 
+							<c:forEach var="km" items="${kms.list}">
+								<option value="${km}">${km.attribute}</option>
+							</c:forEach>
+						</select>
+					</div>
+				</div>
+				
+				
+				<div class="form-group col-sm-4">
+					<label for="rent.client" class='control-label'><fmt:message key="rent.client" /></label>
+					<div class="input-group col-sm-12">
+						<input type='text' class='form-control' value='' disabled />
+					</div>
+				</div>
+				
+				<div class='form-group col-sm-2'>
+					<label class='control-label'><fmt:message key="rent.createdAt" />*</label>
+					<div class="input-group col-sm-12">
+						<input type="text" class="form-control" disabled >
+					</div>
+				</div>
+				
+				<div class='form-group col-sm-2'>
+					<label class='control-label'><fmt:message key="rent.expectedDate" />*</label>
+					<div class="input-group col-sm-12">
+						<input type="text" class="form-control" disabled />
+					</div>
+				</div>
+				
+				<div class='form-group col-sm-3'>
+					<label class='control-label'><fmt:message key="rent.agency" /></label>
+					<div class="input-group col-sm-12">
+						<input type="text" class="form-control" value='' disabled />
+					</div>
+				</div>	
+				
+				<div class='form-group col-sm-3'>
+					<label class='control-label'><fmt:message key="rent.expectedAgency" /></label>
+					<div class="input-group col-sm-12">
+						<input type="text" class="form-control" value='' disabled />
+					</div>
+				</div>
+				
+				<div class="form-group col-sm-12 btn-group float-right" >
+					<button type="submit" class='btn float-right btn-primary'>Devolver</button>
+				</div>
+			</div>
+		</div><!-- row -->
+	</div><!-- container -->
+	
+	
 </body>
 </html>

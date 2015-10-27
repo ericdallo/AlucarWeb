@@ -20,7 +20,7 @@
 	
 	
 	<div class="container">
-		<c:if test='${not empty devolutionIsVisible}'>
+		<c:if test='${devolutionIsVisible eq true}'>
 			<div class="row">
 				<%@ include file="/WEB-INF/jsp/devolution/form.jsp" %>	
 			</div>
@@ -93,7 +93,7 @@
 					<div class="input-group col-sm-12">
 						<input type="text" class="form-control" value='${rent.agency.name}' disabled />
 					</div>
-				</div>
+				</div>	
 				
 				<div class='form-group col-sm-3'>
 					<label class='control-label'><fmt:message key="rent.expectedAgency" /></label>
@@ -103,10 +103,12 @@
 				</div>
 				
 				
-				
-				<form class="form-group col-sm-12 btn-group float-right" action='<c:url value="/locacao/" />' >
-					<button type="submit" class='btn btn-primary'>Devolver</button>
-				</form>
+				<c:if test='${devolutionIsVisible eq false}'>
+					<form class="form-group col-sm-12 btn-group float-right" action='<c:url value="/locacao/" />' >
+						<input type='hidden' name='rent.id'/>
+						<button type="submit" class='btn float-right btn-primary'>Devolver</button>
+					</form>
+				</c:if>
 			</div>
 		</div><!-- row -->
 	</div><!-- container -->

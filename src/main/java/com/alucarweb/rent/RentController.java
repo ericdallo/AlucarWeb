@@ -51,8 +51,11 @@ public class RentController {
 	
 	@Get("/locacao")
 	public void insert(Long carId){
+		//TODO - CAR ID INVALIDO
 		List<Client> clients = clientDAO.findAll();
+		//List<Agency> agencies = agencyDAO.findAll();
 		
+		//result.include("agencies",agencies);
 		result.include("carId",carId);
 		result.include("clients", clients);
 		result.forwardTo("WEB-INF/jsp/rent/new.jsp");
@@ -62,46 +65,12 @@ public class RentController {
 	@Get("/locacao/{rentId}")
 	public void show(Long rentId){
 		Rent rent = rentDAO.findById(rentId);
-		//List<Agency> agencies = agencyDAO.findAll();
-		
-		//result.include("agencies",agencies);
 		result.include("rent",rent);	
 	}
 	
-	
-	/*
-	@TransactionRequired
-	@Post("/locar")
-	public void locate(Rent rent, Devolution devolution) {
-		Client client = clientDAO.findById(rent.getClient().getId());
-		Car car = carDAO.findById(rent.getCar().getId());
-
-		rentDAO.locate(rent, client, car, devolution);
-
-		result.forwardTo(this).list();
-	}
-	
-	
-	/*
-	@Get("/locacao/{rentId}")
-	public void edit(Long rentId){
-		Rent rent = rentDAO.findById(rentId);
-		
-		Client client = rent.getClient();
-		
-		Long carId = rent.getCar().getId();
-		
-		result.include("carId",carId);
-		result.include("rent",rent);
-		result.include("client",client);
-		
-		result.include("devolution",devolution);
-	}
-	*/
 	@TransactionRequired
 	@Post("/locacao/{rentId}")
 	public void update(Rent rent){
-		
 		rentDAO.update(rent);
 		
 		result.redirectTo(this).list();
