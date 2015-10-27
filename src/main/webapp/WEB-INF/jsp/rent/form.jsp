@@ -1,3 +1,4 @@
+
 <c:if test="${not empty errors}">
 	<div class="alert alert-danger" style="text-align: center">
 		<c:forEach var="error" items="${errors}">
@@ -8,19 +9,17 @@
 </c:if>
 
 <input type='hidden' name='rent.id' value='${rent.id}' />
-
-<jsp:useBean id="status" class='com.alucarweb.status.RentStatusBean' />
-<jsp:useBean id="kms" class='com.alucarweb.killometer.KillometerTypeBean' />
-
+<input type='hidden' name='rent.devolution.id' value='${rent.devolution.id}' />
 
 <div class="form-group col-sm-2">
 	<label for="rent.car.id" class='control-label'><fmt:message key="rent.car.id" /></label>
 	<div class=" input-group col-sm-12">
-		<c:if test='${empty rent.car.id}'>
-			<input type="text" class="form-control" id="rent.car.id" name='rent.car.id' value="${carId}" readonly>
-		</c:if>
+		<input type="text" class="form-control" id="rent.car.id" name='rent.car.id' value="${carId}" readonly>
 	</div>
 </div>
+
+<jsp:useBean id="status"
+	class='com.alucarweb.rent.status.RentStatusBean' />
 
 <div class="form-group col-sm-4">	
 	<label for="rent.status" class='control-label'><fmt:message key="rent.status" /></label>
@@ -28,15 +27,17 @@
 		<select class='form-control' id='rent.status' name='rent.status'>
 			<c:forEach var="st" items="${status.list}">
 				<c:if test="${not empty rent.status and rent.status eq st}">
-					<option value="${rent.status}" selected>${rent.status.attribute}</option>
+					<option value="${rent.status}" selected>${rent.status}</option>
 				</c:if>
 				<c:if test="${empty rent.status or rent.status != st}">
-					<option value="${st}">${st.attribute}</option>
+					<option value="${st}">${st}</option>
 				</c:if>
 			</c:forEach>
 		</select>
 	</div>
 </div>
+
+<jsp:useBean id="kms" class='com.alucarweb.rent.KillometerTypeBean' />
 
 <div class="form-group col-sm-3">
 	<label for="rent.killometerType" class='control-label'><fmt:message key="rent.killometerType" /></label>
@@ -68,22 +69,21 @@
 <div class="form-group col-sm-5">
 	<label for="rent.client" class='control-label'><fmt:message key="rent.client" /></label>
 	<div class="input-group col-sm-12">
-		<select class='form-control' id='rent.client.id' name='rent.client.id'>
-			<c:forEach var="client" items="${clients}">
-				<c:if test="${rent.client.id eq client.id}" >
-					<option value="${client.id}" selected>${client.name}</option>
-				</c:if>
-				<c:if test="${not (rent.client.id eq client.id)}" >
-					<option value="${client.id}">${client.name}</option>
-				</c:if>
-			</c:forEach>
+		<select class='form-control' id='rent.client' name='rent.client.id'>
+			<c:if test="${not empty client}" >
+				<option value="${client.id}">${client.name}</option>
+			</c:if>
+				<c:forEach var="client" items="${clients}">
+					<option value="${client.id}" >${client.name}</option>
+				</c:forEach>
+						
 		</select>
 	</div>
 </div>
 
 <div class='form-group col-sm-3'>
-	<label for="rent.expectedDate" class='control-label'><fmt:message key="rent.expectedDate" />*</label>
+	<label for="devolution.devolutionDate" class='control-label'><fmt:message key="rent.devolutionDate" />*</label>
 	<div class="input-group col-sm-12">
-		<input type="text" class="form-control" name='rent.expectedDate' value=<fmt:formatDate value="${rent.expectedDate.time}" type="Date"/>>
+		<input type="text" class="form-control" name='devolution.devolutionDate' value=<fmt:formatDate value="${devolution.devolutionDate.time}" type="Date"/>>
 	</div>
 </div>

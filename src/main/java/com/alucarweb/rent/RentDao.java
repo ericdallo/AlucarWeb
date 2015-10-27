@@ -6,21 +6,15 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-public class RentDAO {
+import com.alucarweb.car.Car;
+import com.alucarweb.client.Client;
+import com.alucarweb.devolution.Devolution;
+
+public class RentDao {
 
 	@Inject
 	private EntityManager manager;
-	
-	public List<Rent> findAll() {
-		String jpql = "SELECT r FROM Rent r";
 
-		TypedQuery<Rent> rentsQuery = manager.createQuery(jpql, Rent.class);
-		List<Rent> rents = rentsQuery.getResultList();
-		
-		return rents;
-	}
-	
-	/*
 	public void locate(Rent rent, Client client, Car car, Devolution devolution) {
 		rent.setCar(car);
 		rent.setClient(client);
@@ -38,7 +32,7 @@ public class RentDAO {
 
 		return rents;
 	}
-*/
+
 	public List<Rent> findAllByClientName(String clientName) {
 		String jpql = "SELECT r from Rent r where r.client.name like :name";
 
@@ -47,7 +41,7 @@ public class RentDAO {
 
 		return rentsQuery.getResultList();
 	}
-	
+
 	public Rent findById(Long rentId) {
 		return manager.find(Rent.class, rentId);
 	}
@@ -55,4 +49,5 @@ public class RentDAO {
 	public void update(Rent rent) {
 		manager.merge(rent);
 	}
+
 }

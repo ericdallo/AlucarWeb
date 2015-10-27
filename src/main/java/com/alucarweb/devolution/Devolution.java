@@ -2,77 +2,47 @@ package com.alucarweb.devolution;
 
 import java.util.Calendar;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
-import com.alucarweb.rent.Rent;
-import com.alucarweb.agency.Agency;
-
-@Entity
-@Table(name="devolution")
+@Entity @Table(name="devolution")
 public class Devolution {
 	
-	@Id
-	@GeneratedValue
-	private Long id;
-	
-	@OneToOne
-	private Rent rent;
-	
-	@OneToOne
-	private Agency agency;
+	@Id @GeneratedValue
+	private Integer id;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name="devolution_date")
-	private Calendar date;
+	private Calendar devolutionDate;
 	
-	@NotNull
-	private String totalValue;
-	
-	public Long getId() {
+	private double totalValue;
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public Rent getRent() {
-		return rent;
+	public Calendar getDevolutionDate() {
+		return devolutionDate;
 	}
 
-	public void setRent(Rent rent) {
-		this.rent = rent;
+	public void setDevolutionDate(Calendar devolutionDate) {
+		this.devolutionDate = devolutionDate;
 	}
 
-	public Agency getAgency() {
-		return agency;
-	}
-
-	public void setAgency(Agency agency) {
-		this.agency = agency;
-	}
-
-	public Calendar getDate() {
-		return date;
-	}
-
-	public void setDate(Calendar date) {
-		this.date = date;
-	}
-	
-	public String getTotalValue() {
+	public double getTotalValue() {
 		return totalValue;
 	}
 
-	public void setTotalValue(String totalValue) {
+	public void setTotalValue(double totalValue) {
 		this.totalValue = totalValue;
 	}
+
 }

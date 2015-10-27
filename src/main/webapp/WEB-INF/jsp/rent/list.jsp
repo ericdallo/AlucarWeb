@@ -1,6 +1,7 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,16 +15,14 @@
 <title><fmt:message key="rent.title" /></title>
 
 </head>
-
-
-
 <body>
 	<%@ include file="/WEB-INF/jsp/navbar.jsp"%>
+
 	<div>
 		<c:forEach items="${errors}" var="e">
 			<div class="alert alert-info text-center msg-error">
-				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> 
-				${e.message}
+				<span class="glyphicon glyphicon-exclamation-sign"
+					aria-hidden="true"></span> ${e.message}
 			</div>
 		</c:forEach>
 	</div>
@@ -39,20 +38,20 @@
 				<td>Data de Locação</td>
 				<td>Tipo de Km</td>
 				<td>Status</td>
-				<td>Automóvel</td>
-				<td>Cliente</td>
-				<td></td>
+				<td># Cliente</td>
+				<td># Automóvel</td>
+				<td># Devolução</td>
 			</tr>
 		<tbody class="table-hover">
 			<c:forEach items="${rents}" var="r">
 				<tr onclick="window.location.href = '<c:url value='/locacao/${r.id}'/>'">
 					<td>${r.id}</td>
 					<td><fmt:formatDate value="${r.createdAt.time}" type="Date"></fmt:formatDate></td>
-					<td>${r.killometerType.attribute}</td>
-					<td>${r.status.attribute}</td>
-					<td>${r.car.model}</td>
-					<td>${r.client.name}</td>
-					<td></td>
+					<td>${r.killometerType}</td>
+					<td>${r.status}</td>
+					<td>${r.car.id}</td>
+					<td>${r.client.id}</td>
+					<td>${r.devolution.id}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
