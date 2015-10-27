@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import com.alucarweb.annotation.TransactionRequired;
+import com.alucarweb.annotations.NotLogged;
 import com.alucarweb.car.Car;
 import com.alucarweb.client.Client;
 import com.alucarweb.dao.CarDao;
@@ -16,6 +17,7 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.view.Results;
 
 @Controller
 public class RentController {
@@ -85,5 +87,18 @@ public class RentController {
 		rentDao.update(rent);
 		
 		result.redirectTo(this).list();
+	}
+
+	@NotLogged
+	@Get("/locacoes/json/{clientName}")
+	public void listJson(String clientName) {
+		List<Rent> rents = rentDao.findAllByClientName(clientName);
+		if(rents.isEmpty()){
+			result.use(Results.status()).noContent();
+		}
+		result.use(Results.json()).from(rents)
+			.include("client")
+			.include("car")
+			.serialize();
 	}
 }
