@@ -28,7 +28,6 @@ import com.alucarweb.status.RentStatus;
 public class Rent {
 	
 	@Id 
-
 	@GeneratedValue
 	private Long id;
 

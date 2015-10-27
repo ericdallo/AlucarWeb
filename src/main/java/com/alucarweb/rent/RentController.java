@@ -64,7 +64,7 @@ public class RentController {
 	
 	
 	@Get("/locacao/{rentId}")
-	public void show(Long rentId){
+	public void rent(Long rentId){
 		Rent rent = rentDAO.findById(rentId);
 		result.include("rent",rent);	
 	}

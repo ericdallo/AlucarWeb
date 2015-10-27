@@ -1,5 +1,5 @@
-<div class='form-group col-md-10 col-md-offset-1'>
-	<div class="card-title">
+<div class='form-group col-md-10 col-md-offset-1 box-home'>
+	<div class="card-title text-center">
 		<h1>
 			<fmt:message key="devolution.title" />
 		</h1>
