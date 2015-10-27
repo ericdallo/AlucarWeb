@@ -15,8 +15,8 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/jsp/navbar.jsp"%>
-	<jsp:useBean id="status" class='com.alucarweb.rent.status.RentStatusBean' />
-	<jsp:useBean id="kms" class='com.alucarweb.rent.killometer.type.KillometerTypeBean' />		
+	<jsp:useBean id="status" class='com.alucarweb.status.RentStatusBean' />
+	<jsp:useBean id="kms" class='com.alucarweb.killometer.KillometerTypeBean' />		
 	
 	
 	<div class="container">

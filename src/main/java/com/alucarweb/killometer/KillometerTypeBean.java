@@ -1,4 +1,4 @@
-package com.alucarweb.rent.killometer.type;
+package com.alucarweb.killometer;
 
 import java.util.Arrays;
 import java.util.List;

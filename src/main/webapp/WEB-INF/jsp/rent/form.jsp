@@ -9,8 +9,8 @@
 
 <input type='hidden' name='rent.id' value='${rent.id}' />
 
-<jsp:useBean id="status" class='com.alucarweb.rent.status.RentStatusBean' />
-<jsp:useBean id="kms" class='com.alucarweb.rent.killometer.type.KillometerTypeBean' />
+<jsp:useBean id="status" class='com.alucarweb.status.RentStatusBean' />
+<jsp:useBean id="kms" class='com.alucarweb.killometer.KillometerTypeBean' />
 
 
 <div class="form-group col-sm-2">

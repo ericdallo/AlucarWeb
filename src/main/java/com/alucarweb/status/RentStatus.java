@@ -1,4 +1,4 @@
-package com.alucarweb.rent.status;
+package com.alucarweb.status;
 
 public enum RentStatus {
 	IN_PROGRESS("Em Andamento"),
