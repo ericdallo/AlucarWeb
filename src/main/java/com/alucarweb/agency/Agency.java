@@ -1,4 +1,4 @@
-package com.alucarweb.rent.agency;
+package com.alucarweb.agency;
 
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;

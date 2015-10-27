@@ -24,7 +24,7 @@
 				<fmt:message key="rent.title.insert" />
 			</h1>
 		</div>
-		<%@ include file="/WEB-INF/jsp/rent/form.jsp"%>
+		<%@ include file="/WEB-INF/jsp/rent/form.jsp" %>
 
 		<div class="form-group col-sm-12">
 			<button class='btn btn-success float-right'>Atualizar</button>
