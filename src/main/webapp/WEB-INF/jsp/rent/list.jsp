@@ -39,20 +39,20 @@
 				<td>Data de Locação</td>
 				<td>Tipo de Km</td>
 				<td>Status</td>
-				<td># Cliente</td>
-				<td># Automóvel</td>
-				<td># Devolução</td>
+				<td>Automóvel</td>
+				<td>Cliente</td>
+				<td></td>
 			</tr>
 		<tbody class="table-hover">
 			<c:forEach items="${rents}" var="r">
 				<tr onclick="window.location.href = '<c:url value='/locacao/${r.id}'/>'">
 					<td>${r.id}</td>
 					<td><fmt:formatDate value="${r.createdAt.time}" type="Date"></fmt:formatDate></td>
-					<td>${r.killometerType}</td>
-					<td>${r.status}</td>
-					<td>${r.car.id}</td>
-					<td>${r.client.id}</td>
-					<td>${r.devolution.id}</td>
+					<td>${r.killometerType.attribute}</td>
+					<td>${r.status.attribute}</td>
+					<td>${r.car.model}</td>
+					<td>${r.client.name}</td>
+					<td></td>
 				</tr>
 			</c:forEach>
 		</tbody>
