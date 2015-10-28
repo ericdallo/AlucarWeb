@@ -10,7 +10,8 @@ public class AlucarConfig {
 		AWS_SECRET_ACCESS_KEY,
 		IMAGES_URL,
 		IMAGES_FOLDER,
-		ALUCAR_BUCKET
+		ALUCAR_BUCKET,
+		PROFILE
 		;
 	}
 

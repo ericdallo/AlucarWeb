@@ -8,6 +8,8 @@ import com.alucarweb.dao.UserDAO;
 import com.alucarweb.home.HomeController;
 import com.alucarweb.user.LoggedUser;
 import com.alucarweb.user.User;
+import com.alucarweb.util.AlucarConfig;
+import com.alucarweb.util.AlucarConfig.Property;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
@@ -40,6 +42,10 @@ public class LoginController{
 	@NotLogged
 	@Post("/login") 
 	public void login(User user){
+		if(AlucarConfig.get(Property.PROFILE).equals("dev")){
+			result.redirectTo(HomeController.class).home();
+			return;
+		}
 		if(userDao.validate(user)){
 			
 			loggedUser.setUser(user);
