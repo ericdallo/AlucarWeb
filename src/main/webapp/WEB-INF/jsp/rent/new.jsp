@@ -22,7 +22,7 @@
 	
 	<div class="container">
 		<div class='row'>
-			<div class='form-group col-md-10 col-md-offset-1' style='background-color:#fff'>
+			<form class='form-group col-md-10 col-md-offset-1' style='background-color:#fff' action=''>
 				<c:if test="${not empty errors}">
 					<div class="alert alert-danger" style="text-align: center">
 						<c:forEach var="error" items="${errors}">
@@ -41,10 +41,17 @@
 				<div class="form-group col-sm-2">
 					<label class='control-label'><fmt:message key="rent.car.id" /></label>
 					<div class=" input-group col-sm-12">
-						<input type="text" class="form-control" name='rent.car.id' value="${carId}" disabled />
+						<input type="text" class="form-control" name='rent.car.id' value="${car.id}" readonly />
 					</div>
 				</div>
 				
+				
+				<div class="form-group col-sm-3">
+					<label class='control-label'><fmt:message key="rent.car.model" /></label>
+					<div class=" input-group col-sm-12">
+						<input type="text" class="form-control" value="${car.model}" disabled />
+					</div>
+				</div>
 				
 				<div class='form-group col-sm-3'>
 					<label class='control-label'><fmt:message key="rent.client" /></label>
@@ -55,7 +62,7 @@
 					</select>
 				</div>
 				
-				<div class="form-group col-sm-3">
+				<div class="form-group col-sm-2">
 					<label class='control-label'><fmt:message key="rent.killometerType" /></label>
 					<div class="input-group col-sm-12">
 						<select class='form-control'name='rent.KillometerType'> 
@@ -66,46 +73,25 @@
 					</div>
 				</div>
 				
-				
-				<div class="form-group col-sm-4">
-					<label for="rent.client" class='control-label'><fmt:message key="rent.client" /></label>
-					<div class="input-group col-sm-12">
-						<input type='text' class='form-control' value='' disabled />
-					</div>
-				</div>
-				
 				<div class='form-group col-sm-2'>
-					<label class='control-label'><fmt:message key="rent.createdAt" />*</label>
+					<label class='control-label'><fmt:message key="rent.expectedDate" /></label>
 					<div class="input-group col-sm-12">
-						<input type="text" class="form-control" disabled >
+						<input type="text" class="form-control" value='<fmt:formatDate value="${rent.expectedDate.time}" type="Date"/>' disabled />
 					</div>
 				</div>
 				
-				<div class='form-group col-sm-2'>
-					<label class='control-label'><fmt:message key="rent.expectedDate" />*</label>
-					<div class="input-group col-sm-12">
-						<input type="text" class="form-control" disabled />
-					</div>
-				</div>
-				
-				<div class='form-group col-sm-3'>
+				<div class="form-group col-sm-2">
 					<label class='control-label'><fmt:message key="rent.agency" /></label>
 					<div class="input-group col-sm-12">
-						<input type="text" class="form-control" value='' disabled />
-					</div>
-				</div>	
-				
-				<div class='form-group col-sm-3'>
-					<label class='control-label'><fmt:message key="rent.expectedAgency" /></label>
-					<div class="input-group col-sm-12">
-						<input type="text" class="form-control" value='' disabled />
+						<select class='form-control'name='rent.agency'> 
+							<c:forEach var="ag" items="${agencies}">
+								<option value="${ag.id}">${ag.name}</option>
+							</c:forEach>
+						</select>
 					</div>
 				</div>
 				
-				<div class="form-group col-sm-12 btn-group float-right" >
-					<button type="submit" class='btn float-right btn-primary'>Devolver</button>
-				</div>
-			</div>
+			</form>
 		</div><!-- row -->
 	</div><!-- container -->
 	
