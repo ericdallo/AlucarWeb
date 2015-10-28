@@ -18,7 +18,7 @@ public class CarDao {
 		List<Car> carros = manager.createQuery("select c from Car as c where available = true").getResultList();
 		return carros;
 	}
-
+	
 	public Car findById(long id) {
 		Car car = manager.find(Car.class, id);
 		return car;

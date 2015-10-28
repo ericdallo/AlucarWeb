@@ -7,8 +7,8 @@ import javax.inject.Inject;
 import com.alucarweb.annotation.NotLogged;
 import com.alucarweb.agency.Agency;
 import com.alucarweb.annotation.TransactionRequired;
-import com.alucarweb.car.Car;
 import com.alucarweb.agency.AgencyDAO;
+import com.alucarweb.car.Car;
 import com.alucarweb.client.Client;
 import com.alucarweb.dao.AgencyDAO;
 import com.alucarweb.dao.CarDao;
@@ -53,10 +53,11 @@ public class RentController {
 	public void insert(Long carId){
 		//TODO - CAR ID INVALIDO
 		List<Client> clients = clientDAO.findAll();
-		//List<Agency> agencies = agencyDAO.findAll();
+		Car car = carDAO.findById(carId);
+		List<Agency> agencies = agencyDAO.findAll();
 		
-		//result.include("agencies",agencies);
-		result.include("carId",carId);
+		result.include("agencies",agencies);
+		result.include("car",car);
 		result.include("clients", clients);
 		result.forwardTo("WEB-INF/jsp/rent/new.jsp");
 	}
