@@ -76,7 +76,7 @@
 				<div class='form-group col-sm-2'>
 					<label class='control-label'><fmt:message key="rent.expectedDate" /></label>
 					<div class="input-group col-sm-12">
-						<input type="text" class="form-control" value='<fmt:formatDate value="${rent.expectedDate.time}" type="Date"/>' disabled />
+						<input type="text" class="form-control" value='<fmt:formatDate value="${rent.expectedDate.time}" type="Date"/>' />
 					</div>
 				</div>
 				
@@ -84,6 +84,18 @@
 					<label class='control-label'><fmt:message key="rent.agency" /></label>
 					<div class="input-group col-sm-12">
 						<select class='form-control'name='rent.agency'> 
+							<c:forEach var="ag" items="${agencies}">
+								<option value="${ag.id}">${ag.name}</option>
+							</c:forEach>
+						</select>
+					</div>
+				</div>
+				
+				
+				<div class="form-group col-sm-2">
+					<label class='control-label'><fmt:message key="rent.expectedAgency" /></label>
+					<div class="input-group col-sm-12">
+						<select class='form-control'name='rent.expectedAgency'> 
 							<c:forEach var="ag" items="${agencies}">
 								<option value="${ag.id}">${ag.name}</option>
 							</c:forEach>
