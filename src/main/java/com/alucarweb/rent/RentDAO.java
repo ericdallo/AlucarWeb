@@ -20,6 +20,10 @@ public class RentDAO {
 		return rents;
 	}
 	
+	public void grava(Rent rent){
+		manager.persist(rent);
+	}
+	
 	/*
 	public void locate(Rent rent, Client client, Car car, Devolution devolution) {
 		rent.setCar(car);
@@ -28,17 +32,8 @@ public class RentDAO {
 		rent.setDevolution(devolution);
 
 		manager.persist(rent);
-	}
-
-	public List<Rent> findAll() {
-		String jpql = "SELECT r FROM Rent r";
-
-		TypedQuery<Rent> rentsQuery = manager.createQuery(jpql, Rent.class);
-		List<Rent> rents = rentsQuery.getResultList();
-
-		return rents;
-	}
-*/
+	}*/
+	
 	public List<Rent> findAllByClientName(String clientName) {
 		String jpql = "SELECT r from Rent r where r.client.name like :name";
 

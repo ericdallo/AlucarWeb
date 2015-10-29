@@ -13,7 +13,6 @@ import com.alucarweb.client.Client;
 import com.alucarweb.dao.AgencyDAO;
 import com.alucarweb.dao.CarDao;
 import com.alucarweb.dao.ClientDAO;
-import com.alucarweb.devolution.DevolutionDAO;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
@@ -39,15 +38,12 @@ public class RentController {
 	@Inject
 	private CarDao carDAO;
 	
-	@Inject
-	private DevolutionDAO devolutionDAO;
 	
 	@Get("/locacoes")
 	public void list() {
 		List<Rent> rents = rentDAO.findAll();
 		result.include("rents", rents);
 	}
-	
 	
 	@Get("/locacao")
 	public void insert(Long carId){
@@ -68,6 +64,13 @@ public class RentController {
 		Rent rent = rentDAO.findById(rentId);
 		result.include("rent",rent);	
 	}
+		
+	@Post("/locacoes")
+	public void grava(Rent rent){
+		
+		System.out.println("." + rent.getCar().getId());
+	}
+	
 	
 	@TransactionRequired
 	@Post("/locacao/{rentId}")

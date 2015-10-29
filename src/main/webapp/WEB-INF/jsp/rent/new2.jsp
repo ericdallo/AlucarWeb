@@ -41,9 +41,10 @@
 				<div class="form-group col-sm-2">
 					<label class='control-label'><fmt:message key="rent.car.id" /></label>
 					<div class=" input-group col-sm-12">
-						<input type="text" class="form-control" name='rent.car.id' value="${car.id}"/>
+						<input type="text" class="form-control" name='rent.car.id' value="${car.id}" readonly />
 					</div>
 				</div>
+				
 				
 				<div class="form-group col-sm-3">
 					<label class='control-label'><fmt:message key="rent.car.model" /></label>
@@ -64,14 +65,44 @@
 				<div class="form-group col-sm-2">
 					<label class='control-label'><fmt:message key="rent.killometerType" /></label>
 					<div class="input-group col-sm-12">
-						<select class='form-control' name='rent.killometerType'> 
+						<select class='form-control'name='rent.KillometerType'> 
 							<c:forEach var="km" items="${kms.list}">
 								<option value="${km}">${km.attribute}</option>
 							</c:forEach>
 						</select>
 					</div>
 				</div>
-								
+				
+				<div class='form-group col-sm-2'>
+					<label class='control-label'><fmt:message key="rent.expectedDate" /></label>
+					<div class="input-group col-sm-12">
+						<input type="text" class="form-control" value='' />
+					</div>
+				</div>
+				
+				<div class="form-group col-sm-2">
+					<label class='control-label'><fmt:message key="rent.agency" /></label>
+					<div class="input-group col-sm-12">
+						<select class='form-control'name='rent.agency'> 
+							<c:forEach var="ag" items="${agencies}">
+								<option value="${ag.id}">${ag.name}</option>
+							</c:forEach>
+						</select>
+					</div>
+				</div>
+				
+				
+				<div class="form-group col-sm-2">
+					<label class='control-label'><fmt:message key="rent.expectedAgency" /></label>
+					<div class="input-group col-sm-12">
+						<select class='form-control'name='rent.expectedAgency'> 
+							<c:forEach var="ag" items="${agencies}">
+								<option value="${ag.id}">${ag.name}</option>
+							</c:forEach>
+						</select>
+					</div>
+				</div>
+				
 				<div class="form-group col-sm-12 btn-group float-right">
 					<button type="submit" class='btn btn-primary float-right'>Gravar</button>
 				</div>
