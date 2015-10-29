@@ -79,8 +79,6 @@
 		</div>
 	</div>
 
-
-
 	<form class="form-group col-sm-12 btn-group float-right"
 		action='<c:url value="/locacao/" />'>
 		<button type="submit" class='btn btn-primary'>Devolver</button>

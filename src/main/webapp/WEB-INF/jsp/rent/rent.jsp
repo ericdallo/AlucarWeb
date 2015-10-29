@@ -16,8 +16,8 @@
 <body>
 	<%@ include file="/WEB-INF/jsp/navbar.jsp"%>
 	<jsp:useBean id="status" class='com.alucarweb.status.RentStatusBean' />
-	
-	<jsp:useBean id="kms" class='com.alucarweb.killometer.KillometerTypeBean' />		
+	<jsp:useBean id="kms" class='com.alucarweb.killometer.KillometerTypeBean' />
+			
 	<c:if test="${not empty errors}">
 		<div class="alert alert-danger" style="text-align: center">
 			<c:forEach var="error" items="${errors}">
