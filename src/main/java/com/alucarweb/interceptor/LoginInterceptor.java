@@ -2,7 +2,7 @@ package com.alucarweb.interceptor;
 
 import javax.inject.Inject;
 
-import com.alucarweb.annotations.NotLogged;
+import com.alucarweb.annotation.NotLogged;
 import com.alucarweb.login.LoginController;
 import com.alucarweb.user.LoggedUser;
 import com.alucarweb.util.AlucarConfig;
@@ -13,7 +13,6 @@ import br.com.caelum.vraptor.AroundCall;
 import br.com.caelum.vraptor.Intercepts;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.controller.ControllerMethod;
-import br.com.caelum.vraptor.interceptor.AcceptsWithAnnotations;
 import br.com.caelum.vraptor.interceptor.SimpleInterceptorStack;
 
 @Intercepts
