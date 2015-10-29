@@ -15,7 +15,9 @@
 						<span class='caret'></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="<c:url value='/cliente'/>"><fmt:message key="navbar.client.add" /></a></li>
+						<c:if test="${loggedUser.supervisor == true}">
+							<li><a href="<c:url value='/cliente'/>"><fmt:message key="navbar.client.add" /></a></li>	
+						</c:if>
 						<li><a href="<c:url value='/clientes'/>"><fmt:message key="navbar.client.search" /></a></li>
 					</ul>
 				</li>
@@ -25,7 +27,9 @@
 						<span class='caret'></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="<c:url value='/automovel'/>"><fmt:message key="navbar.car.add" /></a></li>
+						<c:if test="${loggedUser.supervisor == true}">
+							<li><a href="<c:url value='/automovel'/>"><fmt:message key="navbar.car.add" /></a></li>
+						</c:if>
 						<li><a href="<c:url value='/automoveis'/>"><fmt:message key="navbar.car.search" /></a></li>
 						<li><a href="<c:url value='/automoveis/relatorios'/>"><fmt:message key="navbar.car.report" /></a></li>
 					</ul>
@@ -33,11 +37,6 @@
 				<li class="active">
 					<a href="<c:url value="/locacoes"/>" class="nav-link">
 						<fmt:message key="navbar.location" />
-					</a>
-				</li>
-				<li class="active">
-					<a href=<c:url value='devolucoes'/>#" class="nav-link">
-						<fmt:message key="navbar.devolution" />						
 					</a>
 				</li>
 				<li class="dropdown">
@@ -49,7 +48,7 @@
 						<li><a href="#"><fmt:message key="navbar.change.language" /></a></li>
 						<li><a href="#"><fmt:message key="navbar.change.password" /></a></li>
 						<li class="divider"></li>
-						<li><form action="<c:url value="logout"/>" method="POST">
+						<li><form action="<c:url value="/logout"/>" method="POST">
 							<input type='submit' value="<fmt:message key="navbar.logout"/>" class="logout"/>
 						</form>
 						</li>

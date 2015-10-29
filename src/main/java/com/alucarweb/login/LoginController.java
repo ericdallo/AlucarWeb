@@ -1,9 +1,8 @@
 package com.alucarweb.login;
 
 import javax.inject.Inject;
-import javax.validation.Valid;
 
-import com.alucarweb.annotations.NotLogged;
+import com.alucarweb.annotation.NotLogged;
 import com.alucarweb.dao.UserDAO;
 import com.alucarweb.home.HomeController;
 import com.alucarweb.user.LoggedUser;
@@ -46,9 +45,10 @@ public class LoginController{
 			result.redirectTo(HomeController.class).home();
 			return;
 		}
-		if(userDao.validate(user)){
-			
-			loggedUser.setUser(user);
+		User currentUser = userDao.validate(user.getName(),user.getPassword());
+		
+		if(currentUser != null){
+			loggedUser.setUser(currentUser);
 			result.redirectTo(HomeController.class).home();
 			return;
 		}

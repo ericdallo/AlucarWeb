@@ -4,9 +4,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import com.alucarweb.annotation.OnlySupervisor;
 import com.alucarweb.annotation.TransactionRequired;
-import com.alucarweb.annotations.NotLogged;
-import com.alucarweb.car.Car;
 import com.alucarweb.dao.ClientDAO;
 
 import br.com.caelum.vraptor.Controller;
@@ -30,6 +29,7 @@ public class ClientController {
 	@Inject
 	private Validator validator;
 	
+	@OnlySupervisor
 	@Get("/cliente")
 	public void form() {
 		result.forwardTo("WEB-INF/jsp/client/new.jsp");
@@ -41,6 +41,7 @@ public class ClientController {
 		result.include("client", client);
 	}	
 	
+	@OnlySupervisor
 	@TransactionRequired()
 	@Post("/clientes")
 	public void insert(Client client){
@@ -57,6 +58,7 @@ public class ClientController {
 		result.redirectTo(this).edit(client.getId());
 	}
 
+	@OnlySupervisor
 	@TransactionRequired
 	@Delete("/cliente/{id}")
 	public void delete(Long id) {

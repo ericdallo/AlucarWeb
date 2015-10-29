@@ -40,7 +40,9 @@
 
 		<div class="form-group col-sm-12 btn-group">
 			<button type="submit" name="_method" class='btn btn-primary' value="POST">Atualizar</button>
-			<button type="submit" name="_method" class='btn btn-danger' value="DELETE">Excluir</button>
+			<c:if test="${loggedUser.supervisor == true}">
+				<button type="submit" name="_method" class='btn btn-danger' value="DELETE">Excluir</button>
+			</c:if>
 		</div>
 		
 	</form>

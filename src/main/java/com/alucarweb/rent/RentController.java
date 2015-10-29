@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import com.alucarweb.annotation.NotLogged;
 import com.alucarweb.annotation.TransactionRequired;
-import com.alucarweb.annotations.NotLogged;
 import com.alucarweb.car.Car;
 import com.alucarweb.client.Client;
 import com.alucarweb.dao.CarDao;

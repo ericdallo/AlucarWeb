@@ -5,8 +5,9 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.validation.constraints.NotNull;
 
+import com.alucarweb.annotation.NotLogged;
+import com.alucarweb.annotation.OnlySupervisor;
 import com.alucarweb.annotation.TransactionRequired;
-import com.alucarweb.annotations.NotLogged;
 import com.alucarweb.car.images.ImagesService;
 import com.alucarweb.dao.CarDao;
 import com.alucarweb.state.StatesBr;
@@ -47,6 +48,7 @@ public class CarController {
 		result.include("car", car);
 	}
 
+	@OnlySupervisor
 	@TransactionRequired
 	@Post("/automoveis")
 	public void insert(Car car, UploadedFile imageFile) {
@@ -75,6 +77,7 @@ public class CarController {
 		result.redirectTo(this).edit(car.getId());
 	}
 
+	@OnlySupervisor
 	@TransactionRequired
 	@Delete("/automovel/{id}")
 	public void delete(Long id) {
