@@ -80,8 +80,7 @@ public class RentController {
 	@Post("/locacao/{rentId}")
 	public void devolve(Long rentId){
 		result.include("devolutionIsEnabled",true);
-		result.redirectTo("WEB-INF/jsp/rent/rent.jsp");
-		//result.redirectTo(RentController.class).rent(rentId);
+		result.redirectTo(this).rent(rentId);
 	}
 	
 	@NotLogged

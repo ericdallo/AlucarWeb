@@ -2,6 +2,9 @@ package com.alucarweb.devolution;
 
 import javax.inject.Inject;
 
+import com.alucarweb.annotation.TransactionRequired;
+import com.alucarweb.rent.RentController;
+
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
@@ -15,10 +18,11 @@ public class DevolutionController {
 	@Inject
 	private DevolutionDAO devolutionDAO;
 	
+	@TransactionRequired
 	@Post("/devolucoes")
 	public void grava(Devolution devolution){
 		//TODO - Atualizar o status para WAITING_PAYMENT
-		devolutionDAO.devolve(devolution);
-		result.redirectTo("WEB-INF/jsp/rent/rent.jsp");
+		devolutionDAO.returnRent(devolution);
+		result.redirectTo(RentController.class).rent(devolution.getRent().getId());
 	}
 }

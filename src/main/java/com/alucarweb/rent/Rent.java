@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -59,7 +60,7 @@ public class Rent {
 	private KillometerType killometerType;
 	
 	@OneToMany(mappedBy="rent")
-	private List<Payment> payments;	
+	private List<Payment> payments;
 	
 	public Long getId() {
 		return id;
@@ -146,6 +147,11 @@ public class Rent {
 		if (this.createdAt == null) {
 			this.createdAt = Calendar.getInstance();
 		}
+	}
+	
+	@Override
+	public String toString() {
+		return "ID: " + getId() + ", status: " + getStatus();
 	}
 
 }
