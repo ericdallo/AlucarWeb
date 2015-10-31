@@ -74,6 +74,12 @@ public class RentController {
 		result.redirectTo(RentController.class).list();
 	}
 	
+	@Post("/locacao/{rentId}")
+	public void devolver(Long rentId){
+		result.include("devolutionIsEnabled",true);
+		result.redirectTo(RentController.class).rent(rentId);
+	}
+	
 	
 	
 	@NotLogged

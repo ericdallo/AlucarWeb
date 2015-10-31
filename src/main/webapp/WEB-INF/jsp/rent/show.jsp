@@ -78,9 +78,10 @@
 				value='${rent.expectedAgency.name}' disabled />
 		</div>
 	</div>
-
-	<form class="form-group col-sm-12 btn-group float-right"
-		action='<c:url value="/locacao/" />'>
-		<button type="submit" class='btn btn-primary'>Devolver</button>
-	</form>
+	
+	<c:if test="${rent.status eq 'IN_PROGRESS'}" >
+		<form class="form-group col-sm-12 btn-group float-right" action="<c:url value='/locacao/${rent.id}' />" method="POST" >
+			<input type="submit" class='btn btn-primary' value='Devolver' />
+		</form>
+	</c:if>
 </div>
