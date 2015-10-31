@@ -32,7 +32,7 @@
 			<div class="form-group">
 				<label for="devolution.totalValue" class='control-label'><fmt:message key="devolution.totalValue" /></label>
 				<div class="input-group col-sm-12">
-					<input type="text" class="form-control" name='devolution.totalValue' value='${devolution.totalValue}' >
+					<input type="text" class="form-control" name='devolution.totalValue' value='' >
 				</div>
 			</div>
 		</div>

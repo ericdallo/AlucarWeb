@@ -13,12 +13,12 @@ public class DevolutionController {
 	private Result result;
 
 	@Inject
-	private Devolution devolutionDAO;
+	private DevolutionDAO devolutionDAO;
 	
 	@Post("/devolucoes")
 	public void grava(Devolution devolution){
-		//TODO - Atualizar o status para WAITING_PAYMENTO
-		System.out.println("Aqui você da um persist na devolucao e volta pra própria pagina, so que bloqueando os campos da devolucao, pq");
-		System.out.println("o status da devolucao vai estar como WAITING_PAYMENT");
+		//TODO - Atualizar o status para WAITING_PAYMENT
+		devolutionDAO.devolve(devolution);
+		result.redirectTo("WEB-INF/jsp/rent/rent.jsp");
 	}
 }
