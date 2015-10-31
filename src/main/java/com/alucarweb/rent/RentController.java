@@ -1,18 +1,18 @@
 package com.alucarweb.rent;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
 
-import com.alucarweb.annotation.NotLogged;
 import com.alucarweb.agency.Agency;
-import com.alucarweb.annotation.TransactionRequired;
-import com.alucarweb.agency.AgencyDAO;
+import com.alucarweb.annotation.NotLogged;
 import com.alucarweb.car.Car;
 import com.alucarweb.client.Client;
 import com.alucarweb.dao.AgencyDAO;
 import com.alucarweb.dao.CarDao;
 import com.alucarweb.dao.ClientDAO;
+import com.alucarweb.status.RentStatus;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
@@ -62,24 +62,20 @@ public class RentController {
 	@Get("/locacao/{rentId}")
 	public void rent(Long rentId){
 		Rent rent = rentDAO.findById(rentId);
-		result.include("rent",rent);	
+		result.include("rent",rent);		
 	}
 		
 	@Post("/locacoes")
-	public void grava(Rent rent){
-		
-		System.out.println("." + rent.getCar().getId());
-	}
-	
-	
-	@TransactionRequired
-	@Post("/locacao/{rentId}")
 	public void update(Rent rent){
-		rentDAO.update(rent);
-		
-		result.redirectTo(this).list();
+		//TODO - setar a data de hoje, esta vindo de um input hidden
+		RentStatus status = RentStatus.IN_PROGRESS;	
+		rent.setStatus(status);
+		rentDAO.locate(rent);
+		result.redirectTo(RentController.class).list();
 	}
-
+	
+	
+	
 	@NotLogged
 	@Get("/locacoes/json/{clientName}")
 	public void listJson(String clientName) {

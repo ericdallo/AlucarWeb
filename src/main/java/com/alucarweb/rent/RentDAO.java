@@ -6,6 +6,8 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import com.alucarweb.annotation.TransactionRequired;
+
 public class RentDAO {
 
 	@Inject
@@ -20,19 +22,11 @@ public class RentDAO {
 		return rents;
 	}
 	
-	public void grava(Rent rent){
-		manager.persist(rent);
+	@TransactionRequired
+	public void locate(Rent rent){
+		manager.merge(rent); // Tem que ser merge e nao persist pois a Entity ja esta sendo manuzeada pelo hibernate
 	}
 	
-	/*
-	public void locate(Rent rent, Client client, Car car, Devolution devolution) {
-		rent.setCar(car);
-		rent.setClient(client);
-
-		rent.setDevolution(devolution);
-
-		manager.persist(rent);
-	}*/
 	
 	public List<Rent> findAllByClientName(String clientName) {
 		String jpql = "SELECT r from Rent r where r.client.name like :name";

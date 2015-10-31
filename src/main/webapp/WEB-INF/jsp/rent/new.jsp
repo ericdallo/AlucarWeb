@@ -24,8 +24,7 @@
 	<c:if test="${not empty errors}">
 		<div class="alert alert-danger" style="text-align: center">
 			<c:forEach var="error" items="${errors}">
-				<span class="glyphicon glyphicon-exclamation-sign"
-					aria-hidden="true"></span>
+				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 			${error.message}
 		</c:forEach>
 		</div>
@@ -43,27 +42,21 @@
 					</div>
 
 					<div class="form-group col-sm-2">
-						<label class='control-label'><fmt:message
-								key="rent.car.id" /></label>
+						<label class='control-label'><fmt:message key="rent.car.id" /></label>
 						<div class=" input-group col-sm-12">
-							<input type="text" class="form-control" name='rent.car.id'
-								value="${car.id}" />
+							<input type="text" class="form-control" name='rent.car.id' value="${car.id}" />
 						</div>
 					</div>
 
 					<div class="form-group col-sm-3">
-						<label class='control-label'><fmt:message
-								key="rent.car.model" /></label>
+						<label class='control-label'><fmt:message key="rent.car.model" /></label>
 						<div class=" input-group col-sm-12">
-							<input type="text" class="form-control" value="${car.model}"
-								disabled />
+							<input type="text" class="form-control" value="${car.model}" disabled />
 						</div>
 					</div>
 
 					<div class='form-group col-sm-3'>
-						<label class='control-label'><fmt:message
-								key="rent.client" /></label> <select class='form-control'
-							name='rent.client.id'>
+						<label class='control-label'><fmt:message key="rent.client" /></label> <select class='form-control' name='rent.client.id'>
 							<c:forEach var="client" items="${clients}">
 								<option value="${client.id}">${client.name}</option>
 							</c:forEach>
@@ -71,8 +64,7 @@
 					</div>
 
 					<div class="form-group col-sm-2">
-						<label class='control-label'><fmt:message
-								key="rent.killometerType" /></label>
+						<label class='control-label'><fmt:message key="rent.killometerType" /></label>
 						<div class="input-group col-sm-12">
 							<select class='form-control' name='rent.killometerType'>
 								<c:forEach var="km" items="${kms.list}">
@@ -83,20 +75,16 @@
 					</div>
 
 					<div class='form-group col-sm-2'>
-						<label class='control-label'><fmt:message
-								key="rent.expectedDate" />*</label>
+						<label class='control-label'><fmt:message key="rent.expectedDate" />*</label>
 						<div class="input-group col-sm-12">
-							<input type="text" class="form-control"
-								name="<fmt:formatDate value="${rent.expectedDate}" />" />
+							<input type="text" class="form-control" name="rent.expectedDate" />
 						</div>
 					</div>
 
 					<div class="form-group col-sm-2">
-						<label for="rent.agency" class='control-label'><fmt:message
-								key="rent.agency" /></label>
+						<label for="rent.agency" class='control-label'><fmt:message key="rent.agency" /></label>
 						<div class="input-group col-sm-12">
-							<select class='form-control' id="rent.agency"
-								name='rent.agency.id'>
+							<select class='form-control' id="rent.agency" name='rent.agency.id'>
 								<c:forEach var="ag" items="${agencies}">
 									<option value="${ag.id}">${ag.name}</option>
 								</c:forEach>
@@ -105,11 +93,9 @@
 					</div>
 
 					<div class="form-group col-sm-2">
-						<label for="rent.expectedAgency" class='control-label'><fmt:message
-								key="rent.expectedAgency" /></label>
+						<label for="rent.expectedAgency" class='control-label'><fmt:message key="rent.expectedAgency" /></label>
 						<div class="input-group col-sm-12">
-							<select class='form-control' id="rent.expectedAgency"
-								name='rent.expectedAgency.id'>
+							<select class='form-control' id="rent.expectedAgency" name='rent.expectedAgency.id'>
 								<c:forEach var="ag" items="${agencies}">
 									<option value="${ag.id}">${ag.name}</option>
 								</c:forEach>
@@ -118,13 +104,12 @@
 					</div>
 
 					<div class="form-group col-sm-12 btn-group float-right">
-						<button type="submit" class='btn btn-primary float-right'>Gravar</button>
+						<input type="hidden" name='rent.createdAt' value='10/10/2015' />
+						<input type="submit" class='btn btn-primary float-right' value='Gravar'/>
 					</div>
 				</form>
 			</div>
-		</div>
-		<!-- row -->
-	</div>
-	<!-- container -->
+		</div> <!-- row -->
+	</div> <!-- container -->
 </body>
 </html>
