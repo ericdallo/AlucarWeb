@@ -61,7 +61,10 @@ public class RentController {
 	
 	@Get("/locacao/{rentId}")
 	public void rent(Long rentId){
+		List<Agency> agencies = agencyDAO.findAll();
 		Rent rent = rentDAO.findById(rentId);
+		
+		result.include("agencies",agencies);
 		result.include("rent",rent);		
 	}
 		
@@ -70,14 +73,16 @@ public class RentController {
 		//TODO - setar a data de hoje, esta vindo de um input hidden
 		RentStatus status = RentStatus.IN_PROGRESS;	
 		rent.setStatus(status);
-		rentDAO.locate(rent);
+		rentDAO.alocate(rent);
 		result.redirectTo(RentController.class).list();
 	}
 	
 	@Post("/locacao/{rentId}")
 	public void devolver(Long rentId){
+		System.out.println("dajhdkashdkjasd");
 		result.include("devolutionIsEnabled",true);
-		result.redirectTo(RentController.class).rent(rentId);
+		result.redirectTo("WEB-INF/jsp/rent/rent.jsp");
+		//result.redirectTo(RentController.class).rent(rentId);
 	}
 	
 	

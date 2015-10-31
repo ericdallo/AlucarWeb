@@ -29,9 +29,8 @@
 	
 	<div class="container">
 		<div class='row '>
-			<c:if test="${not empty devolutionIsEnabled }">
+			
 				<%@ include file="/WEB-INF/jsp/devolution/form.jsp" %>
-			</c:if>
 		</div>
 		<div class='row row-margin'>
 			<%@ include file="/WEB-INF/jsp/rent/show.jsp" %>
