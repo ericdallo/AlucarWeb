@@ -1,6 +1,7 @@
 package com.alucarweb.agency;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,7 +18,7 @@ public class Agency {
 	@GeneratedValue
 	private Long id;
 
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private StatesBr state;
 
 	@NotNull
@@ -46,7 +47,4 @@ public class Agency {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
 }

@@ -20,8 +20,7 @@ public class CarDao {
 	}
 	
 	public Car findById(long id) {
-		Car car = manager.find(Car.class, id);
-		return car;
+		return manager.find(Car.class, id);
 	}
 
 	public Car update(Car car) {

@@ -1,18 +1,19 @@
 package com.alucarweb.rent;
 
-import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import com.alucarweb.agency.Agency;
 import com.alucarweb.annotation.NotLogged;
+import com.alucarweb.annotation.TransactionRequired;
 import com.alucarweb.car.Car;
 import com.alucarweb.client.Client;
 import com.alucarweb.dao.AgencyDAO;
 import com.alucarweb.dao.CarDao;
 import com.alucarweb.dao.ClientDAO;
 import com.alucarweb.status.RentStatus;
+import com.alucarweb.user.LoggedUser;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
@@ -25,18 +26,18 @@ public class RentController {
 
 	@Inject
 	private Result result;
-
+	
 	@Inject
 	private RentDAO rentDAO;
-
 	@Inject
 	private ClientDAO clientDAO;
-	
 	@Inject
 	private AgencyDAO agencyDAO;
-	
 	@Inject
 	private CarDao carDAO;
+	
+	@Inject
+	private LoggedUser loggedUser;
 	
 	
 	@Get("/locacoes")
@@ -46,10 +47,10 @@ public class RentController {
 	}
 	
 	@Get("/locacao")
-	public void insert(Long carId){
-		//TODO - CAR ID INVALIDO
+	public void form(long carId){
+		Car car = carDAO.findById(carId); //TODO - CAR ID INVALIDO
+		
 		List<Client> clients = clientDAO.findAll();
-		Car car = carDAO.findById(carId);
 		List<Agency> agencies = agencyDAO.findAll();
 		
 		result.include("agencies",agencies);
@@ -57,7 +58,6 @@ public class RentController {
 		result.include("clients", clients);
 		result.forwardTo("WEB-INF/jsp/rent/new.jsp");
 	}
-	
 	
 	@Get("/locacao/{rentId}")
 	public void rent(Long rentId){
@@ -67,25 +67,22 @@ public class RentController {
 		result.include("agencies",agencies);
 		result.include("rent",rent);		
 	}
-		
+	
+	@TransactionRequired
 	@Post("/locacoes")
-	public void update(Rent rent){
-		//TODO - setar a data de hoje, esta vindo de um input hidden
-		RentStatus status = RentStatus.IN_PROGRESS;	
-		rent.setStatus(status);
+	public void create(Rent rent){
+		rent.setStatus(RentStatus.IN_PROGRESS);
+		rent.setAgency(loggedUser.getAgency());
 		rentDAO.alocate(rent);
 		result.redirectTo(RentController.class).list();
 	}
 	
 	@Post("/locacao/{rentId}")
-	public void devolver(Long rentId){
-		System.out.println("dajhdkashdkjasd");
+	public void devolve(Long rentId){
 		result.include("devolutionIsEnabled",true);
 		result.redirectTo("WEB-INF/jsp/rent/rent.jsp");
 		//result.redirectTo(RentController.class).rent(rentId);
 	}
-	
-	
 	
 	@NotLogged
 	@Get("/locacoes/json/{clientName}")

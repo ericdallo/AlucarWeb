@@ -34,6 +34,7 @@ public class Rent {
 	@ManyToOne
 	private Client client;
 	
+	@Column(name="created_at")
 	@Temporal(TemporalType.DATE)
 	private Calendar createdAt;
 	
@@ -53,6 +54,7 @@ public class Rent {
 	@Column(name="expected_date")
 	private Calendar expectedDate;
 	
+	@Column(name="killometer_type")
 	@Enumerated(EnumType.STRING)
 	private KillometerType killometerType;
 	

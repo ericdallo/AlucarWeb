@@ -33,6 +33,7 @@ public class Devolution {
 	@Column(name="devolution_date")
 	private Calendar date;
 	
+	@Column(name="total_value")
 	@NotNull
 	private String totalValue;
 	

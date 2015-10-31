@@ -18,8 +18,7 @@
 <body>
 	<%@ include file="/WEB-INF/jsp/navbar.jsp"%>
 	<jsp:useBean id="status" class='com.alucarweb.status.RentStatusBean' />
-	<jsp:useBean id="kms"
-		class='com.alucarweb.killometer.KillometerTypeBean' />
+	<jsp:useBean id="kms" class='com.alucarweb.killometer.KillometerTypeBean' />
 
 	<c:if test="${not empty errors}">
 		<div class="alert alert-danger" style="text-align: center">
@@ -44,7 +43,7 @@
 					<div class="form-group col-sm-2">
 						<label class='control-label'><fmt:message key="rent.car.id" /></label>
 						<div class=" input-group col-sm-12">
-							<input type="text" class="form-control" name='rent.car.id' value="${car.id}" />
+							<input type="text" class="form-control" name='rent.car.id' value="${car.id}" readonly/>
 						</div>
 					</div>
 
@@ -81,6 +80,7 @@
 						</div>
 					</div>
 
+					<!-- NAO PRECISA MAIS
 					<div class="form-group col-sm-2">
 						<label for="rent.agency" class='control-label'><fmt:message key="rent.agency" /></label>
 						<div class="input-group col-sm-12">
@@ -91,6 +91,7 @@
 							</select>
 						</div>
 					</div>
+					 -->
 
 					<div class="form-group col-sm-2">
 						<label for="rent.expectedAgency" class='control-label'><fmt:message key="rent.expectedAgency" /></label>
@@ -104,7 +105,6 @@
 					</div>
 
 					<div class="form-group col-sm-12 btn-group float-right">
-						<input type="hidden" name='rent.createdAt' value='10/10/2015' />
 						<input type="submit" class='btn btn-primary float-right' value='Gravar'/>
 					</div>
 				</form>

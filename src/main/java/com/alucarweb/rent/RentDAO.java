@@ -22,14 +22,9 @@ public class RentDAO {
 		return rents;
 	}
 	
-	
 	public void alocate(Rent rent){
-		manager.getTransaction().begin();
-		manager.merge(rent); // Tem que ser merge e nao persist pois a Entity ja esta sendo manuzeada pelo hibernate
-		//manager.persist(rent); // Tem que ser merge e nao persist pois a Entity ja esta sendo manuzeada pelo hibernate
-		manager.getTransaction().commit();
+		manager.persist(rent); 
 	}
-	
 	
 	public List<Rent> findAllByClientName(String clientName) {
 		String jpql = "SELECT r from Rent r where r.client.name like :name";
