@@ -12,6 +12,8 @@ import com.alucarweb.client.Client;
 import com.alucarweb.dao.AgencyDAO;
 import com.alucarweb.dao.CarDao;
 import com.alucarweb.dao.ClientDAO;
+import com.alucarweb.devolution.Devolution;
+import com.alucarweb.devolution.DevolutionDAO;
 import com.alucarweb.status.RentStatus;
 import com.alucarweb.user.LoggedUser;
 
@@ -35,6 +37,8 @@ public class RentController {
 	private AgencyDAO agencyDAO;
 	@Inject
 	private CarDao carDAO;
+	@Inject
+	private DevolutionDAO devolutionDAO;
 	
 	@Inject
 	private LoggedUser loggedUser;
@@ -63,6 +67,11 @@ public class RentController {
 	public void rent(Long rentId){
 		List<Agency> agencies = agencyDAO.findAll();
 		Rent rent = rentDAO.findById(rentId);
+		
+		if(rent.getStatus() != RentStatus.IN_PROGRESS){
+			Devolution devolution = devolutionDAO.findByRentId(rentId);
+			result.include("devolution",devolution);
+		}
 		
 		result.include("agencies",agencies);
 		result.include("rent",rent);		

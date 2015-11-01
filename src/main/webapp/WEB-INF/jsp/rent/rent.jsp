@@ -32,10 +32,19 @@
 			<c:if test="${devolutionIsEnabled eq true }">
 				<%@ include file="/WEB-INF/jsp/devolution/form.jsp" %>
 			</c:if>
+			
+			<c:if test="${paymentIsEnabled eq true }">
+				
+			</c:if>
 		</div>
-		<div class='row row-margin'>
+		<div class='row row-margin'>			
+			<c:if test="${not empty devolution}">
+				<%@ include file="/WEB-INF/jsp/devolution/devolution.jsp" %>
+			</c:if>
+			
 			<%@ include file="/WEB-INF/jsp/rent/show.jsp" %>
-		</div>
-	</div>
+			
+		</div><!-- row -->
+	</div><!-- container -->
 </body>
 </html>
