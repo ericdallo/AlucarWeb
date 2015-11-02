@@ -25,4 +25,10 @@ public class DevolutionController {
 		devolutionDAO.returnRent(devolution);
 		result.redirectTo(RentController.class).rent(devolution.getRent().getId());
 	}
+	
+	@Post("/devolucao/{rentId}")
+	public void pagar(Long rentId){
+		result.include("paymentIsEnabled",true);
+		result.redirectTo(RentController.class).rent(rentId);
+	}
 }

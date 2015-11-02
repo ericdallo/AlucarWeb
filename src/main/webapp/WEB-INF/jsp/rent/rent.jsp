@@ -27,16 +27,22 @@
 		</div>
 	</c:if>
 	
+	
+	
 	<div class="container">
-		<div class='row '>
+		<div class='row'>
+			<c:if test="${paymentIsEnabled eq true }">
+				<%@ include file="/WEB-INF/jsp/payment/form.jsp" %>
+			</c:if>
+		</div>
+	
+	
+		<div class='row div-margin'>
 			<c:if test="${devolutionIsEnabled eq true }">
 				<%@ include file="/WEB-INF/jsp/devolution/form.jsp" %>
 			</c:if>
-			
-			<c:if test="${paymentIsEnabled eq true }">
-				
-			</c:if>
-		</div>
+		</div><!-- row -->
+		
 		<div class='row row-margin'>			
 			<c:if test="${not empty devolution}">
 				<%@ include file="/WEB-INF/jsp/devolution/devolution.jsp" %>

@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -43,6 +44,21 @@ public class Payment {
 	
 	@NotNull
 	private PaymentType type;
+	
+	private String cardNumber;
+	
+	@Temporal(TemporalType.DATE)
+	private Calendar cardDate;
+	
+	private String safeCode;
+
+	private String bank;
+	
+	private String bankAgency;
+	
+	private String account;
+	
+	private String phone;
 
 	public Long getId() {
 		return id;
@@ -107,5 +123,67 @@ public class Payment {
 	public void setType(PaymentType type) {
 		this.type = type;
 	}
+
+	public String getCardNumber() {
+		return cardNumber;
+	}
+
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+
+	public Calendar getCardDate() {
+		return cardDate;
+	}
+
+	public void setCardDate(Calendar cardDate) {
+		this.cardDate = cardDate;
+	}
+
+	public String getSafeCode() {
+		return safeCode;
+	}
+
+	public void setSafeCode(String safeCode) {
+		this.safeCode = safeCode;
+	}
+
+	public String getBank() {
+		return bank;
+	}
+
+	public void setBank(String bank) {
+		this.bank = bank;
+	}
+
+	public String getBankAgency() {
+		return bankAgency;
+	}
+
+	public void setBankAgency(String bankAgency) {
+		this.bankAgency = bankAgency;
+	}
+
+	public String getAccount() {
+		return account;
+	}
+
+	public void setAccount(String account) {
+		this.account = account;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	
+	@PrePersist
+	public void onCreate() {
+		if (this.createdAt == null) {
+			this.createdAt = Calendar.getInstance();
+		}
+	}
 }
