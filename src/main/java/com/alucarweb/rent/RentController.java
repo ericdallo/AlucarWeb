@@ -68,7 +68,7 @@ public class RentController {
 	}
 	
 	@Get("/locacao/{rentId}")
-	public void rent(Long rentId){
+	public void rent(long rentId){
 		List<Agency> agencies = agencyDAO.findAll();
 		Rent rent = rentDAO.findById(rentId);
 		
@@ -77,7 +77,7 @@ public class RentController {
 			result.include("devolution",devolution);
 			
 			if(rent.getStatus() == RentStatus.FINISHED){
-				Payment payment = paymentDAO.findByRentId(rentId);
+				Payment payment = paymentDAO.findByRent(rentId);
 				result.include("payment",payment);
 			}
 		}

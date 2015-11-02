@@ -3,6 +3,7 @@ package com.alucarweb.devolution;
 import javax.inject.Inject;
 
 import com.alucarweb.annotation.TransactionRequired;
+import com.alucarweb.rent.Rent;
 import com.alucarweb.rent.RentController;
 
 import br.com.caelum.vraptor.Controller;
@@ -25,11 +26,13 @@ public class DevolutionController {
 		result.redirectTo(RentController.class).rent(devolution.getRent().getId());
 	}
 	
-	@Post("/devolucao/{rentId}")
-	public void pay(Long rentId){
+	@Post("/devolucao/{devolutionId}")
+	public void pay(long devolutionId){
 		//CALCULAR O PAGAMENTO AQUI
 		
+		Rent rent = devolutionDAO.findRentByDevolutionId(devolutionId);
+		
 		result.include("paymentIsEnabled",true);
-		result.redirectTo(RentController.class).rent(rentId);
+		result.redirectTo(RentController.class).rent(rent.getId());
 	}
 }

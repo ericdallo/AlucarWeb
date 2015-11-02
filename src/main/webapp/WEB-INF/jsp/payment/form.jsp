@@ -60,7 +60,7 @@
 				<div class="form-group">
 					<label for="payment.cardDate" class='control-label'><fmt:message key="payment.cardDate" /></label>
 					<div class="input-group col-sm-12">
-						<input type="text" class="form-control" />
+						<input type="text" class="form-control" name='payment.cardDate' />
 					</div>
 				</div>
 			</div>

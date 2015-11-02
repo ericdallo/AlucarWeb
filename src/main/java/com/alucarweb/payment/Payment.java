@@ -196,4 +196,8 @@ public class Payment {
 			this.createdAt = Calendar.getInstance();
 		}
 	}
+	
+	public boolean isCredit(){
+		return this.type == PaymentType.CREDIT;
+	}
 }

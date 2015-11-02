@@ -34,8 +34,9 @@
 
 
 	<form class='form-group col-sm-12 btn-group float-right' action='<c:url value="/devolucao/${devolution.id}"/>' method='POST'>
-		
-		<button type="submit" class='btn btn-primary float-right'>Iniciar pagamento</button>
+		<c:if test='${empty payment}'>	
+			<button type="submit" class='btn btn-primary float-right'>Iniciar pagamento</button>
+		</c:if>
 	</form>	
 </div><!-- form-group -->
 

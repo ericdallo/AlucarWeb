@@ -19,7 +19,7 @@ public class DevolutionDAO {
 	public void returnRent(Devolution devolution){
 		manager.persist(devolution);
 		Rent rent = manager.find(Rent.class,devolution.getRent().getId());
-		rent.setStatus(sRentStatus.WAITING_PAYMENT);
+		rent.setStatus(RentStatus.WAITING_PAYMENT);
 		manager.merge(rent);
 	}
 	
@@ -31,5 +31,14 @@ public class DevolutionDAO {
 
 		Devolution devolution = query.getSingleResult();
 		return devolution;
+	}
+	
+	public Rent findRentByDevolutionId(long devolutionId) {
+		String jpql = "SELECT d.rent FROM Devolution d where d.id = :devolutionId";			
+
+		TypedQuery<Rent> query = manager.createQuery(jpql, Rent.class);
+		query.setParameter("devolutionId", devolutionId);
+
+		return query.getSingleResult();		
 	}
 }

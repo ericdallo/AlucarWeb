@@ -45,7 +45,6 @@
 
 		<div class='row row-margin'>
 			<c:if test="${not empty payment}">
-				//TODO - Fazer um form, pode ser o mesmo do pagamento, mas com validações pra só exibir os campos conforme o DEBIT/CREDIT
 				<%@ include file="/WEB-INF/jsp/payment/payment.jsp"%>
 			</c:if>
 		

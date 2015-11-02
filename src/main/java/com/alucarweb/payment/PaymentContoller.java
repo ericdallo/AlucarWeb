@@ -23,9 +23,9 @@ public class PaymentContoller {
 	
 	@TransactionRequired
 	@Post("/pagamentos")
-	public void pagar(Payment payment){		
+	public void finish(Payment payment){
 		payment.setStatus(PaymentStatus.PAYED);
-		paymentDAO.pagar(payment);
+		paymentDAO.finish(payment);
 		result.redirectTo(RentController.class).rent(payment.getRent().getId());
 	}
 }

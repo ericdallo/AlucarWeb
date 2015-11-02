@@ -13,15 +13,15 @@ public class PaymentDAO {
 	@Inject
 	private EntityManager manager;
 	
-	public void pagar(Payment payment){
+	public void finish(Payment payment){
 		manager.persist(payment);
 		Rent rent = manager.find(Rent.class,payment.getRent().getId());
 		rent.setStatus(RentStatus.FINISHED);
 		manager.merge(rent);
 	}
 	
-	public Payment findByRentId(Long rentId){
-		String jpql = "SELECT p FROM Payment p where p.rent.id = :rentId";			
+	public Payment findByRent(long rentId){
+		String jpql = "SELECT p FROM Payment p WHERE p.rent.id = :rentId";			
 
 		TypedQuery<Payment> query = manager.createQuery(jpql, Payment.class);
 		query.setParameter("rentId", rentId);
