@@ -1,8 +1,11 @@
 package com.alucarweb.devolution;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import com.alucarweb.annotation.TransactionRequired;
+import com.alucarweb.payment.type.PaymentType;
 import com.alucarweb.rent.RentController;
 
 import br.com.caelum.vraptor.Controller;
@@ -20,14 +23,15 @@ public class DevolutionController {
 	
 	@TransactionRequired
 	@Post("/devolucoes")
-	public void grava(Devolution devolution){
-		//TODO - Atualizar o status para WAITING_PAYMENT
+	public void save(Devolution devolution){
 		devolutionDAO.returnRent(devolution);
 		result.redirectTo(RentController.class).rent(devolution.getRent().getId());
 	}
 	
 	@Post("/devolucao/{rentId}")
-	public void pagar(Long rentId){
+	public void pay(Long rentId){
+		//CALCULAR O PAGAMENTO AQUI
+		
 		result.include("paymentIsEnabled",true);
 		result.redirectTo(RentController.class).rent(rentId);
 	}

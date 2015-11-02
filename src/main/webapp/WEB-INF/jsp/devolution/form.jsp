@@ -39,7 +39,7 @@
 			
 		<div class='form-group col-sm-12 btn-group float-right'>
 			<input type='hidden' name='devolution.rent.id' value='${rent.id}'/>
-			<button type="submit" class='btn btn-primary float-right'>Gravar</button>
+			<button type="submit" class='btn btn-primary float-right'>Pagar</button>
 		</div>
 	</form>
 </div>

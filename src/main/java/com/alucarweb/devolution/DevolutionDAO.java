@@ -1,12 +1,9 @@
 package com.alucarweb.devolution;
 
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import com.alucarweb.car.Car;
 import com.alucarweb.rent.Rent;
 import com.alucarweb.status.RentStatus;
 

@@ -51,7 +51,7 @@ public class LoginController{
 	public void login(User user, long agency){
 		loggedUser.setActualAgency(agencyDAO.findById(agency));
 		
-		if(AlucarConfig.get(Property.PROFILE).equals("dev")){			
+		if(AlucarConfig.get(Property.PROFILE).equals("dev")){
 			result.redirectTo(HomeController.class).home();
 			return;
 		}

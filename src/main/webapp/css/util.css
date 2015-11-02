@@ -1,24 +1,39 @@
 @CHARSET "UTF-8";
 
 @font-face {
-    font-family: 'Aller'; 
-    src: url('../fonts/aller/Aller_Rg.ttf');
+	font-family: 'Aller';
+	src: url('../fonts/aller/Aller_Rg.ttf');
 }
 
 @font-face {
-    font-family: 'Aller-bd'; 
-    src: url('../fonts/aller/Aller_Bd.ttf');
+	font-family: 'Aller-bd';
+	src: url('../fonts/aller/Aller_Bd.ttf');
 }
 
-body{ background-image: url("../images/login/background-login.jpg") !important; }
-.msg-error{ margin:2rem auto; width:60%; }
+body {
+	background-image: url("../images/login/background-login.jpg") !important;
+}
 
-.float-right{ float:right; }
-.float-left{ float:left; }
+.msg-error {
+	margin: 2rem auto;
+	width: 60%;
+}
 
-.pointer{ cursor:pointer; }
+.float-right {
+	float: right;
+}
 
-.card-title { background: #3E5F94; }
+.float-left {
+	float: left;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.card-title {
+	background: #3E5F94;
+}
 
 .card-title h1 {
 	color: white;
@@ -31,11 +46,12 @@ body{ background-image: url("../images/login/background-login.jpg") !important; 
 	padding: 0 !important;
 	border-radius: 0.4em;
 	background-color: white;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, .6), 0 14px 50px 4px rgba(0, 0, 0, 0.46), 0 0 0 1px rgba(0, 0, 0, 0) !important;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, .6), 0 14px 50px 4px
+		rgba(0, 0, 0, 0.46), 0 0 0 1px rgba(0, 0, 0, 0) !important;
 	font-family: Aller;
 }
 
-.row-margin{
-	margin-top:3em;
-	margin-bottom:3em;
+.row-margin {
+	margin-top: 3em;
+	margin-bottom: 3em;
 }

@@ -2,6 +2,7 @@ package com.alucarweb.payment;
 
 import java.util.Calendar;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,48 +18,54 @@ import com.alucarweb.payment.type.PaymentType;
 import com.alucarweb.rent.Rent;
 
 @Entity
-@Table(name="payment")
+@Table(name = "payment")
 public class Payment {
-	
-	@Id 
+
+	@Id
 	@GeneratedValue
 	private Long id;
-	
+
 	@ManyToOne
 	private Rent rent;
-	
-	@Temporal(TemporalType.DATE)
-	private Calendar createdAt;
-	
+
+	@Column(name = "holders_name")
 	@NotNull
 	private String holdersName;
-	
+
 	@NotNull
 	private String cpf;
-	
+
 	@NotNull
 	private double value;
-	
+
 	@NotNull
 	private PaymentStatus status;
-	
+
 	@NotNull
 	private PaymentType type;
-	
+
+	@Column(name = "card_number")
 	private String cardNumber;
-	
+
+	@Column(name = "card_date")
 	@Temporal(TemporalType.DATE)
 	private Calendar cardDate;
-	
+
+	@Column(name = "safe_code")
 	private String safeCode;
 
 	private String bank;
-	
+
+	@Column(name = "bank_agency")
 	private String bankAgency;
-	
+
 	private String account;
-	
+
 	private String phone;
+
+	@Column(name = "created_at")
+	@Temporal(TemporalType.DATE)
+	private Calendar createdAt;
 
 	public Long getId() {
 		return id;
@@ -179,7 +186,7 @@ public class Payment {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
+
 	@PrePersist
 	public void onCreate() {
 		if (this.createdAt == null) {

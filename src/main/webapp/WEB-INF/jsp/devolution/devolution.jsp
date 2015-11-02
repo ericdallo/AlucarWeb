@@ -1,7 +1,7 @@
 <div class='form-group col-md-10 col-md-offset-1 box-home'>
 	<div class="card-title text-center">
 		<h1>
-			<fmt:message key="devolution.title" />
+			<fmt:message key="devolution.devolved.title" />
 		</h1>
 	</div>
 	
