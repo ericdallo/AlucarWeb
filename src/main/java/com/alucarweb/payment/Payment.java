@@ -35,7 +35,7 @@ public class Payment {
 	@NotNull
 	private String cpf;
 
-	@NotNull
+	
 	private double value;
 
 	@NotNull
