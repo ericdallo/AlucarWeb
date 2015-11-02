@@ -1,8 +1,12 @@
 package com.alucarweb.login;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
+import com.alucarweb.agency.Agency;
 import com.alucarweb.annotation.NotLogged;
+import com.alucarweb.dao.AgencyDAO;
 import com.alucarweb.dao.UserDAO;
 import com.alucarweb.home.HomeController;
 import com.alucarweb.user.LoggedUser;
@@ -28,6 +32,8 @@ public class LoginController{
 	private Validator validator;
 	@Inject
 	private LoggedUser loggedUser;
+	@Inject
+	private AgencyDAO agencyDAO;
 	
 	@NotLogged
 	@Get(value = {"/","/login"} )
@@ -36,11 +42,15 @@ public class LoginController{
 			result.redirectTo(HomeController.class).home();
 			return;
 		}
+		List<Agency> agencies = agencyDAO.findAll();
+		result.include("agencies",agencies);
 	}
 	
 	@NotLogged
 	@Post("/login") 
-	public void login(User user){
+	public void login(User user, long agency){
+		loggedUser.setActualAgency(agencyDAO.findById(agency));
+		
 		if(AlucarConfig.get(Property.PROFILE).equals("dev")){
 			result.redirectTo(HomeController.class).home();
 			return;

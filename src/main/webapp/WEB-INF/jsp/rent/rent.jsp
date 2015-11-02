@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,28 +8,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src='<c:url value="/js/jquery.js"/>'></script>
 <script src='<c:url value="/bootstrap/js/bootstrap.min.js"/>'></script>
+<script src='<c:url value="/js/payment.js"/>' type="text/javascript" ></script>
 <link href='<c:url value="/bootstrap/css/bootstrap.min.css"/>' rel="stylesheet">
 <link href='<c:url value="/css/util.css"/>' rel="stylesheet">
 <title><fmt:message key="rent.title" /></title>
 </head>
+</head>
 <body>
 	<%@ include file="/WEB-INF/jsp/navbar.jsp"%>
-	
-	<div class='col-sm-2'></div>
+	<jsp:useBean id="status" class='com.alucarweb.status.RentStatusBean' />
+	<jsp:useBean id="kms" class='com.alucarweb.killometer.KillometerTypeBean' />
+	<jsp:useBean id="paymentTypes" class='com.alucarweb.payment.type.PaymentTypeBean' />
 
-	<form class='form-group col-sm-8 box-home' action='<c:url value="/locar"/>' method="POST">
-		<div class="card-title text-center">
-			<h1>
-				<fmt:message key="rent.title.insert" />
-			</h1>
+	<c:if test="${not empty errors}">
+		<div class="alert alert-danger" style="text-align: center">
+			<c:forEach var="error" items="${errors}">
+				<span class="glyphicon glyphicon-exclamation-sign"
+					aria-hidden="true"></span>
+				${error.message}
+			</c:forEach>
 		</div>
-		<%@ include file="/WEB-INF/jsp/rent/form.jsp"%>
+	</c:if>
 
-		<div class="form-group col-sm-12">
-			<button type="submit" name="_method" class='btn btn-success float-right' value="POST">Confirmar</button>
+	<div class="container">
+		<div class='row'>
+			<c:if test="${paymentIsEnabled eq true }">
+				<%@ include file="/WEB-INF/jsp/payment/form.jsp"%>
+			</c:if>
 		</div>
 
-	</form>
+		<c:if test="${devolutionIsEnabled eq true }">
+			<div class='row row-margin'>
+				<%@ include file="/WEB-INF/jsp/devolution/form.jsp"%>
+			</div>
+		</c:if>
 
+		<div class='row row-margin'>
+			<c:if test="${not empty payment}">
+				<%@ include file="/WEB-INF/jsp/payment/payment.jsp"%>
+			</c:if>
+		
+			<c:if test="${not empty devolution}">
+				<%@ include file="/WEB-INF/jsp/devolution/devolution.jsp"%>
+			</c:if>
+
+			<%@ include file="/WEB-INF/jsp/rent/show.jsp"%>
+
+		</div>
+	</div>
+	<!-- container -->
 </body>
 </html>

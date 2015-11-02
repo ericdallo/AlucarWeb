@@ -68,41 +68,5 @@
 			</div>
 		</c:forEach>
 	</div>
-
-	<!-- 
-	<div class="container">
-		<div class="row car-panel">
-			<div class='title'>
-				<h1 class='list-title'>Pesquisa de carros</h1>
-			</div>
-			
-			
-			<c:forEach items="${cars}" var="car">
-				<div class="col-sm-6 col-md-4 shadow">
-					<div class='inside'>
-						<form action="<c:url value='/automovel/${car.id}'/>" method='POST'>
-							<a href="<c:url value='/automovel/${car.id}'/>"> <img
-								src="${car.image}" alt="Image car" class="img-thumbnail pointer">
-							</a>
-							<h2>${car.model}</h2>
-							<p>${car.manufacturer}</p>
-							<a href="<c:url value='/automovel/${car.id}'/>"
-								class="btn btn-primary" role="button"> <span
-								class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-								Visualizar
-							</a>
-
-							<button type="submit" name="_method" class='btn btn-danger'
-								value="DELETE">
-								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-								Excluir
-							</button>
-						</form>
-					</div>
-				</div>
-
-			</c:forEach>
-		</div>
-	</div>-->
 </body>
 </html>

@@ -2,7 +2,7 @@
 <nav class="navbar navbar-main">
 	<div class="container">
 		<div class="navbar-header">
-			<a href="<c:url value="home"/>">
+			<a href="<c:url value="/home"/>">
 				<img alt="Alucar-logo" src="<c:url value='/images/logo-navbar.png' />" class="pull-left logo"/>
 			</a>
 			<a class="navbar-brand" href="<c:url value='/home'/>">Alucar</a>

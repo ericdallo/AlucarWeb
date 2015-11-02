@@ -26,8 +26,8 @@
 <div class='form-group col-sm-3'>
 	<label for="client.name" class='control-label'><fmt:message key="client.born" />*</label>
 	<div class="input-group col-sm-12">
-		<input type="text" class="form-control" name='client.born' value="<fmt:formatDate type='Date' value='${client.born.time}'/>">
 	</div>
+		<input type="text" class="form-control" name='client.born' value="<fmt:formatDate type='Date' value='${client.born.time}'/>">
 </div>
 
 

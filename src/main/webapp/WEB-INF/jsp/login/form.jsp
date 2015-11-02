@@ -33,11 +33,14 @@
 				<div class="box">
 					<input type="text" name="user.name" autofocus placeholder='<fmt:message key="login.user"/>' class="${inputError}"> 
 					<input type="password" name="user.password" placeholder='<fmt:message key="login.password"/>' class="${inputError}">
-					
 					<button class="btn btn-info full-width" type="submit">
 						<span class="glyphicon glyphicon-ok"></span>
 					</button>
-
+					<select placeholder="Agency" name='agency' class="float-right">
+						<c:forEach var="ag" items="${agencies}">
+							<option value="${ag.id}">${ag.name}</option>
+						</c:forEach>
+					</select>
 				</div>
 			</form>
 		</div>

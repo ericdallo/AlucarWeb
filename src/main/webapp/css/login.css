@@ -21,7 +21,7 @@
 	color: #f96145;
 }
 
-input {
+input,select {
 	width: 100%;
 	margin-bottom: 1.4rem;
 	padding: 1rem;
@@ -32,6 +32,10 @@ input {
 	border-left: 4px solid transparent;
 	border-right: 4px solid transparent;
 	transition: border-color 200ms ease;
+}
+select {
+	width:30% !important;
+	margin-top: 1.4rem;
 }
 
 .has-error{
@@ -63,7 +67,7 @@ h2 {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	margin-bottom: 3rem;
+	margin-bottom: 1rem;
 	margin-left: 3rem;
 	margin-right: 3rem;
 }

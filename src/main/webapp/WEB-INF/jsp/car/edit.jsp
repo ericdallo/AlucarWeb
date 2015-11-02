@@ -19,10 +19,6 @@
 </head>
 
 <body>
-	<c:if test="${not empty car.id}">
-		<script>window.history.pushState('','','/AlucarWeb/automovel/${car.id}');</script>
-	</c:if>
-
 	<%@ include file="/WEB-INF/jsp/navbar.jsp"%>
 
 	<div class='col-sm-2'></div>
@@ -36,8 +32,8 @@
 		<%@ include file="/WEB-INF/jsp/car/form.jsp"%>
 
 		<div class="form-group col-sm-12 btn-group float-right">
-			<button type="submit" name="_method" class='btn btn-primary ' value="POST">Atualizar</button>
-			<a href='<c:url value="/locacao?carId=${car.id}"/>' class='btn btn-success ' >Nova locação</a>
+			<button type="submit" class='btn btn-primary'>Atualizar</button>
+			<a href='<c:url value="/locacao?carId=${car.id}"/>' class='btn btn-success' >Nova locação</a>
 		</div>
 	</form>
 
