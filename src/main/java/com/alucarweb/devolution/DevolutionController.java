@@ -1,11 +1,8 @@
 package com.alucarweb.devolution;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import com.alucarweb.annotation.TransactionRequired;
-import com.alucarweb.payment.type.PaymentType;
 import com.alucarweb.rent.RentController;
 
 import br.com.caelum.vraptor.Controller;
