@@ -19,7 +19,7 @@ public class DevolutionDAO {
 	public void returnRent(Devolution devolution){
 		manager.persist(devolution);
 		Rent rent = manager.find(Rent.class,devolution.getRent().getId());
-		rent.setStatus(RentStatus.WAITING_PAYMENT);
+		rent.setStatus(sRentStatus.WAITING_PAYMENT);
 		manager.merge(rent);
 	}
 	

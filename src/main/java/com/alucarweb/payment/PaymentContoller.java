@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import com.alucarweb.annotation.TransactionRequired;
 import com.alucarweb.dao.PaymentDAO;
+import com.alucarweb.payment.status.PaymentStatus;
 import com.alucarweb.rent.RentController;
 
 import br.com.caelum.vraptor.Controller;
@@ -16,16 +17,14 @@ public class PaymentContoller {
 
 	@Inject
 	private Result result;
-
-	@Inject
-	private Validator validator;
-	
+		
 	@Inject
 	private PaymentDAO paymentDAO;
 	
 	@TransactionRequired
 	@Post("/pagamentos")
-	public void pagar(Payment payment){
+	public void pagar(Payment payment){		
+		payment.setStatus(PaymentStatus.PAYED);
 		paymentDAO.pagar(payment);
 		result.redirectTo(RentController.class).rent(payment.getRent().getId());
 	}

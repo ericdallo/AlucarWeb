@@ -4,6 +4,8 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -37,11 +39,12 @@ public class Payment {
 
 	
 	private double value;
-
-	@NotNull
+	
+	@Enumerated(EnumType.STRING)
 	private PaymentStatus status;
 
 	@NotNull
+	@Enumerated(EnumType.STRING)
 	private PaymentType type;
 
 	@Column(name = "card_number")
