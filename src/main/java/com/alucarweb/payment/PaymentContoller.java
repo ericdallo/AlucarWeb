@@ -4,8 +4,6 @@ import javax.inject.Inject;
 
 import com.alucarweb.annotation.TransactionRequired;
 import com.alucarweb.dao.PaymentDAO;
-import com.alucarweb.devolution.Devolution;
-import com.alucarweb.devolution.DevolutionDAO;
 import com.alucarweb.payment.status.PaymentStatus;
 import com.alucarweb.rent.RentController;
 
