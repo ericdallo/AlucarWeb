@@ -36,8 +36,7 @@ public class Devolution {
 	private Calendar date;
 	
 	@Column(name="total_value")
-	@NotNull
-	private String totalValue;
+	private double totalValue;
 	
 	public Long getId() {
 		return id;
@@ -70,12 +69,12 @@ public class Devolution {
 	public void setDate(Calendar date) {
 		this.date = date;
 	}
-	
-	public String getTotalValue() {
+
+	public double getTotalValue() {
 		return totalValue;
 	}
 
-	public void setTotalValue(String totalValue) {
+	public void setTotalValue(double totalValue) {
 		this.totalValue = totalValue;
 	}
 }

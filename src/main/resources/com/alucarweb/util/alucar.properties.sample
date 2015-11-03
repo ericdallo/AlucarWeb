@@ -6,3 +6,5 @@ IMAGES_FOLDER=images/car_users/
 ALUCAR_BUCKET=alucar-tcc-satan
 
 PROFILE=
+
+AGENCY_DISTANCE=5

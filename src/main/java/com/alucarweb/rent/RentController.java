@@ -47,7 +47,6 @@ public class RentController {
 	@Inject
 	private LoggedUser loggedUser;
 	
-	
 	@Get("/locacoes")
 	public void list() {
 		List<Rent> rents = rentDAO.findAll();

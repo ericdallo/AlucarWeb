@@ -10,7 +10,6 @@ import com.alucarweb.rent.RentController;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.validator.Validator;
 
 @Controller
 public class PaymentContoller {
@@ -20,7 +19,7 @@ public class PaymentContoller {
 		
 	@Inject
 	private PaymentDAO paymentDAO;
-	
+		
 	@TransactionRequired
 	@Post("/pagamentos")
 	public void finish(Payment payment){

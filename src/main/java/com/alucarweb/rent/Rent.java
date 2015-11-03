@@ -23,6 +23,7 @@ import com.alucarweb.client.Client;
 import com.alucarweb.killometer.KillometerType;
 import com.alucarweb.payment.Payment;
 import com.alucarweb.status.RentStatus;
+import com.alucarweb.util.DateUtil;
 
 @Entity
 @Table(name="rent")
@@ -153,5 +154,18 @@ public class Rent {
 	public String toString() {
 		return "ID: " + getId() + ", status: " + getStatus();
 	}
+
+	public Double calculateTotalValue() {
+		int rentDays = DateUtil.daysBetween(expectedDate, createdAt);
+		
+		if(killometerType == KillometerType.CONTROLLED){
+			return Double.parseDouble(getCar().getControlKm()) * rentDays;
+		}else{
+			return Double.parseDouble(getCar().getFreeKm());
+		}
+		
+	}
+	
+	
 
 }
