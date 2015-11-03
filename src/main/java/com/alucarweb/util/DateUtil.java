@@ -2,11 +2,11 @@ package com.alucarweb.util;
 
 import java.util.Calendar;
 
-public class DateCalc {
+public class DateUtil {
 	
-	public static int daysBetween(Calendar day1, Calendar day2){
-	    Calendar dayOne = (Calendar) day1.clone();
-	    Calendar dayTwo = (Calendar) day2.clone();
+	public static int daysBetween(Calendar firstDay, Calendar secondDay){
+	    Calendar dayOne = (Calendar) firstDay.clone();
+	    Calendar dayTwo = (Calendar) secondDay.clone();
 
 	    if (dayOne.get(Calendar.YEAR) == dayTwo.get(Calendar.YEAR)) {
 	        return Math.abs(dayOne.get(Calendar.DAY_OF_YEAR) - dayTwo.get(Calendar.DAY_OF_YEAR));
