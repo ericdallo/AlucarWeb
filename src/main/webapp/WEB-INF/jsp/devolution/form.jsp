@@ -6,14 +6,8 @@
 	</div>
 	
 	<form class='' style='background-color:#fff;' action='<c:url value="/devolucoes"/>' method="POST">
-		<div class='col-sm-2'>
-			<div class="form-group">
-				<label for="devolution.date" class='control-label'><fmt:message key="devolution.date" /></label>
-				<div class="input-group col-sm-12">
-					<input type="text" class="form-control" name='devolution.date' value='' >
-				</div>
-			</div>
-		</div>
+		
+		<alucar:dateField  name="devolution.date" />
 		
 		<div class='col-sm-3'>
 			<div class="form-group">

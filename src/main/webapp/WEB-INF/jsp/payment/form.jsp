@@ -1,3 +1,5 @@
+
+
 <div class='form-group col-md-10 col-md-offset-1 box-home'>
 	<div class="card-title text-center">
 		<h1>
@@ -56,14 +58,7 @@
 				</div>
 			</div>
 			
-			<div class='col-sm-3'>
-				<div class="form-group">
-					<label for="payment.cardDate" class='control-label'><fmt:message key="payment.cardDate" /></label>
-					<div class="input-group col-sm-12">
-						<input type="text" class="form-control" name='payment.cardDate' />
-					</div>
-				</div>
-			</div>
+			<alucar:dateField  name="payment.cardDate" />
 			
 			<div class='col-sm-3'>
 				<div class="form-group">
