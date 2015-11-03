@@ -8,6 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src='<c:url value="/js/jquery.js"/>'></script>
+<script src='<c:url value="/js/jquery-ui.js"/>'></script>
+<link href='<c:url value="/css/jquery-ui.css"/>' rel="stylesheet">
 <script src='<c:url value="/bootstrap/js/bootstrap.min.js"/>'></script>
 <link href='<c:url value="/bootstrap/css/bootstrap.min.css"/>'
 	rel="stylesheet">
@@ -72,26 +74,8 @@
 							</select>
 						</div>
 					</div>
-
-					<div class='form-group col-sm-2'>
-						<label class='control-label'><fmt:message key="rent.expectedDate" />*</label>
-						<div class="input-group col-sm-12">
-							<input type="text" class="form-control" name="rent.expectedDate" />
-						</div>
-					</div>
-
-					<!-- NAO PRECISA MAIS
-					<div class="form-group col-sm-2">
-						<label for="rent.agency" class='control-label'><fmt:message key="rent.agency" /></label>
-						<div class="input-group col-sm-12">
-							<select class='form-control' id="rent.agency" name='rent.agency.id'>
-								<c:forEach var="ag" items="${agencies}">
-									<option value="${ag.id}">${ag.name}</option>
-								</c:forEach>
-							</select>
-						</div>
-					</div>
-					 -->
+					<%@ taglib prefix="alucar" tagdir="/WEB-INF/tags"%>
+					<alucar:dateField  name="rent.expectedDate" />
 
 					<div class="form-group col-sm-2">
 						<label for="rent.expectedAgency" class='control-label'><fmt:message key="rent.expectedAgency" /></label>
@@ -105,7 +89,7 @@
 					</div>
 
 					<div class="form-group col-sm-12 btn-group float-right">
-						<input type="submit" class='btn btn-primary float-right' value='Gravar'/>
+						<input type="submit" class='btn btn-primary float-right' value='Salvar'/>
 					</div>
 				</form>
 			</div>
