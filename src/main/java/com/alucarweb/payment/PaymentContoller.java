@@ -21,10 +21,7 @@ public class PaymentContoller {
 		
 	@Inject
 	private PaymentDAO paymentDAO;
-	
-	@Inject
-	private DevolutionDAO devolutionDAO;
-	
+		
 	@TransactionRequired
 	@Post("/pagamentos")
 	public void finish(Payment payment){
