@@ -54,7 +54,7 @@ public class DevolutionController {
 		//MULTA DE AGENCIA DIFERENTE
 		System.out.println("Rent agency id: " + rent.getAgency().getId());
 		System.out.println("Dev agency id: " + devolution.getAgency().getId());
-		if(rent.getAgency().getId() != devolution.getAgency().getId()){
+		if(!rent.getExpectedAgency().getId().equals(devolution.getAgency().getId())){
 			if(rent.getAgency().getState() != devolution.getAgency().getState()){
 				totalValue += Double.parseDouble(AlucarConfig.get(Property.AGENCY_DISTANCE)) * 4;
 			}
