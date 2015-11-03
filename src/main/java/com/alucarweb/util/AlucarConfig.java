@@ -11,7 +11,8 @@ public class AlucarConfig {
 		IMAGES_URL,
 		IMAGES_FOLDER,
 		ALUCAR_BUCKET,
-		PROFILE
+		PROFILE,
+		AGENCY_DISTANCE
 		;
 	}
 

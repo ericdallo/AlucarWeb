@@ -41,7 +41,7 @@
 			<div class="form-group">
 				<label for="payment.value" class='control-label'><fmt:message key="payment.value" /></label>
 				<div class="input-group col-sm-12">
-					<input id="payment.value" type="text" class="form-control" name='payment.value' readonly />
+					<input id="payment.value" type="text" class="form-control" name='payment.value' readonly value='${devolution.totalValue}' />
 				</div>
 			</div>
 		</div>

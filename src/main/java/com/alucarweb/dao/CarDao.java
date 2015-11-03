@@ -40,7 +40,7 @@ public class CarDao {
 
 		return newCar;
 	}
-
+	
 	public void insert(Car car) {
 		manager.persist(car);
 		manager.flush();

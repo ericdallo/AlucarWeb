@@ -28,7 +28,7 @@
 			</div>
 		</div>
 		
-		<div class='col-sm-3'>
+		<div class='col-sm-3' style='display:none'>
 			<div class="form-group">
 				<label for="devolution.totalValue" class='control-label'><fmt:message key="devolution.totalValue" /></label>
 				<div class="input-group col-sm-12">

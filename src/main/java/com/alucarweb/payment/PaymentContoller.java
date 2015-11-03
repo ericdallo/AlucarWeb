@@ -4,13 +4,14 @@ import javax.inject.Inject;
 
 import com.alucarweb.annotation.TransactionRequired;
 import com.alucarweb.dao.PaymentDAO;
+import com.alucarweb.devolution.Devolution;
+import com.alucarweb.devolution.DevolutionDAO;
 import com.alucarweb.payment.status.PaymentStatus;
 import com.alucarweb.rent.RentController;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.validator.Validator;
 
 @Controller
 public class PaymentContoller {
@@ -20,6 +21,9 @@ public class PaymentContoller {
 		
 	@Inject
 	private PaymentDAO paymentDAO;
+	
+	@Inject
+	private DevolutionDAO devolutionDAO;
 	
 	@TransactionRequired
 	@Post("/pagamentos")
