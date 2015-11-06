@@ -21,4 +21,5 @@
 </div>
 <script>
 	$(".datepicker").datepicker();
+	$(".datepicker").mask("99/99/9999");
 </script>
