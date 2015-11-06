@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="alucar" tagdir="/WEB-INF/tags"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,11 +8,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src='<c:url value="/js/jquery.js"/>'></script>
-<script src='<c:url value="/bootstrap/js/bootstrap.min.js"/>'></script>
-<link href='<c:url value="/bootstrap/css/bootstrap.min.css"/>'
-	rel="stylesheet">
-<link href='<c:url value="/css/util.css"/>' rel="stylesheet">
+<alucar:import 
+	jquery="true" 
+	bootstrap="true"
+/>
 <title><fmt:message key="rent.title" /></title>
 </head>
 </head>
@@ -72,26 +72,7 @@
 							</select>
 						</div>
 					</div>
-
-					<div class='form-group col-sm-2'>
-						<label class='control-label'><fmt:message key="rent.expectedDate" />*</label>
-						<div class="input-group col-sm-12">
-							<input type="text" class="form-control" name="rent.expectedDate" />
-						</div>
-					</div>
-
-					<!-- NAO PRECISA MAIS
-					<div class="form-group col-sm-2">
-						<label for="rent.agency" class='control-label'><fmt:message key="rent.agency" /></label>
-						<div class="input-group col-sm-12">
-							<select class='form-control' id="rent.agency" name='rent.agency.id'>
-								<c:forEach var="ag" items="${agencies}">
-									<option value="${ag.id}">${ag.name}</option>
-								</c:forEach>
-							</select>
-						</div>
-					</div>
-					 -->
+					<alucar:dateField  name="rent.expectedDate" />
 
 					<div class="form-group col-sm-2">
 						<label for="rent.expectedAgency" class='control-label'><fmt:message key="rent.expectedAgency" /></label>
@@ -105,7 +86,7 @@
 					</div>
 
 					<div class="form-group col-sm-12 btn-group float-right">
-						<input type="submit" class='btn btn-primary float-right' value='Gravar'/>
+						<input type="submit" class='btn btn-primary float-right' value='Salvar'/>
 					</div>
 				</form>
 			</div>
