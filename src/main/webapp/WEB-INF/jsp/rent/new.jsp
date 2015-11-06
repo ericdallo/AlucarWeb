@@ -8,11 +8,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src='<c:url value="/js/jquery.js"/>'></script>
-<script src='<c:url value="/bootstrap/js/bootstrap.min.js"/>'></script>
-<link href='<c:url value="/bootstrap/css/bootstrap.min.css"/>'
-	rel="stylesheet">
-<link href='<c:url value="/css/util.css"/>' rel="stylesheet">
+<alucar:import 
+	jquery="true" 
+	bootstrap="true"
+/>
 <title><fmt:message key="rent.title" /></title>
 </head>
 </head>

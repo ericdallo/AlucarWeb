@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="alucar" tagdir="/WEB-INF/tags"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -9,11 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><fmt:message key="client.title"/></title>
-<script src='<c:url value="/js/jquery.js"/>'></script>
-<script src='<c:url value="/bootstrap/js/bootstrap.min.js"/>'></script>
-
-<link href='<c:url value="/bootstrap/css/bootstrap.min.css"/>' rel="stylesheet">
-<link href='<c:url value="/css/util.css"/>' rel="stylesheet">
+<alucar:import jquery="true" bootstrap="true" />
 </head>
 <body>
 	<%@ include file="/WEB-INF/jsp/navbar.jsp" %>

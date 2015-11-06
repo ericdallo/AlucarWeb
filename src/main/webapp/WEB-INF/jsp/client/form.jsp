@@ -23,13 +23,7 @@
 	</div>
 </div>
 
-<div class='form-group col-sm-3'>
-	<label for="client.name" class='control-label'><fmt:message key="client.born" />*</label>
-	<div class="input-group col-sm-12">
-	</div>
-		<input type="text" class="form-control" name='client.born' value="<fmt:formatDate type='Date' value='${client.born.time}'/>">
-</div>
-
+<alucar:dateField name="client.born" value="${client.born.time}" />
 
 <div class='form-group col-sm-4'>
 	<label for="client.name" class='control-label'><fmt:message key="client.email" /></label>
