@@ -21,5 +21,6 @@
 </div>
 <script>
 	$(".datepicker").datepicker();
+	$(".datepicker").datepicker("option", "dateFormat", "dd/mm/yy");
 	$(".datepicker").mask("99/99/9999");
 </script>
