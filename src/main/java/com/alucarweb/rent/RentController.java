@@ -83,8 +83,10 @@ public class RentController {
 				Payment payment = paymentDAO.findByRent(rentId);
 				result.include("payment",payment);
 			}
+		}else{
+			result.include("devolution",null);
+			result.include("payment",null);
 		}
-		
 		result.include("agencies",agencies);
 		result.include("rent",rent);
 	}

@@ -36,20 +36,11 @@ public class DevolutionController {
 	public void save(Devolution devolution){
 		
 		if(devolution.getDate() == null){
-			validator.add(new I18nMessage("date", "devolution.error.date"));
 			result.include("devolutionIsEnabled",true);
+			validator.add(new I18nMessage("date", "devolution.error.date"));
 			validator.onErrorRedirectTo(RentController.class).rent(devolution.getRent().getId());
 			return;
 		}
-		
-//		validator.addIf(devolution.getDate() == null,new I18nMessage("date", "devolution.error.date"));
-//		result.include("devolutionIsEnabled",true);
-//		validator.onErrorRedirectTo(RentController.class).rent(devolution.getRent().getId());
-//		
-//		validator.addIf(!devolution.getDate().after(Calendar.getInstance()), new I18nMessage("dateMinor", "devolution.error.dateMinor"));
-//		result.include("devolutionIsEnabled",true);
-//		validator.onErrorRedirectTo(RentController.class).rent(devolution.getRent().getId());
-		
 		
 		Rent rent = rentDAO.findById(devolution.getRent().getId());		
 		
