@@ -10,29 +10,29 @@
 	<form class='payment-form' action='<c:url value="/pagamentos"/>' method="POST">
 		<div class='col-sm-3'>
 			<div class="form-group">
-				<label for="payment.holdersName" class='control-label'><fmt:message key="payment.holdersName"/></label>
+				<label for="payment.holdersName" class='control-label'><fmt:message key="payment.holdersName"/>*</label>
 				<div class="input-group col-sm-12">
-					<input type="text" class="form-control" name='payment.holdersName'/>
+					<input type="text" class="form-control" name='payment.holdersName' value="${paymentReturn.holdersName }"/>
 				</div>
 			</div>
 		</div>
 		
-		<div class='col-sm-3'>
-			<div class="form-group">
-				<label for="payment.cpf" class='control-label'><fmt:message key="payment.cpf" /></label>
-				<div class="input-group col-sm-12">
-					<input id="payment.cpf" type="text" class="form-control" name='payment.cpf' />
-				</div>
-			</div>
-		</div>
+		
+		<alucar:cpfField  name="payment.cpf" value="${paymentReturn.cpf }" />
+		
 		
 		<div class='col-sm-3'>
 			<div class="form-group">
-				<label for="payment.type" class='control-label'><fmt:message key="payment.type" /></label>
+				<label for="payment.type" class='control-label'><fmt:message key="payment.type" />*</label>
 				<div class="input-group col-sm-12">
 					<c:forEach var="type" items="${paymentTypes.list}">
 						<label for="${type}" class="radio-inline">
-							<input type="radio" class="radio-payment" name="payment.type" id="${type}" value="${type}">${type.attribute}
+							<c:if test="${type eq paymentReturn.type}">
+								<input type="radio" class="radio-payment" name="payment.type" id="${type}" value="${type}" checked>${type.attribute}
+							</c:if>
+							<c:if test="${not (type eq paymentReturn.type)}">
+								<input type="radio" class="radio-payment" name="payment.type" id="${type}" value="${type}">${type.attribute}
+							</c:if>
 						</label>
 					</c:forEach>
 				</div>
@@ -51,9 +51,9 @@
 		<div class="credit-box">
 			<div class='col-sm-3'>
 				<div class="form-group">
-					<label for="payment.cardNumber" class='control-label'><fmt:message key="payment.cardNumber" /></label>
+					<label for="payment.cardNumber" class='control-label'><fmt:message key="payment.cardNumber" />*</label>
 					<div class="input-group col-sm-12">
-						<input id="payment.cardNumber" type="text" class="form-control" name='payment.cardNumber' />
+						<input id="payment.cardNumber" type="text" class="form-control" name='payment.cardNumber' value="${paymentReturn.cardNumber }"/>
 					</div>
 				</div>
 			</div>
@@ -62,9 +62,9 @@
 			
 			<div class='col-sm-3'>
 				<div class="form-group">
-					<label for="payment.safeCode" class='control-label'><fmt:message key="payment.safeCode" /></label>
+					<label for="payment.safeCode" class='control-label'><fmt:message key="payment.safeCode" />*</label>
 					<div class="input-group col-sm-12">
-						<input id="payment.safeCode" type="text" class="form-control" name='payment.safeCode' />
+						<input id="payment.safeCode" type="text" class="form-control" name='payment.safeCode' value="${paymentReturn.safeCode }" />
 					</div>
 				</div>
 			</div>
@@ -73,36 +73,36 @@
 		<div class="debit-box">
 			<div class='col-sm-3'>
 				<div class="form-group">
-					<label for="payment.bank" class='control-label'><fmt:message key="payment.bank" /></label>
+					<label for="payment.bank" class='control-label'><fmt:message key="payment.bank" />*</label>
 					<div class="input-group col-sm-12">
-						<input id="payment.bank" type="text" class="form-control" name='payment.bank' />
+						<input id="payment.bank" type="text" class="form-control" name='payment.bank' value="${paymentReturn.bank }" />
 					</div>
 				</div>
 			</div>
 			
 			<div class='col-sm-3'>
 				<div class="form-group">
-					<label for="payment.bankAgency" class='control-label'><fmt:message key="payment.bankAgency" /></label>
+					<label for="payment.bankAgency" class='control-label'><fmt:message key="payment.bankAgency" />*</label>
 					<div class="input-group col-sm-12">
-						<input id="payment.bankAgency" type="text" class="form-control" name='payment.bankAgency' />
+						<input id="payment.bankAgency" type="text" class="form-control" name='payment.bankAgency' value="${paymentReturn.bankAgency }"/>
 					</div>
 				</div>
 			</div>
 			
 			<div class='col-sm-3'>
 				<div class="form-group">
-					<label for="payment.account" class='control-label'><fmt:message key="payment.account" /></label>
+					<label for="payment.account" class='control-label'><fmt:message key="payment.account" />*</label>
 					<div class="input-group col-sm-12">
-						<input id="payment.account" type="text" class="form-control" name='payment.account' />
+						<input id="payment.account" type="text" class="form-control" name='payment.account' value="${paymentReturn.account }"/>
 					</div>
 				</div>
 			</div>
 	
 			<div class='col-sm-3'>
 				<div class="form-group">
-					<label for="payment.phone" class='control-label'><fmt:message key="payment.phone" /></label>
+					<label for="payment.phone" class='control-label'><fmt:message key="payment.phone" />*</label>
 					<div class="input-group col-sm-12">
-						<input id="payment.phone" type="text" class="form-control" name='payment.phone' />
+						<input id="payment.phone" type="text" class="form-control" name='payment.phone' value="${paymentReturn.phone }" />
 					</div>
 				</div>
 			</div>

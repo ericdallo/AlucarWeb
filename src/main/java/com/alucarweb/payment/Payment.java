@@ -37,9 +37,10 @@ public class Payment {
 	@NotNull
 	private String cpf;
 
-	
+	@NotNull
 	private double value;
 	
+	@NotNull
 	@Enumerated(EnumType.STRING)
 	private PaymentStatus status;
 
@@ -49,11 +50,11 @@ public class Payment {
 
 	@Column(name = "card_number")
 	private String cardNumber;
-
+		
 	@Column(name = "card_date")
 	@Temporal(TemporalType.DATE)
 	private Calendar cardDate;
-
+	
 	@Column(name = "safe_code")
 	private String safeCode;
 
