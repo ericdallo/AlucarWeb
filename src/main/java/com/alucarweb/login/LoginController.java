@@ -51,11 +51,13 @@ public class LoginController{
 	public void login(User user, long agency){
 		loggedUser.setActualAgency(agencyDAO.findById(agency));
 		
+		User currentUser = userDao.validate(user.getName(),user.getPassword());
+		
 		if(AlucarConfig.get(Property.PROFILE).equals("dev")){
+			loggedUser.setUser(currentUser);
 			result.redirectTo(HomeController.class).home();
 			return;
 		}
-		User currentUser = userDao.validate(user.getName(),user.getPassword());
 		
 		if(currentUser != null){
 			loggedUser.setUser(currentUser);

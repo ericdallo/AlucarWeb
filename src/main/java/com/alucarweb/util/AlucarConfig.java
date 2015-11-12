@@ -42,4 +42,5 @@ public class AlucarConfig {
 	private static String getValue(Property key) {
 		return INSTANCE.getProperties().getProperty(key.toString());
 	}
+	
 }
