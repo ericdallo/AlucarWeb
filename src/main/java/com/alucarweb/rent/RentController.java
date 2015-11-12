@@ -1,5 +1,6 @@
 package com.alucarweb.rent;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -23,6 +24,8 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.I18nMessage;
+import br.com.caelum.vraptor.validator.Validator;
 import br.com.caelum.vraptor.view.Results;
 
 @Controller
@@ -43,7 +46,8 @@ public class RentController {
 	private CarDao carDAO;
 	@Inject
 	private DevolutionDAO devolutionDAO;
-	
+	@Inject
+	private Validator validator;
 	@Inject
 	private LoggedUser loggedUser;
 	
@@ -71,7 +75,7 @@ public class RentController {
 		List<Agency> agencies = agencyDAO.findAll();
 		Rent rent = rentDAO.findById(rentId);
 		
-		if(rent.getStatus() != RentStatus.IN_PROGRESS){
+		if(rent.getStatus().name() !=  RentStatus.IN_PROGRESS.name()){
 			Devolution devolution = devolutionDAO.findByRentId(rentId);
 			result.include("devolution",devolution);
 			
@@ -79,15 +83,23 @@ public class RentController {
 				Payment payment = paymentDAO.findByRent(rentId);
 				result.include("payment",payment);
 			}
+		}else{
+			result.include("devolution",null);
+			result.include("payment",null);
 		}
-		
 		result.include("agencies",agencies);
-		result.include("rent",rent);		
+		result.include("rent",rent);
 	}
-	
+		
 	@TransactionRequired
 	@Post("/locacoes")
-	public void create(Rent rent){
+	public void create(Rent rent){	
+		validator.addIf(rent.getExpectedDate() == null,new I18nMessage("expectedDate", "rent.error.expectedDate"));		
+		validator.onErrorRedirectTo(this).form(rent.getCar().getId());
+		
+		validator.addIf(rent.getExpectedDate().before(Calendar.getInstance()), new I18nMessage("expectedDateMinor", "rent.error.expectedDateMinor"));
+		validator.onErrorRedirectTo(this).form(rent.getCar().getId());
+		
 		rent.setStatus(RentStatus.IN_PROGRESS);
 		rent.setAgency(loggedUser.getAgency());
 		rentDAO.alocate(rent);
