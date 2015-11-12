@@ -33,3 +33,11 @@ Por exemplo:
 ```bash
 ./prepare-deploy.sh $EC2TCC
 ```
+
+Usuarios padrão
+SUPERVIDOR - user: eric, senha: 123mudar
+ATENDENTE -  user: ramon, senha: 123mudar
+
+Um DUMP do banco se encontra na pasta scripts
+
+
