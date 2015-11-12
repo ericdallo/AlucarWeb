@@ -30,11 +30,6 @@ public class LoginInterceptor {
 	
 	@AroundCall
 	public void intercepts(SimpleInterceptorStack stack){
-		if(profile.equals("dev")){
-			stack.next();
-			return;
-		}
-		
 		if(loggedUser.getUser() == null){
 			result.redirectTo(LoginController.class).form();
 			return;

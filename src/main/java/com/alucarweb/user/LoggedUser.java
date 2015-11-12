@@ -6,6 +6,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
 import com.alucarweb.agency.Agency;
+import com.alucarweb.util.AlucarConfig;
 
 @Named
 @SessionScoped
@@ -33,5 +34,9 @@ public class LoggedUser implements Serializable {
 	}
 	public Agency getAgency(){
 		return this.actualAgency;
+	}
+	
+	public boolean isDev(){
+		return AlucarConfig.get(AlucarConfig.Property.PROFILE).equals("dev");
 	}
 }
