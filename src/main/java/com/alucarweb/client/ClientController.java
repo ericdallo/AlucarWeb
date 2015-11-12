@@ -47,11 +47,11 @@ public class ClientController {
 	@OnlySupervisor
 	@TransactionRequired()
 	@Post("/clientes")
-	public void insert(@NotNull @Valid Client client){
-		if(validator.hasErrors()){
+	public void insert(Client client){
+		/*if(validator.hasErrors()){
 			result.include("errorMsg",new SimpleMessage("errorMsg", "Informe todos os campos com *"));
 			validator.onErrorForwardTo(this).form();
-		}
+		}*/
 		
 		clientDAO.insert(client);
 		result.include("client",client);
