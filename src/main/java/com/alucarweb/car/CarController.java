@@ -11,6 +11,7 @@ import com.alucarweb.annotation.TransactionRequired;
 import com.alucarweb.car.images.ImagesService;
 import com.alucarweb.dao.CarDao;
 import com.alucarweb.state.StatesBr;
+import com.alucarweb.util.NumberUtil;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Delete;
@@ -56,6 +57,8 @@ public class CarController {
 		validator.addIf(imageFile == null, new I18nMessage("image", "image.incorrect"));
 		validator.onErrorRedirectTo(this).form();
 
+		validateCarFields(car);
+
 		carDao.insert(car);
 		images.save(car, imageFile);
 
@@ -67,6 +70,7 @@ public class CarController {
 	@TransactionRequired
 	@Post("/automovel/{id}")
 	public void update(Car car, UploadedFile imageFile) {
+		validateCarFields(car);
 
 		car = carDao.update(car);
 
@@ -104,6 +108,53 @@ public class CarController {
 		List<Car> cars = carDao.findByState(state);
 
 		result.use(Results.json()).from(cars).serialize();
+	}
+
+	// @Gambiarra - Não deu tempo de configurar o hibernate validator
+	public void validateCarFields(Car car) {
+		if (car.getModel() == null || car.getManufacturer() == null || car.getCity() == null
+				|| car.getLicensePlate() == null || car.getChassi() == null || car.getCategory() == null
+				|| car.getKm() == null || car.getFreeKm() == null || car.getControlKm() == null) {
+			
+			validator.add(new I18nMessage("car.error.empty", "car.error.empty"));
+			if(car.getId() == null){
+				validator.onErrorRedirectTo(this).form();
+			}else{
+				validator.onErrorRedirectTo(this).edit(car.getId());
+			}
+			return;
+		}
+
+		if (!NumberUtil.isDouble(car.getKm())) {			
+			validator.add(new I18nMessage("car.error.km", "car.error.km"));
+			if(car.getId() == null){
+				validator.onErrorRedirectTo(this).form();
+			}else{
+				validator.onErrorRedirectTo(this).edit(car.getId());
+			}
+			return;
+		}
+
+		if (!NumberUtil.isDouble(car.getFreeKm())) {
+			validator.add(new I18nMessage("car.error.freeKm", "car.error.freeKm"));
+			if(car.getId() == null){
+				validator.onErrorRedirectTo(this).form();
+			}else{
+				validator.onErrorRedirectTo(this).edit(car.getId());
+			}
+			return;
+		}
+
+		if (!NumberUtil.isDouble(car.getControlKm())) {
+			result.include("car", car);
+			validator.add(new I18nMessage("car.error.controlKm", "car.error.controlKm"));
+			if(car.getId() == null){
+				validator.onErrorRedirectTo(this).form();
+			}else{
+				validator.onErrorRedirectTo(this).edit(car.getId());
+			}
+			return;
+		}
 	}
 
 }

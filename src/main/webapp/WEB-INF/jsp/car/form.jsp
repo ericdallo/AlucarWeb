@@ -20,7 +20,7 @@
 
 <div class='col-sm-4'>
 	<div class="form-group">
-		<label for="car.model" class='control-label'><fmt:message key="car.model" /></label>
+		<label for="car.model" class='control-label'><fmt:message key="car.model" />*</label>
 		<div class="input-group col-sm-12">
 			<input type="text" class="form-control" id="car.model" name='car.model' value="${car.model}">
 		</div>
@@ -28,7 +28,7 @@
 </div>
 
 <div class="form-group col-sm-4">
-	<label for="car.manufacturer" class='control-label'><fmt:message key="car.manufacturer" /></label>
+	<label for="car.manufacturer" class='control-label'><fmt:message key="car.manufacturer" />*</label>
 	<div class=" input-group col-sm-12">
 		<input type="text" class="form-control" id="car.manufacturer" name='car.manufacturer' value="${car.manufacturer}">
 	</div>
@@ -38,7 +38,7 @@
 <jsp:useBean id="states" class='com.alucarweb.state.StatesBean' />
 
 <div class="form-group col-sm-2">
-	<label for="car.state" class='control-label'><fmt:message key="car.state" /></label>
+	<label for="car.state" class='control-label'><fmt:message key="car.state" />*</label>
 	<div class="input-group col-sm-12">
 		<select class='form-control' id='car.state' name='car.state'>
 			<c:forEach var="st" items="${states.list}">
@@ -54,14 +54,14 @@
 </div>
 
 <div class="form-group col-sm-3">
-	<label for="car.city" class='control-label'><fmt:message key="car.city" /></label>
+	<label for="car.city" class='control-label'><fmt:message key="car.city" />*</label>
 	<div class=" input-group col-sm-12">
 		<input type="text" class="form-control" id="car.city" name='car.city' value="${car.city}">
 	</div>
 </div>
 
 <div class="form-group col-sm-3">
-	<label for="car.licensePlate" class='control-label'><fmt:message key="car.licensePlate" /></label>
+	<label for="car.licensePlate" class='control-label'><fmt:message key="car.licensePlate" />*</label>
 	<div class="input-group col-sm-12">
 		<input type="text" class="form-control" id="car.licensePlate" name='car.licensePlate' value="${car.licensePlate}">
 	</div>
@@ -69,35 +69,35 @@
 <!-- BREAK LINE -->
 
 <div class="form-group col-sm-4">
-	<label for="car.chassi" class='  control-label'><fmt:message key="car.chassi" /></label>
+	<label for="car.chassi" class='  control-label'><fmt:message key="car.chassi" />*</label>
 	<div class="input-group col-sm-12">
 		<input type="text" class="form-control" id="car.chassi" name='car.chassi' value="${car.chassi}">
 	</div>
 </div>
 
 <div class="form-group col-sm-4">
-	<label for="car.category" class='control-label'><fmt:message key="car.category" /></label>
+	<label for="car.category" class='control-label'><fmt:message key="car.category" />*</label>
 	<div class="input-group col-sm-12">
 		<input type="text" class="form-control" id="car.category" name='car.category' value="${car.category}">
 	</div>
 </div>
 
 <div class='form-group col-sm-3'>
-	<label for="car.km" class='control-label'><fmt:message key="car.km" /></label>
+	<label for="car.km" class='control-label'><fmt:message key="car.km" />*</label>
 	<div class="input-group col-sm-12">
 		<input type="text" class="form-control" id="car.km" name='car.km' value="${car.km}">
 	</div>
 </div>
 
 <div class="form-group col-sm-3">
-	<label for="car.freeKm" class='control-label'><fmt:message key="car.freeKm" /></label>
+	<label for="car.freeKm" class='control-label'><fmt:message key="car.freeKm" />*</label>
 	<div class="input-group col-sm-12">
 		<input type="text" class="form-control" id="car.freeKm" name='car.freeKm' value="${car.freeKm}">
 	</div>
 </div>
 
 <div class="form-group col-sm-3">
-	<label for="car.controlKm" class='  control-label'><fmt:message key="car.controlKm" /></label>
+	<label for="car.controlKm" class='  control-label'><fmt:message key="car.controlKm" />*</label>
 	<div class="input-group col-sm-12">
 		<input type="text" class="form-control" id="car.controlKm" name='car.controlKm' value="${car.controlKm}">
 	</div>
