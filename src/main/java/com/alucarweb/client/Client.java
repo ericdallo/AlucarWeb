@@ -14,6 +14,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.br.CPF;
 
 import com.alucarweb.rent.Rent;
 import com.alucarweb.state.StatesBr;
@@ -27,17 +31,20 @@ public class Client {
 	private Long id;
 
 	@NotNull
+	@CPF
 	private String cpf;
 
 	@NotNull
 	private String name;
 
+	@Past
 	@Temporal(TemporalType.DATE)
 	private Calendar born;
 
 	@NotNull
 	private String gender;
 
+	@NotNull
 	@Enumerated(EnumType.STRING)
 	private StatesBr state;
 
@@ -53,8 +60,10 @@ public class Client {
 	@NotNull
 	private String postalCode;
 
+	@NotNull
 	private String neighborhood;
 
+	@NotNull
 	private String licenseCode;
 
 	@Temporal(TemporalType.DATE)

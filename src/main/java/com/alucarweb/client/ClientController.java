@@ -3,6 +3,8 @@ package com.alucarweb.client;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import com.alucarweb.annotation.OnlySupervisor;
 import com.alucarweb.annotation.TransactionRequired;
@@ -14,6 +16,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.I18nMessage;
+import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.caelum.vraptor.view.Results;
 
@@ -44,7 +47,12 @@ public class ClientController {
 	@OnlySupervisor
 	@TransactionRequired()
 	@Post("/clientes")
-	public void insert(Client client){
+	public void insert(@NotNull @Valid Client client){
+		if(validator.hasErrors()){
+			result.include("errorMsg",new SimpleMessage("errorMsg", "Informe todos os campos com *"));
+			validator.onErrorForwardTo(this).form();
+		}
+		
 		clientDAO.insert(client);
 		result.include("client",client);
 		result.use(Results.page()).of(ClientController.class).edit(client.getId());

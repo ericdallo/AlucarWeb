@@ -1,12 +1,9 @@
-<c:if test="${not empty errors}">
+<c:if test="${not empty errorMsg}">
 	<div class="alert alert-danger" style="text-align:center">
-		<c:forEach var="error" items="${errors}">
 			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-			${error.message}
-		</c:forEach>
+			${errorMsg.message}
 	</div>
 </c:if>
-
 <jsp:useBean id="states" class='com.alucarweb.state.StatesBean' />
 
 <div class='form-group col-sm-6'>
@@ -34,7 +31,7 @@
 
 <div class='form-group col-sm-3'>
 	<label for="client.name" class='control-label'><fmt:message key="client.gender" />*</label>
-	<div class="input-group col-sm-12">		
+	<div class="input-group col-sm-12">
 		<select class='form-control' name='client.gender'>
 			<option value="F" <c:if test="${client.gender == 'F'}">selected</c:if>>
 				<fmt:message key="client.gender.female" />
@@ -111,8 +108,9 @@
 <div class='form-group col-sm-2'>
 	<label for="client.licenseValidity" class='control-label'><fmt:message key="client.licenseValidity" />*</label>
 	<div class="input-group col-sm-12">
-		<input type="text" class="form-control" name='client.licenseValidity' value="<fmt:formatDate type='Date' value='${client.licenseValidity.time}'/>">
-		
+		<input type="text" class="form-control" name='client.licenseValidity'
+			value="<fmt:formatDate type='Date' value='${client.licenseValidity.time}'/>">
+
 	</div>
 </div>
 
