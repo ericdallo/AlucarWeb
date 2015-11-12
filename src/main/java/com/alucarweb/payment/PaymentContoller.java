@@ -32,7 +32,7 @@ public class PaymentContoller {
 	public void finish(Payment payment){
 		payment.setStatus(PaymentStatus.PAYED);
 		
-		//@Gambiarra por preguiça, foda-se estou com preguiça e deu pal pq não posso validar todos os atributos
+		//TODO
 		if(payment.getHoldersName() != null && payment.getCpf() != null){
 			if(payment.getType() == PaymentType.CREDIT){
 				if(payment.getCardNumber() != null && payment.getCardDate() != null && payment.getSafeCode() != null){
