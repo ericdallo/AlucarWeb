@@ -10,9 +10,9 @@
 
 <div class="form-group col-sm-4 image-upload">
 	 <label for="imageFile">
-        <img src="${car.image}" class="img-thumbnail center-block car-image pointer"/>
+        <img src="${car.image}" class="img-thumbnail center-block car-image pointer j_imageUploaded"/>
     </label>
-    <input id="imageFile" name="imageFile" type="file"/>
+    <input id="imageFile" name="imageFile" type="file" class='j_uploadImage'/>
 </div>
 
 <input type='hidden' name='car.id' value='${car.id}' />
