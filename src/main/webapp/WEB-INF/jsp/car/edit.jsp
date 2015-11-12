@@ -10,6 +10,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <alucar:import jquery="true" bootstrap="true" />
 <link href='<c:url value="/css/car-form.css"/>' rel="stylesheet">
+<script type="text/javascript" src='<c:url value="/js/car.js" />'></script>
+
 
 <title><fmt:message key="car.title" /></title>
 
