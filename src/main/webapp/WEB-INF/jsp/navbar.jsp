@@ -31,7 +31,6 @@
 							<li><a href="<c:url value='/automovel'/>"><fmt:message key="navbar.car.add" /></a></li>
 						</c:if>
 						<li><a href="<c:url value='/automoveis'/>"><fmt:message key="navbar.car.search" /></a></li>
-						<li><a href="<c:url value='/automoveis/relatorios'/>"><fmt:message key="navbar.car.report" /></a></li>
 					</ul>
 				</li>
 				<li class="active">
@@ -44,10 +43,7 @@
 						<fmt:message key="navbar.account" />
 						<span class='caret'></span>
 					</a>
-					<ul class="dropdown-menu" role="menu">
-						<li><a href="#"><fmt:message key="navbar.change.language" /></a></li>
-						<li><a href="#"><fmt:message key="navbar.change.password" /></a></li>
-						<li class="divider"></li>
+					<ul class="dropdown-menu" role="menu">						
 						<li><form action="<c:url value="/logout"/>" method="POST">
 							<input type='submit' value="<fmt:message key="navbar.logout"/>" class="logout"/>
 						</form>
