@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.25, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.45, for Linux (x86_64)
 --
 -- Host: localhost    Database: alucar
 -- ------------------------------------------------------
--- Server version	5.6.25-0ubuntu0.15.04.1
+-- Server version	5.5.45
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,9 +25,9 @@ DROP TABLE IF EXISTS `agency`;
 CREATE TABLE `agency` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `state` int(11) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,6 +36,7 @@ CREATE TABLE `agency` (
 
 LOCK TABLES `agency` WRITE;
 /*!40000 ALTER TABLE `agency` DISABLE KEYS */;
+INSERT INTO `agency` VALUES (1,'Agência SP','SP'),(2,'Agência RJ','RJ');
 /*!40000 ALTER TABLE `agency` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +63,7 @@ CREATE TABLE `car` (
   `obs` varchar(255) DEFAULT NULL,
   `state` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +72,7 @@ CREATE TABLE `car` (
 
 LOCK TABLES `car` WRITE;
 /*!40000 ALTER TABLE `car` DISABLE KEYS */;
-INSERT INTO `car` VALUES (1,'','Teste','Teste','Bagulhos','52,00','22,00','https://s3-us-west-2.amazonaws.com/alucar-tcc-satan/images/car_users/1-viper_hd.png','Teste','92842','Fabrica de testes','Modelo Satanico','este é um teste','SP'),(2,'','aisojd','jasoidj','Sao teste de teste','39','22','https://s3-us-west-2.amazonaws.com/alucar-tcc-satan/images/car_users/2-c15doors_hd.png',NULL,'9292829','Fabricandate asdasd','Modelo 123 mudar','teste teste teste teste','SP'),(3,'','askdml','asdokasdn','asdaopsd','833','28','https://s3-us-west-2.amazonaws.com/alucar-tcc-satan/images/car_users/3-i8_hd.png','29','23892380','aaiosjdoiajsd','asdoiajsd','alsdnlkansd','SP');
+INSERT INTO `car` VALUES (2,'','Luxo','122334453','São Paulo','3000.00','5000.00','https://s3-us-west-2.amazonaws.com/alucar-tcc-satan/images/car_users/2-volt_hd.png','5000','ABC-1000','Mercedes','Lotec C100',NULL,'SP'),(3,'','Luxo','Chassi','Penha','5000','6000','https://s3-us-west-2.amazonaws.com/alucar-tcc-satan/images/car_users/3-i8_hd.png','0.0','01203223','Bugatti','Veyron','Carro satãnico','RJ'),(4,'','asd','asd','sd','2333','5999','https://s3-us-west-2.amazonaws.com/alucar-tcc-satan/images/car_users/4-viper_hd.png','6000','asd','teste','Modelo123',NULL,'SP');
 /*!40000 ALTER TABLE `car` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -101,7 +102,7 @@ CREATE TABLE `client` (
   `postalCode` varchar(255) NOT NULL,
   `state` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -110,7 +111,7 @@ CREATE TABLE `client` (
 
 LOCK TABLES `client` WRITE;
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` VALUES (1,'Rua 123 de satan','666','1995-09-25','Bagulhos','4949595955','eriasd','F','Baguhlos','1231','SP','1998-02-19','Joao','Penha',NULL,'03633020','SP'),(2,'Teste','22','1998-12-12','Teste','222200','Teste@Teste','M','Teste','Teste','SP','2015-12-12','Teste','Teste',NULL,'22222222','RJ'),(3,'9','9','2015-12-12','9','9','9','F','9','9','SP','2018-04-12','292922222922922','9',NULL,'9','SP'),(6,'ijo','ij','2015-12-12','oi','213123','qweqwe','F','io','oij','SP','2017-09-12','Teste123 de oliveira testado','ioj',NULL,'jiioj','SP'),(8,'ijo','ij','2015-12-12','oi','213123','qweqwe','F','io','oij','SP','2017-09-12','Teste123 de oliveira testado','ioj',NULL,'jiioj','SP'),(10,'ijo','ij','2015-12-12','oi','213123','qweqwe','F','io','oij','SP','2017-09-12','Teste123 de oliveira testado','ioj',NULL,'jiioj','SP'),(11,'ijo','ij','2015-12-12','oi','213123','qweqwe','F','io','oij','SP','2017-09-12','Teste123 de oliveira testado','ioj',NULL,'jiioj','SP'),(12,'ijo','ij','2015-12-12','oi','213123','qweqwe','F','io','oij','SP','2017-09-12','Teste123 de oliveira testado','ioj',NULL,'jiioj','SP'),(13,'ijo','ij','2015-12-12','oi','213123','qweqwe','F','io','oij','SP','2017-09-12','Teste123 de oliveira testado','ioj',NULL,'jiioj','SP'),(15,'ijo','ij','2015-12-12','oi','213123','qweqwe','F','io','oij','SP','2017-09-12','Teste123 de oliveira testado','ioj',NULL,'jiioj','SP'),(17,'ijo','ij','2015-12-12','oi','213123','qweqwe','F','io','oij','SP','2017-09-12','Teste123 de oliveira testado','ioj',NULL,'jiioj','SP'),(19,'ijo','ij','2015-12-12','oi','213123','qweqwe','F','io','oij','SP','2017-09-12','Teste123 de oliveira testado','ioj',NULL,'jiioj','SP'),(20,'ijo','ij','2015-12-12','oi','213123','qweqwe','F','io','oij','SP','2017-09-12','Teste123 de oliveira testado','ioj',NULL,'jiioj','SP'),(21,'ijo','ij','2015-12-12','oi','213123','qweqwe','F','io','oij','SP','2017-09-12','Teste123 de oliveira testado','ioj',NULL,'jiioj','SP'),(22,'ijo','ij','2015-12-12','oi','213123','qweqwe','F','io','oij','SP','2017-09-12','Teste123 de oliveira testado','ioj',NULL,'jiioj','SP'),(23,'ijo','ij','2015-12-12','oi','213123','qweqwe','F','io','oij','SP','2017-09-12','Teste123 de oliveira testado','ioj',NULL,'jiioj','SP');
+INSERT INTO `client` VALUES (3,'Rua de Teste','45','1995-10-10','São Paulo','123.112.323-08','andrade.rmn@gmail.com','M','São Paulo','123432425','SP','2015-10-10','Teste','Bairro',NULL,'08280-050','SP'),(4,'asd','34','2015-11-01','teste','12379','eric@123.com','M','asd','123123','SP','2018-04-12','Teste','asda',NULL,'1231','SP');
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,14 +123,17 @@ DROP TABLE IF EXISTS `devolution`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `devolution` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `devolutionDate` date DEFAULT NULL,
-  `totalValue` double NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `devolution_date` date DEFAULT NULL,
+  `total_value` double DEFAULT NULL,
   `agency_id` bigint(20) DEFAULT NULL,
+  `rent_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_77hoi3kmxgqu3n6w14cnqqddj` (`agency_id`),
+  KEY `FK_69mdc4mkprpkyo5fkb9t5nfdk` (`rent_id`),
+  CONSTRAINT `FK_69mdc4mkprpkyo5fkb9t5nfdk` FOREIGN KEY (`rent_id`) REFERENCES `rent` (`id`),
   CONSTRAINT `FK_77hoi3kmxgqu3n6w14cnqqddj` FOREIGN KEY (`agency_id`) REFERENCES `agency` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,8 +142,47 @@ CREATE TABLE `devolution` (
 
 LOCK TABLES `devolution` WRITE;
 /*!40000 ALTER TABLE `devolution` DISABLE KEYS */;
-INSERT INTO `devolution` VALUES (1,'2015-12-12',0,NULL);
+INSERT INTO `devolution` VALUES (2,'2015-11-27',5000,1,3),(3,'2015-11-14',5999,1,4);
 /*!40000 ALTER TABLE `devolution` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `payment`
+--
+
+DROP TABLE IF EXISTS `payment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `payment` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `account` varchar(255) DEFAULT NULL,
+  `bank` varchar(255) DEFAULT NULL,
+  `bank_agency` varchar(255) DEFAULT NULL,
+  `card_date` date DEFAULT NULL,
+  `card_number` varchar(255) DEFAULT NULL,
+  `cpf` varchar(255) NOT NULL,
+  `created_at` date DEFAULT NULL,
+  `holders_name` varchar(255) NOT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `safe_code` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `type` varchar(255) NOT NULL,
+  `value` double NOT NULL,
+  `rent_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_tea4wtb9ki939257sn0xid5in` (`rent_id`),
+  CONSTRAINT `FK_tea4wtb9ki939257sn0xid5in` FOREIGN KEY (`rent_id`) REFERENCES `rent` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `payment`
+--
+
+LOCK TABLES `payment` WRITE;
+/*!40000 ALTER TABLE `payment` DISABLE KEYS */;
+INSERT INTO `payment` VALUES (2,NULL,NULL,NULL,'2015-11-20','121314324324','121.343.423-43','2015-11-12','Ramon',NULL,'2313','PAYED','CREDIT',50000,3),(3,NULL,NULL,NULL,'2015-11-20','123123','111.111.111-11','2015-11-12','Teste',NULL,'123','PAYED','CREDIT',59990,4);
+/*!40000 ALTER TABLE `payment` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -151,20 +194,24 @@ DROP TABLE IF EXISTS `rent`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `rent` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `createdAt` date DEFAULT NULL,
-  `killometerType` varchar(255) DEFAULT NULL,
+  `created_at` date DEFAULT NULL,
+  `expected_date` date DEFAULT NULL,
+  `killometer_type` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
+  `agency_id` bigint(20) DEFAULT NULL,
   `car_id` bigint(20) DEFAULT NULL,
   `client_id` bigint(20) DEFAULT NULL,
-  `devolution_id` int(11) DEFAULT NULL,
+  `expectedAgency_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
+  KEY `FK_qdl1q4sisnukomrr2s3v55b3` (`agency_id`),
   KEY `FK_iuo7m80kmrx80tjs3emcga1ey` (`car_id`),
   KEY `FK_3jsq9x8n2ydbo20cvc0yomcf8` (`client_id`),
-  KEY `FK_1vt6t4h14rti28r3lkwxyu81o` (`devolution_id`),
-  CONSTRAINT `FK_1vt6t4h14rti28r3lkwxyu81o` FOREIGN KEY (`devolution_id`) REFERENCES `devolution` (`id`),
+  KEY `FK_lqkj6hg8elcp8dj102h1nhgui` (`expectedAgency_id`),
+  CONSTRAINT `FK_lqkj6hg8elcp8dj102h1nhgui` FOREIGN KEY (`expectedAgency_id`) REFERENCES `agency` (`id`),
   CONSTRAINT `FK_3jsq9x8n2ydbo20cvc0yomcf8` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`),
-  CONSTRAINT `FK_iuo7m80kmrx80tjs3emcga1ey` FOREIGN KEY (`car_id`) REFERENCES `car` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  CONSTRAINT `FK_iuo7m80kmrx80tjs3emcga1ey` FOREIGN KEY (`car_id`) REFERENCES `car` (`id`),
+  CONSTRAINT `FK_qdl1q4sisnukomrr2s3v55b3` FOREIGN KEY (`agency_id`) REFERENCES `agency` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -173,7 +220,7 @@ CREATE TABLE `rent` (
 
 LOCK TABLES `rent` WRITE;
 /*!40000 ALTER TABLE `rent` DISABLE KEYS */;
-INSERT INTO `rent` VALUES (3,'2015-02-13','CONTROLLED','FINISHED',1,1,1);
+INSERT INTO `rent` VALUES (3,'2015-11-12','2015-11-20','FREE','FINISHED',1,2,3,1),(4,'2015-11-12','2015-11-14','FREE','FINISHED',1,4,3,1);
 /*!40000 ALTER TABLE `rent` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -188,8 +235,9 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `permission` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -198,7 +246,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (2,'ramon','266575D3C2B8A34F83817458F96152B1'),(3,'eric','89794B621A313BB59EED0D9F0F4E8205');
+INSERT INTO `user` VALUES (1,'eric','89794B621A313BB59EED0D9F0F4E8205','SUPERVISOR'),(2,'ramon','89794B621A313BB59EED0D9F0F4E8205','ATTENDANT');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -211,4 +259,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-10-25 20:22:29
+-- Dump completed on 2015-11-12 23:08:32
