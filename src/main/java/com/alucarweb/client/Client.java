@@ -31,13 +31,11 @@ public class Client {
 	private Long id;
 
 	@NotNull
-	@CPF
 	private String cpf;
 
 	@NotNull
 	private String name;
 
-	@Past
 	@Temporal(TemporalType.DATE)
 	private Calendar born;
 
